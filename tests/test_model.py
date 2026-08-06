@@ -68,7 +68,7 @@ def test_audit_rejects_identifier_overlap() -> None:
         (lambda tr, te, sub: tr.drop(columns="label"), "label must exist"),
         (
             lambda tr, te, sub: tr.assign(label=[0, 2, 0, 1]),
-            "label must be binary",
+            "label must be non-missing",
         ),
         (
             lambda tr, te, sub: tr.assign(id=["a1", "a1", "c3", "d4"]),
@@ -92,6 +92,14 @@ def test_audit_rejects_misaligned_submission() -> None:
         audit_data(train, test, sample)
 
 
+def test_audit_rejects_feature_dtype_mismatch() -> None:
+    train, test, sample = sample_frames()
+    test["days"] = test["days"].astype(str)
+
+    with pytest.raises(ValueError, match="feature dtypes differ"):
+        audit_data(train, test, sample)
+
+
 def test_engineering_removes_identifiers_and_adds_semantic_features() -> None:
     train, _, _ = sample_frames()
 
@@ -111,6 +119,11 @@ def test_rank_normalize_is_bounded_and_order_preserving() -> None:
     assert ranked.min() > 0
     assert ranked.max() < 1
     assert list(np.argsort(ranked)) == [1, 2, 0]
+
+
+def test_rank_normalize_rejects_non_finite_values() -> None:
+    with pytest.raises(ValueError, match="non-empty finite"):
+        rank_normalize(np.array([0.2, np.nan]))
 
 
 def test_submission_preserves_sample_order_and_probabilities(tmp_path: Path) -> None:
@@ -158,3 +171,10 @@ def test_train_ensemble_returns_repeated_cv_metrics() -> None:
     assert len(metrics["folds"]) == 2
     assert len(metrics["repeats"]) == 1
     assert metrics["selection_policy"].startswith("fixed 50/50")
+
+
+def test_train_ensemble_rejects_invalid_cv_configuration() -> None:
+    train, test, _ = sample_frames()
+
+    with pytest.raises(ValueError, match="folds must be"):
+        train_ensemble(train, test, TrainingConfig(folds=1))

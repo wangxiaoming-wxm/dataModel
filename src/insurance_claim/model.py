@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
+import importlib.metadata
 import json
 from dataclasses import asdict, dataclass
 from pathlib import Path
@@ -10,7 +12,7 @@ import numpy as np
 import pandas as pd
 from catboost import CatBoostClassifier
 from sklearn.metrics import roc_auc_score
-from sklearn.model_selection import RepeatedStratifiedKFold
+from sklearn.model_selection import RepeatedStratifiedKFold, train_test_split
 from xgboost import XGBClassifier
 
 TARGET = "label"
@@ -31,12 +33,14 @@ def audit_data(
     train: pd.DataFrame, test: pd.DataFrame, sample: pd.DataFrame
 ) -> dict[str, Any]:
     """Validate the competition boundary and return leakage diagnostics."""
+    if train.empty or test.empty:
+        raise ValueError("training and test data must not be empty")
     if TARGET not in train or TARGET in test:
         raise ValueError("label must exist only in training data")
     if IDENTIFIER not in train or IDENTIFIER not in test:
         raise ValueError("both datasets must contain id")
-    if set(train[TARGET].dropna().unique()) - {0, 1}:
-        raise ValueError("label must be binary")
+    if train[TARGET].isna().any() or set(train[TARGET].unique()) != {0, 1}:
+        raise ValueError("label must be non-missing and contain both binary classes")
     if train[IDENTIFIER].duplicated().any() or test[IDENTIFIER].duplicated().any():
         raise ValueError("identifiers must be unique")
 
@@ -53,9 +57,19 @@ def audit_data(
     columns_match = train_features.columns.tolist() == test_features.columns.tolist()
     if not columns_match:
         raise ValueError("training and test feature columns differ")
+    incompatible = [
+        column
+        for column in train_features
+        if pd.api.types.is_numeric_dtype(train_features[column])
+        != pd.api.types.is_numeric_dtype(test_features[column])
+    ]
+    if incompatible:
+        raise ValueError(f"training and test feature dtypes differ: {incompatible}")
 
+    train_hashes = pd.util.hash_pandas_object(train_features, index=False).unique()
+    test_hashes = pd.util.hash_pandas_object(test_features, index=False).unique()
     shared_rows = len(
-        train_features.merge(test_features, how="inner").drop_duplicates()
+        np.intersect1d(train_hashes, test_hashes, assume_unique=True)
     )
     return {
         "train_rows": int(len(train)),
@@ -80,8 +94,12 @@ def engineer_features(frame: pd.DataFrame) -> pd.DataFrame:
         )
     if "t3" in features:
         t3 = features["t3"].astype(str)
-        features["t3_value"] = pd.to_numeric(t3.str[:-1], errors="coerce")
-        features["t3_kind"] = t3.str[-1:].replace({"nan": "__NA__"})
+        parsed_t3 = t3.str.extract(r"^(-?\d+(?:\.\d+)?)([A-Za-z])$")
+        invalid_t3 = features["t3"].notna() & parsed_t3[0].isna()
+        if invalid_t3.any():
+            raise ValueError("t3 contains values outside the expected number+letter format")
+        features["t3_value"] = pd.to_numeric(parsed_t3[0], errors="coerce")
+        features["t3_kind"] = parsed_t3[1].fillna("__NA__")
     if "source" in features:
         source = features["source"].astype(str)
         features["source_car"] = pd.to_numeric(
@@ -110,9 +128,17 @@ def engineer_features(frame: pd.DataFrame) -> pd.DataFrame:
         features["x_std"] = vectors.std(axis=1, ddof=0)
         features["x_min"] = vectors.min(axis=1)
         features["x_max"] = vectors.max(axis=1)
-        features["x_l1"] = vectors.abs().sum(axis=1)
-        features["x_l2"] = np.sqrt(vectors.pow(2).sum(axis=1))
-        features["x_positive_count"] = vectors.gt(0).sum(axis=1)
+        absolute = vectors.abs()
+        features["x_l1"] = absolute.sum(axis=1, min_count=1)
+        scale = absolute.max(axis=1)
+        scaled = vectors.div(scale.replace(0, 1), axis=0)
+        features["x_l2"] = scale * np.sqrt(
+            scaled.pow(2).sum(axis=1, min_count=1)
+        )
+        features["x_positive_count"] = vectors.gt(0).where(vectors.notna()).sum(
+            axis=1, min_count=1
+        )
+        features["x_missing_count"] = vectors.isna().sum(axis=1)
 
     for column in ("days", "condition", "cc", "max_g"):
         if column in features:
@@ -126,19 +152,70 @@ def engineer_features(frame: pd.DataFrame) -> pd.DataFrame:
 
 def rank_normalize(values: np.ndarray) -> np.ndarray:
     """Map scores to open-interval empirical ranks."""
-    series = pd.Series(np.asarray(values, dtype=float))
+    array = np.asarray(values, dtype=float)
+    if array.ndim != 1 or not len(array) or not np.isfinite(array).all():
+        raise ValueError("rank input must be a non-empty finite one-dimensional array")
+    series = pd.Series(array)
     return series.rank(method="average").to_numpy() / (len(series) + 1.0)
 
 
-def _catboost_frame(features: pd.DataFrame) -> tuple[pd.DataFrame, list[str]]:
-    result = features.copy()
-    categorical = result.select_dtypes(exclude=np.number).columns.tolist()
-    result[categorical] = result[categorical].fillna("__NA__").astype(str)
-    return result, categorical
+def _catboost_frames(
+    train_features: pd.DataFrame, test_features: pd.DataFrame
+) -> tuple[pd.DataFrame, pd.DataFrame, list[str]]:
+    categorical = train_features.select_dtypes(exclude=np.number).columns.tolist()
+    train_result = train_features.copy()
+    test_result = test_features.copy()
+    train_result[categorical] = (
+        train_result[categorical].fillna("__NA__").astype(str)
+    )
+    test_result[categorical] = test_result[categorical].fillna("__NA__").astype(str)
+    return train_result, test_result, categorical
 
 
-def _numeric_frame(features: pd.DataFrame) -> pd.DataFrame:
-    return features.select_dtypes(include=np.number).astype(float)
+def _validate_config(config: TrainingConfig, y: pd.Series) -> None:
+    if config.folds < 2 or config.repeats < 1:
+        raise ValueError("folds must be >= 2 and repeats must be >= 1")
+    if min(config.cat_iterations, config.xgb_iterations) < 1:
+        raise ValueError("model iteration counts must be positive")
+    if config.early_stopping_rounds < 1:
+        raise ValueError("early stopping rounds must be positive")
+    if y.value_counts().min() < config.folds:
+        raise ValueError("each target class must contain at least folds samples")
+
+
+def _cat_model(iterations: int, seed: int) -> CatBoostClassifier:
+    return CatBoostClassifier(
+        iterations=iterations,
+        depth=6,
+        learning_rate=0.035,
+        loss_function="Logloss",
+        eval_metric="AUC",
+        l2_leaf_reg=10,
+        random_seed=seed,
+        allow_writing_files=False,
+        verbose=False,
+        thread_count=-1,
+    )
+
+
+def _xgb_model(
+    iterations: int, seed: int, early_stopping_rounds: int | None = None
+) -> XGBClassifier:
+    return XGBClassifier(
+        n_estimators=iterations,
+        learning_rate=0.025,
+        max_depth=3,
+        min_child_weight=8,
+        subsample=0.82,
+        colsample_bytree=0.82,
+        reg_alpha=1.0,
+        reg_lambda=15.0,
+        objective="binary:logistic",
+        eval_metric="auc",
+        early_stopping_rounds=early_stopping_rounds,
+        random_state=seed,
+        n_jobs=-1,
+    )
 
 
 def train_ensemble(
@@ -148,12 +225,19 @@ def train_ensemble(
 ) -> tuple[np.ndarray, dict[str, Any]]:
     """Train fixed-complexity repeated-CV models and average test probabilities."""
     y = train[TARGET].astype(int).reset_index(drop=True)
+    _validate_config(config, y)
     train_features = engineer_features(train)
     test_features = engineer_features(test)
-    cat_train, categorical = _catboost_frame(train_features)
-    cat_test, _ = _catboost_frame(test_features)
-    xgb_train = _numeric_frame(train_features)
-    xgb_test = _numeric_frame(test_features)
+    if train_features.columns.tolist() != test_features.columns.tolist():
+        raise ValueError("engineered training and test columns differ")
+    numeric = train_features.select_dtypes(include=np.number).columns.tolist()
+    if numeric != test_features.select_dtypes(include=np.number).columns.tolist():
+        raise ValueError("engineered training and test dtypes differ")
+    cat_train, cat_test, categorical = _catboost_frames(
+        train_features, test_features
+    )
+    xgb_train = train_features[numeric].astype(float)
+    xgb_test = test_features[numeric].astype(float)
 
     splitter = RepeatedStratifiedKFold(
         n_splits=config.folds,
@@ -172,52 +256,48 @@ def train_ensemble(
         repeat = split_number // config.folds
         fold = split_number % config.folds
         fold_seed = config.seed + split_number
-
-        cat_model = CatBoostClassifier(
-            iterations=config.cat_iterations,
-            depth=6,
-            learning_rate=0.035,
-            loss_function="Logloss",
-            eval_metric="AUC",
-            l2_leaf_reg=10,
-            random_seed=fold_seed,
-            allow_writing_files=False,
-            verbose=False,
-            thread_count=-1,
+        inner_fit, early_index = train_test_split(
+            fit_index,
+            test_size=0.15,
+            stratify=y.iloc[fit_index],
+            random_state=fold_seed,
         )
+
+        cat_tuner = _cat_model(config.cat_iterations, fold_seed)
+        cat_tuner.fit(
+            cat_train.iloc[inner_fit],
+            y.iloc[inner_fit],
+            cat_features=categorical,
+            eval_set=(cat_train.iloc[early_index], y.iloc[early_index]),
+            early_stopping_rounds=config.early_stopping_rounds,
+            verbose=False,
+        )
+        cat_best = max(1, cat_tuner.get_best_iteration() + 1)
+        cat_model = _cat_model(cat_best, fold_seed)
         cat_model.fit(
             cat_train.iloc[fit_index],
             y.iloc[fit_index],
             cat_features=categorical,
-            eval_set=(cat_train.iloc[valid_index], y.iloc[valid_index]),
-            early_stopping_rounds=config.early_stopping_rounds,
             verbose=False,
         )
         cat_valid = cat_model.predict_proba(cat_train.iloc[valid_index])[:, 1]
         oof_cat[repeat, valid_index] = cat_valid
         test_cat.append(cat_model.predict_proba(cat_test)[:, 1])
 
-        xgb_model = XGBClassifier(
-            n_estimators=config.xgb_iterations,
-            learning_rate=0.025,
-            max_depth=3,
-            min_child_weight=8,
-            subsample=0.82,
-            colsample_bytree=0.82,
-            reg_alpha=1.0,
-            reg_lambda=15.0,
-            objective="binary:logistic",
-            eval_metric="auc",
-            early_stopping_rounds=config.early_stopping_rounds,
-            random_state=fold_seed,
-            n_jobs=-1,
+        xgb_tuner = _xgb_model(
+            config.xgb_iterations,
+            fold_seed,
+            config.early_stopping_rounds,
         )
-        xgb_model.fit(
-            xgb_train.iloc[fit_index],
-            y.iloc[fit_index],
-            eval_set=[(xgb_train.iloc[valid_index], y.iloc[valid_index])],
+        xgb_tuner.fit(
+            xgb_train.iloc[inner_fit],
+            y.iloc[inner_fit],
+            eval_set=[(xgb_train.iloc[early_index], y.iloc[early_index])],
             verbose=False,
         )
+        xgb_best = max(1, xgb_tuner.best_iteration + 1)
+        xgb_model = _xgb_model(xgb_best, fold_seed)
+        xgb_model.fit(xgb_train.iloc[fit_index], y.iloc[fit_index], verbose=False)
         xgb_valid = xgb_model.predict_proba(xgb_train.iloc[valid_index])[:, 1]
         oof_xgb[repeat, valid_index] = xgb_valid
         test_xgb.append(xgb_model.predict_proba(xgb_test)[:, 1])
@@ -228,8 +308,8 @@ def train_ensemble(
                 "fold": fold,
                 "cat_auc": float(roc_auc_score(y.iloc[valid_index], cat_valid)),
                 "xgb_auc": float(roc_auc_score(y.iloc[valid_index], xgb_valid)),
-                "cat_best_iteration": int(cat_model.get_best_iteration()),
-                "xgb_best_iteration": int(xgb_model.best_iteration),
+                "cat_best_iteration": cat_best,
+                "xgb_best_iteration": xgb_best,
             }
         )
 
@@ -273,7 +353,8 @@ def build_submission(
     predictions = np.asarray(predictions, dtype=float)
     if len(predictions) != len(test):
         raise ValueError("prediction count does not match test rows")
-    if not np.isfinite(predictions).all() or not ((0 <= predictions) & (predictions <= 1)).all():
+    in_range = (0 <= predictions) & (predictions <= 1)
+    if not np.isfinite(predictions).all() or not in_range.all():
         raise ValueError("predictions must be finite and within [0, 1]")
     if sample[IDENTIFIER].tolist() != test[IDENTIFIER].tolist():
         raise ValueError("sample and test identifiers are not aligned")
@@ -283,6 +364,14 @@ def build_submission(
     output_path.parent.mkdir(parents=True, exist_ok=True)
     submission.to_csv(output_path, index=False)
     return submission
+
+
+def _file_sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
 def main() -> None:  # pragma: no cover - exercised by the full training run
@@ -298,8 +387,16 @@ def main() -> None:  # pragma: no cover - exercised by the full training run
     test = pd.read_csv(args.data_dir / "test.csv")
     sample = pd.read_csv(args.data_dir / "submit_sample.csv")
     audit = audit_data(train, test, sample)
+    audit["file_sha256"] = {
+        name: _file_sha256(args.data_dir / name)
+        for name in ("train.csv", "test.csv", "submit_sample.csv")
+    }
     config = TrainingConfig(folds=args.folds, repeats=args.repeats, seed=args.seed)
     predictions, metrics = train_ensemble(train, test, config)
+    metrics["dependencies"] = {
+        package: importlib.metadata.version(package)
+        for package in ("numpy", "pandas", "scikit-learn", "catboost", "xgboost")
+    }
 
     args.output_dir.mkdir(parents=True, exist_ok=True)
     build_submission(test, sample, predictions, args.output_dir / "submission.csv")
