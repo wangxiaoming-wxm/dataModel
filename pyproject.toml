@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=80"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "insurance-claim-model"
+version = "0.1.0"
+description = "Leakage-resistant insurance claim competition pipeline"
+requires-python = ">=3.11"
+dependencies = [
+    "catboost>=1.2.10",
+    "numpy>=2.4.4",
+    "pandas>=3.0.5",
+    "scikit-learn>=1.9.0",
+    "xgboost>=3.4.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=9.1.1",
+    "pytest-cov>=7.1.0",
+]
+
+[project.scripts]
+train-claims = "insurance_claim.model:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov=insurance_claim --cov-report=term-missing --cov-fail-under=80"
