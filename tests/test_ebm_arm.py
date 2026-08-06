@@ -117,3 +117,13 @@ def test_cv_seed_writes_and_reuses_checkpoint(monkeypatch, tmp_path) -> None:
             tmp_path,
             EBMConfig(folds=2, max_bins=64),
         )
+
+    with pytest.raises(ValueError, match="incompatible cache"):
+        run_cv_seed(
+            train_features.rename(columns={"signal": "renamed_signal"}),
+            y,
+            test_features.rename(columns={"signal": "renamed_signal"}),
+            42,
+            tmp_path,
+            config,
+        )

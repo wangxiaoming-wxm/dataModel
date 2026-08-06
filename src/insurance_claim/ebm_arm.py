@@ -127,6 +127,23 @@ def _cache_signature(
     )
     digest.update(
         json.dumps(
+            {
+                "train_schema": [
+                    (column, str(train_features[column].dtype))
+                    for column in train_features
+                ],
+                "test_schema": [
+                    (column, str(test_features[column].dtype))
+                    for column in test_features
+                ],
+                "interactions": EBM_INTERACTIONS,
+            },
+            sort_keys=True,
+        ).encode()
+    )
+    digest.update(Path(__file__).read_bytes())
+    digest.update(
+        json.dumps(
             {"config": asdict(config), "prefix": prefix},
             sort_keys=True,
         ).encode()

@@ -84,3 +84,13 @@ def test_realmlp_cv_seed_writes_and_reuses_checkpoint(monkeypatch, tmp_path) -> 
             tmp_path,
             RealMLPConfig(folds=2, epochs=2),
         )
+
+    with pytest.raises(ValueError, match="incompatible cache"):
+        run_cv_seed(
+            train_features.rename(columns={"signal": "renamed_signal"}),
+            y,
+            test_features.rename(columns={"signal": "renamed_signal"}),
+            42,
+            tmp_path,
+            config,
+        )
