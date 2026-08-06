@@ -1,0 +1,54 @@
+{
+  "recommendation_order": [
+    "safe_v1",
+    "upside_v1_v7_conditional"
+  ],
+  "known_public_anchor": {
+    "candidate": "safe_v1",
+    "local_oof": 0.6929595789847504,
+    "known_public": 0.70236,
+    "warning": "prediction-identical to the known third-place file"
+  },
+  "upside_v1_v7": {
+    "method": "fixed equal-rank average; no weight search",
+    "local_oof": 0.7002836508911733,
+    "v7_local_oof": 0.6902281187218259,
+    "delta_vs_v1": 0.007324071906422924,
+    "delta_bootstrap": {
+      "seed": 314159,
+      "samples": 3000,
+      "ci95": [
+        0.003358657818518135,
+        0.01128012930104609
+      ]
+    },
+    "spearman_oof_vs_v1": 0.9586967597586421,
+    "spearman_test_vs_v1": 0.9642338980623391,
+    "public_estimate": "approximately 0.70-0.71; no public anchor",
+    "warning": "V7 package lacks full training source/per-seed/shuffled artifacts; conditional second shot only"
+  },
+  "rejected": {
+    "minimax_0_55v5_0_45v3": "OOF-searched weights violate R07 and algebraically increase the V5 component that already dragged V3 public performance",
+    "grok": "honest OOF 0.66165, materially below V1"
+  },
+  "files": {
+    "safe_v1": {
+      "path": "final_candidates/submission_1_safe_v1_anchor.csv",
+      "sha256": "3ce0e65e75ecae15ed06744eea00c2859c40c8ddb89c319197ae3529e4857245",
+      "rows": 10000,
+      "min": 0.0249899655421061,
+      "max": 0.8428622371162912,
+      "mean": 0.09998915366631957,
+      "unique_predictions": 10000
+    },
+    "upside_v1_v7": {
+      "path": "final_candidates/submission_2_upside_v1_v7_equal_rank.csv",
+      "sha256": "31ed3c097162ed65f1ff6942df1d21791ea1959d77566838e66c5b42fe424a90",
+      "rows": 10000,
+      "min": 0.0249899655421061,
+      "max": 0.8428622371162912,
+      "mean": 0.09998915366631957,
+      "unique_predictions": 10000
+    }
+  }
+}
