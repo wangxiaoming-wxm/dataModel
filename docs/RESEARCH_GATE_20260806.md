@@ -39,7 +39,10 @@ EBM 与 V1 的等权 rank 融合相对 V1 下降 `0.01571`，配对 bootstrap 95
 - 新模型的预处理只在外层训练折拟合，外层验证标签不参与内部早停。
 - 所有新臂均在性能筛选阶段失败，因此不启动多 seed 与完整 shuffled 训练。
 - 没有候选稳定高于 V1 `0.693`，`SUBMIT_GATE_0.72` 为 **FAIL**。
-- **未生成、未建议任何正式提交文件。**
+- 异构筛选阶段本身未产出冲 0.72 的正式提交文件。
+
+后续在用户明确要求准备 1–2 枪时，于 `final_candidates/` 生成风险最优保底/条件文件；
+完整总结与交枪文件名见 `docs/WORK_SUMMARY_20260806.md`。门禁结论仍为 FAIL（预期约 0.70–0.71）。
 
 确定性复算脚本：`scripts/rebuild_research_gate.py`。机器可读证据：
 `artifacts/research_gate_20260806.json`。
