@@ -15,7 +15,7 @@
 | 仓库 | https://github.com/wangxiaoming-wxm/dataModel |
 | 分支 | `cursor/insurance-auc-model-dd73` |
 | 基线 | `main` |
-| 本文档对应提交 | `818645a`（及之后若有小补丁） |
+| 本文档对应提交 | 以分支最新提交为准 |
 | 克隆示例 | `git clone -b cursor/insurance-auc-model-dd73 https://github.com/wangxiaoming-wxm/dataModel.git` |
 
 PR 描述已登记待人工批准创建（草稿），标题含「保险索赔 AUC：防泄漏流水线、门禁证据与最终提交候选」。
@@ -47,6 +47,27 @@ PR 描述已登记待人工批准创建（草稿），标题含「保险索赔 A
 
 机器可读元数据：`final_candidates/FINAL_CANDIDATES.json`。  
 构建脚本：`scripts/build_final_candidates.py`。
+
+### submission_2 依赖的预测数组（已入库）
+
+路径：`artifacts/pred_bundle/`
+
+| 文件 | 状态 |
+|---|---|
+| `artifacts/pred_bundle/oof_v7_lgbm.npy` | **已提交本分支** |
+| `artifacts/pred_bundle/test_v7_lgbm.npy` | **已提交本分支** |
+| `artifacts/pred_bundle/oof_v1_3rd.npy` / `test_v1_3rd.npy` | **已提交本分支**（复现第 1/2 枪需要） |
+| `artifacts/pred_bundle/y.npy` / `test_id.npy` | **已提交本分支**（校验用） |
+| `03_train_v7_lgbm.py` | **缺失**：MiniMax 交付包（`minimax-m3=team4_push_top3_blends.zip`）**从未包含** V7 训练脚本，全库/全包检索无此文件；无法凭空补造。若你本地有该脚本请发来再入库。 |
+
+复现命令：
+
+```bash
+python3 scripts/build_final_candidates.py \
+  --data-dir . \
+  --package-dir artifacts/pred_bundle \
+  --output-dir final_candidates
+```
 
 ---
 
@@ -136,14 +157,20 @@ PR 描述已登记待人工批准创建（草稿），标题含「保险索赔 A
 │   ├── submission_2_upside_v1_v7_equal_rank.csv  ← 第 2 枪（条件）
 │   ├── FINAL_CANDIDATES.json
 │   └── README.md
+├── artifacts/
+│   ├── pred_bundle/
+│   │   ├── oof_v7_lgbm.npy / test_v7_lgbm.npy
+│   │   ├── oof_v1_3rd.npy / test_v1_3rd.npy
+│   │   ├── y.npy / test_id.npy
+│   │   └── README.md
+│   └── research_gate_20260806.json
 ├── scripts/
 │   ├── build_final_candidates.py
 │   └── rebuild_research_gate.py
 ├── docs/
 │   ├── WORK_SUMMARY_20260806.md            ← 本文档
 │   └── RESEARCH_GATE_20260806.md
-├── src/insurance_claim/                    ← 防泄漏基线流水线
-└── artifacts/research_gate_20260806.json
+└── src/insurance_claim/                    ← 防泄漏基线流水线
 ```
 
 ---
