@@ -1,0 +1,116 @@
+{
+  "config": {
+    "folds": 5,
+    "repeats": 2,
+    "seed": 2026,
+    "cat_iterations": 900,
+    "xgb_iterations": 1400,
+    "early_stopping_rounds": 120
+  },
+  "selection_policy": "fixed 50/50 blend; no leaderboard feedback",
+  "folds": [
+    {
+      "repeat": 0,
+      "fold": 0,
+      "cat_auc": 0.6290267579196134,
+      "xgb_auc": 0.628567707364269,
+      "cat_best_iteration": 145,
+      "xgb_best_iteration": 201
+    },
+    {
+      "repeat": 0,
+      "fold": 1,
+      "cat_auc": 0.6566185939571255,
+      "xgb_auc": 0.650371846200678,
+      "cat_best_iteration": 194,
+      "xgb_best_iteration": 57
+    },
+    {
+      "repeat": 0,
+      "fold": 2,
+      "cat_auc": 0.6516571877556424,
+      "xgb_auc": 0.6443175641587966,
+      "cat_best_iteration": 302,
+      "xgb_best_iteration": 68
+    },
+    {
+      "repeat": 0,
+      "fold": 3,
+      "cat_auc": 0.6404280506342735,
+      "xgb_auc": 0.6420242825364098,
+      "cat_best_iteration": 130,
+      "xgb_best_iteration": 110
+    },
+    {
+      "repeat": 0,
+      "fold": 4,
+      "cat_auc": 0.6721295035997001,
+      "xgb_auc": 0.6670732915335199,
+      "cat_best_iteration": 149,
+      "xgb_best_iteration": 60
+    },
+    {
+      "repeat": 1,
+      "fold": 0,
+      "cat_auc": 0.6527094963376612,
+      "xgb_auc": 0.6467323835917945,
+      "cat_best_iteration": 147,
+      "xgb_best_iteration": 94
+    },
+    {
+      "repeat": 1,
+      "fold": 1,
+      "cat_auc": 0.6476748860609071,
+      "xgb_auc": 0.649439104274935,
+      "cat_best_iteration": 199,
+      "xgb_best_iteration": 62
+    },
+    {
+      "repeat": 1,
+      "fold": 2,
+      "cat_auc": 0.6419527675105673,
+      "xgb_auc": 0.6487030983014824,
+      "cat_best_iteration": 155,
+      "xgb_best_iteration": 123
+    },
+    {
+      "repeat": 1,
+      "fold": 3,
+      "cat_auc": 0.6454579696639504,
+      "xgb_auc": 0.6487458221587928,
+      "cat_best_iteration": 65,
+      "xgb_best_iteration": 92
+    },
+    {
+      "repeat": 1,
+      "fold": 4,
+      "cat_auc": 0.658587978334538,
+      "xgb_auc": 0.6475091322441902,
+      "cat_best_iteration": 292,
+      "xgb_best_iteration": 189
+    }
+  ],
+  "repeats": [
+    {
+      "repeat": 0,
+      "cat_auc": 0.6488059050969356,
+      "xgb_auc": 0.6430111690820406,
+      "blend_auc": 0.648387688865002
+    },
+    {
+      "repeat": 1,
+      "cat_auc": 0.6443983314825867,
+      "xgb_auc": 0.6470333770649319,
+      "blend_auc": 0.6490641181439484
+    }
+  ],
+  "blend_auc_mean": 0.6487259035044752,
+  "blend_auc_std": 0.00033821463947319996,
+  "dependencies": {
+    "numpy": "2.4.4",
+    "pandas": "3.0.5",
+    "scikit-learn": "1.9.0",
+    "catboost": "1.2.10",
+    "xgboost": "3.4.0"
+  }
+}

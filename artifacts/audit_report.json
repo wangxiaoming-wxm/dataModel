@@ -1,0 +1,16 @@
+{
+  "train_rows": 21328,
+  "test_rows": 10000,
+  "feature_count": 43,
+  "target_rate": 0.10000937734433608,
+  "id_overlap": 0,
+  "duplicate_train_ids": 0,
+  "duplicate_test_ids": 0,
+  "exact_cross_feature_overlap": 0,
+  "train_test_columns_match": true,
+  "file_sha256": {
+    "train.csv": "2fa70c5948c29c61d1ee98fc6d3ce8bbbaae3e2b099a5c7ced903fc2342dc505",
+    "test.csv": "5d29501248819babeeddb87233d2c339b535e01a71b2e9a74b76ab2bb0f9130e",
+    "submit_sample.csv": "32aafc4dede3f6abca6173e1a9a66ef2155404c170009d3698431ab0854262e2"
+  }
+}
