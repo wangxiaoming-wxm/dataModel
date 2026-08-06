@@ -1,5 +1,8 @@
 # 保险索赔概率预测
 
+> 当前状态：`SUBMIT_GATE_0.72 = FAIL`。仓库不保留可误交的正式
+> `submission.csv`；最新证据见 `docs/RESEARCH_GATE_20260806.md`。
+
 这是一个面向 AUC 指标的、可复现且防泄漏的训练流程。模型只使用
 `train.csv` 中除 `id`、`label` 外的字段，不读取任何测试标签，也不根据公开榜单
 反馈调节模型或集成权重。
@@ -24,9 +27,10 @@ PYTHONPATH=src python3 -m insurance_claim.model \
   --output-dir artifacts
 ```
 
+该命令属于历史基线复现，会产生研究预测；它没有通过当前 0.72 提交门禁。
 输出：
 
-- `artifacts/submission.csv`：可提交预测
+- `artifacts/submission.csv`：研究预测，**禁止作为正式提交**
 - `artifacts/audit_report.json`：数据边界与泄漏审计
 - `artifacts/cv_metrics.json`：完整交叉验证证据
 

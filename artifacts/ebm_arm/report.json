@@ -1,0 +1,29 @@
+{
+  "mode": "screen",
+  "config": {
+    "folds": 5,
+    "max_bins": 256,
+    "max_interaction_bins": 32,
+    "outer_bags": 8,
+    "learning_rate": 0.03,
+    "max_rounds": 4000,
+    "early_stopping_rounds": 100,
+    "min_samples_leaf": 10,
+    "max_leaves": 3,
+    "n_jobs": -1
+  },
+  "fold_seeds": [
+    42
+  ],
+  "seed_auc": [
+    0.6492170871482468
+  ],
+  "pooled_auc": 0.6492170871482468,
+  "data_sha256": {
+    "train.csv": "2fa70c5948c29c61d1ee98fc6d3ce8bbbaae3e2b099a5c7ced903fc2342dc505",
+    "test.csv": "5d29501248819babeeddb87233d2c339b535e01a71b2e9a74b76ab2bb0f9130e"
+  },
+  "submission_created": false,
+  "v1_auc": 0.6929595789847504,
+  "spearman_vs_v1_oof": 0.8758488452572639
+}

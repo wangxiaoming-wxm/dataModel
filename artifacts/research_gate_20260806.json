@@ -1,0 +1,60 @@
+{
+  "policy": "NO_FORMAL_SUBMISSION",
+  "handover_reproduction": {
+    "v1_oof": 0.6929595789847504,
+    "v1_submission_sha256": "49ece5755addf909ef0fd36146d3a1341de0fc5abf4f74a941d87f97df6663b8",
+    "v4_quick_oof": 0.6921064403419052,
+    "v4_quick_oof_evidence": "metadata_only; Q1/DS OOF arrays absent from handover archive",
+    "v4_quick_sha256": "96ac8575370ecb69f7933267e4d08090989d1131d6bcf93322327b6198d8dbe5",
+    "sem_plus_seed2026_oof": 0.6826800643383284
+  },
+  "arms": {
+    "sem_plus": {
+      "decision": "REJECT",
+      "oof": 0.6826800643383284,
+      "delta_vs_v1": -0.010279514646421961,
+      "spearman_oof_vs_v1": 0.9638814113896288
+    },
+    "ebm": {
+      "decision": "REJECT",
+      "oof": 0.6492170871482468,
+      "spearman_oof_vs_v1": 0.8758488452572639,
+      "spearman_test_vs_v1": 0.8988015343320154,
+      "equal_rank_blend_oof": 0.6772478450799875,
+      "blend_delta_vs_v1": -0.01571173390476288,
+      "blend_delta_ci95": [
+        -0.019473034873895737,
+        -0.011959179368514658
+      ]
+    },
+    "realmlp": {
+      "decision": "EARLY_REJECT",
+      "completed_folds": [
+        0,
+        1
+      ],
+      "fold_auc": [
+        0.5994175395744281,
+        0.6005201759581956
+      ],
+      "reason": "first two folds far below V1-compatible range"
+    },
+    "tabm": {
+      "decision": "EARLY_REJECT",
+      "completed_folds": [
+        0
+      ],
+      "fold_auc": [
+        0.5745135131672781
+      ],
+      "reason": "first fold far below V1-compatible range"
+    }
+  },
+  "gate": {
+    "new_arm_stable_above_0_693": false,
+    "shuffled_required": false,
+    "shuffled_reason": "all new arms failed performance screen before promotion",
+    "submit_gate_0_72": false,
+    "formal_submission_created": false
+  }
+}
