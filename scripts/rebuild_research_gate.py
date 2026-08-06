@@ -103,6 +103,7 @@ def main() -> int:
                 "oof": float(roc_auc_score(y, sem["oof"])),
                 "delta_vs_v1": float(roc_auc_score(y, sem["oof"]) - v1_auc),
                 "spearman_oof_vs_v1": float(spearmanr(sem["oof"], v1_oof).statistic),
+                "v1_advantage_bootstrap": paired_bootstrap(y, v1_oof, sem["oof"]),
             },
             "ebm": {
                 "decision": "REJECT",

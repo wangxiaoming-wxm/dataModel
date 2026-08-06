@@ -17,7 +17,21 @@
       "decision": "REJECT",
       "oof": 0.6826800643383284,
       "delta_vs_v1": -0.010279514646421961,
-      "spearman_oof_vs_v1": 0.9638814113896288
+      "spearman_oof_vs_v1": 0.9638814113896288,
+      "v1_advantage_bootstrap": {
+        "method": "paired row bootstrap with replacement",
+        "seed": 73,
+        "requested_samples": 3000,
+        "valid_samples": 3000,
+        "quantiles": [
+          0.025,
+          0.975
+        ],
+        "ci95": [
+          0.006564824956708177,
+          0.013876282492200414
+        ]
+      }
     },
     "ebm": {
       "decision": "REJECT",

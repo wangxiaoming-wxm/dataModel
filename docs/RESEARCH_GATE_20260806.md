@@ -16,8 +16,8 @@
 
 ## P0：sem_plus 止损
 
-sem_plus 相对 V1 低 `0.01028`，配对 bootstrap 的 V1 优势 95% CI 为
-`[0.00662, 0.01395]`，OOF Spearman 为 `0.96388`。劣势明确，不续跑其余
+sem_plus 相对 V1 低 `0.01028`，固定 seed `73`、3,000 次配对 bootstrap 的
+V1 优势 95% CI 为 `[0.00656, 0.01388]`，OOF Spearman 为 `0.96388`。劣势明确，不续跑其余
 seed，也不进入 shuffled 门禁。
 
 ## P1：异构模型筛选
