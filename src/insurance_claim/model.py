@@ -4,6 +4,7 @@ import argparse
 import hashlib
 import importlib.metadata
 import json
+import math
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any
@@ -12,7 +13,7 @@ import numpy as np
 import pandas as pd
 from catboost import CatBoostClassifier
 from sklearn.metrics import roc_auc_score
-from sklearn.model_selection import RepeatedStratifiedKFold, train_test_split
+from sklearn.model_selection import RepeatedStratifiedKFold
 from xgboost import XGBClassifier
 
 TARGET = "label"
@@ -68,12 +69,10 @@ def audit_data(
 
     train_hashes = pd.util.hash_pandas_object(train_features, index=False).unique()
     test_hashes = pd.util.hash_pandas_object(test_features, index=False).unique()
-    shared_rows = len(
-        np.intersect1d(train_hashes, test_hashes, assume_unique=True)
-    )
+    shared_rows = len(np.intersect1d(train_hashes, test_hashes, assume_unique=True))
     return {
-        "train_rows": int(len(train)),
-        "test_rows": int(len(test)),
+        "train_rows": len(train),
+        "test_rows": len(test),
         "feature_count": int(train_features.shape[1]),
         "target_rate": float(train[TARGET].mean()),
         "id_overlap": overlap,
@@ -97,7 +96,9 @@ def engineer_features(frame: pd.DataFrame) -> pd.DataFrame:
         parsed_t3 = t3.str.extract(r"^(-?\d+(?:\.\d+)?)([A-Za-z])$")
         invalid_t3 = features["t3"].notna() & parsed_t3[0].isna()
         if invalid_t3.any():
-            raise ValueError("t3 contains values outside the expected number+letter format")
+            raise ValueError(
+                "t3 contains values outside the expected number+letter format"
+            )
         features["t3_value"] = pd.to_numeric(parsed_t3[0], errors="coerce")
         features["t3_kind"] = parsed_t3[1].fillna("__NA__")
     if "source" in features:
@@ -113,17 +114,15 @@ def engineer_features(frame: pd.DataFrame) -> pd.DataFrame:
             features["version"].astype(str).str.removeprefix("v"), errors="coerce"
         )
     if "grades" in features:
-        features["grades_n"] = features["grades"].map(
-            {"s": 1.0, "ss": 2.0, "sss": 3.0}
-        )
+        features["grades_n"] = features["grades"].map({"s": 1.0, "ss": 2.0, "sss": 3.0})
 
     x_columns = [
-        column
-        for column in features
-        if column.startswith("x") and column[1:].isdigit()
+        column for column in features if column.startswith("x") and column[1:].isdigit()
     ]
     if x_columns:
-        vectors = features[x_columns].apply(pd.to_numeric, errors="coerce")
+        vectors = (
+            features[x_columns].apply(pd.to_numeric, errors="coerce").astype(float)
+        )
         features["x_mean"] = vectors.mean(axis=1)
         features["x_std"] = vectors.std(axis=1, ddof=0)
         features["x_min"] = vectors.min(axis=1)
@@ -132,11 +131,9 @@ def engineer_features(frame: pd.DataFrame) -> pd.DataFrame:
         features["x_l1"] = absolute.sum(axis=1, min_count=1)
         scale = absolute.max(axis=1)
         scaled = vectors.div(scale.replace(0, 1), axis=0)
-        features["x_l2"] = scale * np.sqrt(
-            scaled.pow(2).sum(axis=1, min_count=1)
-        )
-        features["x_positive_count"] = vectors.gt(0).where(vectors.notna()).sum(
-            axis=1, min_count=1
+        features["x_l2"] = scale * np.sqrt(scaled.pow(2).sum(axis=1, min_count=1))
+        features["x_positive_count"] = (
+            vectors.gt(0).where(vectors.notna()).sum(axis=1, min_count=1)
         )
         features["x_missing_count"] = vectors.isna().sum(axis=1)
 
@@ -165,9 +162,7 @@ def _catboost_frames(
     categorical = train_features.select_dtypes(exclude=np.number).columns.tolist()
     train_result = train_features.copy()
     test_result = test_features.copy()
-    train_result[categorical] = (
-        train_result[categorical].fillna("__NA__").astype(str)
-    )
+    train_result[categorical] = train_result[categorical].fillna("__NA__").astype(str)
     test_result[categorical] = test_result[categorical].fillna("__NA__").astype(str)
     return train_result, test_result, categorical
 
@@ -179,8 +174,8 @@ def _validate_config(config: TrainingConfig, y: pd.Series) -> None:
         raise ValueError("model iteration counts must be positive")
     if config.early_stopping_rounds < 1:
         raise ValueError("early stopping rounds must be positive")
-    if y.value_counts().min() < config.folds:
-        raise ValueError("each target class must contain at least folds samples")
+    if y.value_counts().min() < 2 * config.folds:
+        raise ValueError("each target class must contain at least twice folds samples")
 
 
 def _cat_model(iterations: int, seed: int) -> CatBoostClassifier:
@@ -218,24 +213,55 @@ def _xgb_model(
     )
 
 
+def _stratified_early_split(
+    fit_index: np.ndarray,
+    y: pd.Series,
+    desired_early_size: int,
+    seed: int,
+) -> tuple[np.ndarray, np.ndarray]:
+    """Split each class explicitly so both partitions retain every class."""
+    rng = np.random.default_rng(seed)
+    inner_parts: list[np.ndarray] = []
+    early_parts: list[np.ndarray] = []
+    for target_class in sorted(y.iloc[fit_index].unique()):
+        class_index = fit_index[y.iloc[fit_index].to_numpy() == target_class].copy()
+        rng.shuffle(class_index)
+        proportional = round(desired_early_size * len(class_index) / len(fit_index))
+        class_early_size = min(max(1, proportional), len(class_index) - 1)
+        early_parts.append(class_index[:class_early_size])
+        inner_parts.append(class_index[class_early_size:])
+    inner_index = np.concatenate(inner_parts)
+    early_index = np.concatenate(early_parts)
+    rng.shuffle(inner_index)
+    rng.shuffle(early_index)
+    return inner_index, early_index
+
+
 def train_ensemble(
     train: pd.DataFrame,
     test: pd.DataFrame,
-    config: TrainingConfig = TrainingConfig(),
+    config: TrainingConfig | None = None,
 ) -> tuple[np.ndarray, dict[str, Any]]:
     """Train fixed-complexity repeated-CV models and average test probabilities."""
+    config = config or TrainingConfig()
+    if TARGET not in train or train[TARGET].isna().any():
+        raise ValueError("training target must be present and non-missing")
+    if set(train[TARGET].unique()) != {0, 1}:
+        raise ValueError("training target must contain both binary classes")
     y = train[TARGET].astype(int).reset_index(drop=True)
     _validate_config(config, y)
     train_features = engineer_features(train)
     test_features = engineer_features(test)
     if train_features.columns.tolist() != test_features.columns.tolist():
         raise ValueError("engineered training and test columns differ")
+    if not len(train_features.columns):
+        raise ValueError("at least one engineered feature is required")
     numeric = train_features.select_dtypes(include=np.number).columns.tolist()
+    if not numeric:
+        raise ValueError("at least one numeric feature is required for XGBoost")
     if numeric != test_features.select_dtypes(include=np.number).columns.tolist():
         raise ValueError("engineered training and test dtypes differ")
-    cat_train, cat_test, categorical = _catboost_frames(
-        train_features, test_features
-    )
+    cat_train, cat_test, categorical = _catboost_frames(train_features, test_features)
     xgb_train = train_features[numeric].astype(float)
     xgb_test = test_features[numeric].astype(float)
 
@@ -256,11 +282,12 @@ def train_ensemble(
         repeat = split_number // config.folds
         fold = split_number % config.folds
         fold_seed = config.seed + split_number
-        inner_fit, early_index = train_test_split(
+        early_size = max(2, math.ceil(0.15 * len(fit_index)))
+        inner_fit, early_index = _stratified_early_split(
             fit_index,
-            test_size=0.15,
-            stratify=y.iloc[fit_index],
-            random_state=fold_seed,
+            y,
+            desired_early_size=early_size,
+            seed=fold_seed,
         )
 
         cat_tuner = _cat_model(config.cat_iterations, fold_seed)
@@ -325,9 +352,7 @@ def train_ensemble(
             }
         )
 
-    predictions = 0.5 * np.mean(test_cat, axis=0) + 0.5 * np.mean(
-        test_xgb, axis=0
-    )
+    predictions = 0.5 * np.mean(test_cat, axis=0) + 0.5 * np.mean(test_xgb, axis=0)
     metrics = {
         "config": asdict(config),
         "selection_policy": "fixed 50/50 blend; no leaderboard feedback",

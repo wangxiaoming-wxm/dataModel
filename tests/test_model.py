@@ -6,6 +6,7 @@ import pytest
 
 from insurance_claim.model import (
     TrainingConfig,
+    _stratified_early_split,
     audit_data,
     build_submission,
     engineer_features,
@@ -113,6 +114,15 @@ def test_engineering_removes_identifiers_and_adds_semantic_features() -> None:
     assert np.isfinite(features.select_dtypes(include=np.number).dropna()).all().all()
 
 
+def test_engineering_handles_minimum_integer_without_overflow() -> None:
+    frame = pd.DataFrame({"id": ["a"], "x0": [np.iinfo(np.int64).min], "x1": [0]})
+
+    features = engineer_features(frame)
+
+    assert features.loc[0, "x_l1"] > 0
+    assert features.loc[0, "x_l2"] > 0
+
+
 def test_rank_normalize_is_bounded_and_order_preserving() -> None:
     ranked = rank_normalize(np.array([0.8, 0.1, 0.4]))
 
@@ -178,3 +188,40 @@ def test_train_ensemble_rejects_invalid_cv_configuration() -> None:
 
     with pytest.raises(ValueError, match="folds must be"):
         train_ensemble(train, test, TrainingConfig(folds=1))
+
+
+def test_train_ensemble_rejects_missing_or_single_class_target() -> None:
+    train, test, _ = sample_frames()
+    train["label"] = 0
+
+    with pytest.raises(ValueError, match="both binary classes"):
+        train_ensemble(train, test, TrainingConfig(folds=2))
+
+
+def test_train_ensemble_supports_minimum_valid_stratified_data() -> None:
+    train, test, _ = sample_frames()
+    train = pd.concat([train, train], ignore_index=True)
+    train["id"] = [f"minimum-{index}" for index in range(len(train))]
+    config = TrainingConfig(
+        folds=2,
+        repeats=1,
+        cat_iterations=1,
+        xgb_iterations=1,
+        early_stopping_rounds=1,
+    )
+
+    predictions, _ = train_ensemble(train, test, config)
+
+    assert len(predictions) == len(test)
+
+
+def test_inner_early_split_retains_rare_class_in_both_partitions() -> None:
+    y = pd.Series([0] * 996 + [1] * 4)
+    fit_index = np.arange(len(y))
+
+    inner, early = _stratified_early_split(fit_index, y, 150, seed=7)
+
+    assert set(y.iloc[inner]) == {0, 1}
+    assert set(y.iloc[early]) == {0, 1}
+    assert not set(inner) & set(early)
+    assert set(inner) | set(early) == set(fit_index)
