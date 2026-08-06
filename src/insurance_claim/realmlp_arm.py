@@ -10,7 +10,7 @@ from typing import Any
 
 import numpy as np
 import pandas as pd
-from pytabkit import RealMLP_TD_Classifier
+from pytabkit import RealMLP_TD_Classifier, TabM_D_Classifier
 from scipy.stats import spearmanr
 from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import StratifiedKFold
@@ -26,6 +26,7 @@ TARGET = "label"
 
 @dataclass(frozen=True)
 class RealMLPConfig:
+    family: str = "realmlp"
     folds: int = 5
     epochs: int = 256
     batch_size: int = 256
@@ -66,6 +67,25 @@ def prepare_fold_frames(
 
 def _model(config: RealMLPConfig, seed: int, tmp_folder: Path):
     threads = config.n_threads or None
+    if config.family == "tabm":
+        return TabM_D_Classifier(
+            device="cpu",
+            random_state=seed,
+            n_cv=1,
+            n_refit=0,
+            n_repeats=1,
+            val_fraction=0.15,
+            n_threads=threads,
+            tmp_folder=tmp_folder,
+            verbosity=1,
+            n_epochs=config.epochs,
+            batch_size=config.batch_size,
+            compile_model=False,
+            allow_amp=False,
+            val_metric_name="cross_entropy",
+        )
+    if config.family != "realmlp":
+        raise ValueError(f"unsupported family: {config.family}")
     return RealMLP_TD_Classifier(
         device="cpu",
         random_state=seed,
@@ -182,6 +202,7 @@ def main() -> int:  # pragma: no cover - exercised by full competition runs
         "--output-dir", type=Path, default=Path("artifacts/realmlp_arm")
     )
     parser.add_argument("--mode", choices=("screen", "gate"), default="screen")
+    parser.add_argument("--family", choices=("realmlp", "tabm"), default="realmlp")
     parser.add_argument("--v1-oof", type=Path)
     args = parser.parse_args()
 
@@ -193,7 +214,7 @@ def main() -> int:  # pragma: no cover - exercised by full competition runs
     if train_features.columns.tolist() != test_features.columns.tolist():
         raise ValueError("engineered train/test columns differ")
 
-    config = RealMLPConfig()
+    config = RealMLPConfig(family=args.family)
     seeds = FOLD_SEEDS[:1] if args.mode == "screen" else FOLD_SEEDS
     real_results = [
         run_cv_seed(
