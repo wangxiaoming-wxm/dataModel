@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any
@@ -109,6 +110,45 @@ def infer_feature_types(features: pd.DataFrame) -> list[str]:
     ]
 
 
+def _cache_signature(
+    train_features: pd.DataFrame,
+    y: np.ndarray,
+    test_features: pd.DataFrame,
+    config: EBMConfig,
+    prefix: str,
+) -> str:
+    digest = hashlib.sha256()
+    digest.update(
+        pd.util.hash_pandas_object(train_features, index=True).to_numpy().tobytes()
+    )
+    digest.update(np.asarray(y).tobytes())
+    digest.update(
+        pd.util.hash_pandas_object(test_features, index=True).to_numpy().tobytes()
+    )
+    digest.update(
+        json.dumps(
+            {"config": asdict(config), "prefix": prefix},
+            sort_keys=True,
+        ).encode()
+    )
+    return digest.hexdigest()
+
+
+def _atomic_savez(path: Path, **arrays: Any) -> None:
+    temporary = path.with_suffix(path.suffix + ".tmp")
+    with temporary.open("wb") as handle:
+        np.savez_compressed(handle, **arrays)
+    os.replace(temporary, path)
+
+
+def _load_matching(path: Path, signature: str):
+    saved = np.load(path)
+    if "signature" not in saved or str(saved["signature"]) != signature:
+        saved.close()
+        raise ValueError(f"stale or incompatible cache: {path}")
+    return saved
+
+
 def _model(config: EBMConfig, seed: int, features: pd.DataFrame):
     interactions = [
         pair for pair in EBM_INTERACTIONS if pair[0] in features and pair[1] in features
@@ -143,9 +183,10 @@ def run_cv_seed(
 ) -> tuple[np.ndarray, np.ndarray, dict[str, Any]]:
     """Run or resume one complete outer-CV seed."""
     output_dir.mkdir(parents=True, exist_ok=True)
+    signature = _cache_signature(train_features, y, test_features, config, prefix)
     final_path = output_dir / f"{prefix}_seed{seed}.npz"
     if final_path.exists():
-        saved = np.load(final_path)
+        saved = _load_matching(final_path, signature)
         metrics = json.loads(str(saved["metrics"]))
         return saved["oof"], saved["test"], metrics
 
@@ -155,7 +196,7 @@ def run_cv_seed(
     completed: list[int] = []
     fold_auc: list[float] = []
     if partial_path.exists():
-        saved = np.load(partial_path)
+        saved = _load_matching(partial_path, signature)
         oof = saved["oof"]
         test_sum = saved["test_sum"]
         completed = saved["completed"].astype(int).tolist()
@@ -172,12 +213,13 @@ def run_cv_seed(
         test_sum += model.predict_proba(test_features)[:, 1]
         fold_auc.append(float(roc_auc_score(y[valid_index], valid_prediction)))
         completed.append(fold)
-        np.savez_compressed(
+        _atomic_savez(
             partial_path,
             oof=oof,
             test_sum=test_sum,
             completed=np.asarray(completed),
             fold_auc=np.asarray(fold_auc),
+            signature=signature,
         )
         print(
             f"{prefix} seed={seed} fold={fold} auc={fold_auc[-1]:.6f}",
@@ -191,11 +233,12 @@ def run_cv_seed(
         "fold_auc": fold_auc,
         "pooled_auc": float(roc_auc_score(y, oof)),
     }
-    np.savez_compressed(
+    _atomic_savez(
         final_path,
         oof=oof,
         test=test_prediction,
         metrics=json.dumps(metrics),
+        signature=signature,
     )
     partial_path.unlink(missing_ok=True)
     return oof, test_prediction, metrics
@@ -224,6 +267,8 @@ def main() -> int:  # pragma: no cover - exercised by full competition runs
     test_features = build_ebm_features(test)
     if train_features.columns.tolist() != test_features.columns.tolist():
         raise ValueError("engineered train/test columns differ")
+    if infer_feature_types(train_features) != infer_feature_types(test_features):
+        raise ValueError("engineered train/test dtypes differ")
 
     config = EBMConfig()
     seeds = FOLD_SEEDS[:1] if args.mode == "screen" else FOLD_SEEDS
@@ -273,7 +318,7 @@ def main() -> int:  # pragma: no cover - exercised by full competition runs
             shuffled_auc.append(metrics["pooled_auc"])
         report["shuffled_seed_auc"] = shuffled_auc
         report["shuffled_mean"] = float(np.mean(shuffled_auc))
-        report["passes_shuffled_gate"] = report["shuffled_mean"] < 0.53
+        report["passes_shuffled_gate"] = 0.47 < report["shuffled_mean"] < 0.53
 
     args.output_dir.mkdir(parents=True, exist_ok=True)
     np.savez_compressed(

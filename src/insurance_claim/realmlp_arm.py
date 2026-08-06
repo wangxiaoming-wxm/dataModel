@@ -4,6 +4,7 @@ import argparse
 import hashlib
 import importlib.metadata
 import json
+import os
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any
@@ -32,6 +33,7 @@ class RealMLPConfig:
     batch_size: int = 256
     hidden_width: int = 256
     hidden_layers: int = 3
+    patience: int = 20
     time_limit_seconds: int = 900
     n_threads: int = 0
 
@@ -79,6 +81,7 @@ def _model(config: RealMLPConfig, seed: int, tmp_folder: Path):
             tmp_folder=tmp_folder,
             verbosity=1,
             n_epochs=config.epochs,
+            patience=config.patience,
             batch_size=config.batch_size,
             compile_model=False,
             allow_amp=False,
@@ -102,7 +105,48 @@ def _model(config: RealMLPConfig, seed: int, tmp_folder: Path):
         hidden_width=config.hidden_width,
         n_hidden_layers=config.hidden_layers,
         use_ls=False,
+        use_early_stopping=True,
+        early_stopping_additive_patience=config.patience,
     )
+
+
+def _cache_signature(
+    train_features: pd.DataFrame,
+    y: np.ndarray,
+    test_features: pd.DataFrame,
+    config: RealMLPConfig,
+    prefix: str,
+) -> str:
+    digest = hashlib.sha256()
+    digest.update(
+        pd.util.hash_pandas_object(train_features, index=True).to_numpy().tobytes()
+    )
+    digest.update(np.asarray(y).tobytes())
+    digest.update(
+        pd.util.hash_pandas_object(test_features, index=True).to_numpy().tobytes()
+    )
+    digest.update(
+        json.dumps(
+            {"config": asdict(config), "prefix": prefix},
+            sort_keys=True,
+        ).encode()
+    )
+    return digest.hexdigest()
+
+
+def _atomic_savez(path: Path, **arrays: Any) -> None:
+    temporary = path.with_suffix(path.suffix + ".tmp")
+    with temporary.open("wb") as handle:
+        np.savez_compressed(handle, **arrays)
+    os.replace(temporary, path)
+
+
+def _load_matching(path: Path, signature: str):
+    saved = np.load(path)
+    if "signature" not in saved or str(saved["signature"]) != signature:
+        saved.close()
+        raise ValueError(f"stale or incompatible cache: {path}")
+    return saved
 
 
 def run_cv_seed(
@@ -116,18 +160,20 @@ def run_cv_seed(
 ) -> tuple[np.ndarray, np.ndarray, dict[str, Any]]:
     """Run one outer-CV seed with fold-level durable checkpoints."""
     output_dir.mkdir(parents=True, exist_ok=True)
-    final_path = output_dir / f"{prefix}_seed{seed}.npz"
+    cache_prefix = f"{config.family}_{prefix}"
+    signature = _cache_signature(train_features, y, test_features, config, prefix)
+    final_path = output_dir / f"{cache_prefix}_seed{seed}.npz"
     if final_path.exists():
-        saved = np.load(final_path)
+        saved = _load_matching(final_path, signature)
         return saved["oof"], saved["test"], json.loads(str(saved["metrics"]))
 
-    partial_path = output_dir / f"{prefix}_seed{seed}_partial.npz"
+    partial_path = output_dir / f"{cache_prefix}_seed{seed}_partial.npz"
     oof = np.zeros(len(y), dtype=float)
     test_sum = np.zeros(len(test_features), dtype=float)
     completed: list[int] = []
     fold_auc: list[float] = []
     if partial_path.exists():
-        saved = np.load(partial_path)
+        saved = _load_matching(partial_path, signature)
         oof = saved["oof"]
         test_sum = saved["test_sum"]
         completed = saved["completed"].astype(int).tolist()
@@ -147,23 +193,22 @@ def run_cv_seed(
             seed + fold * 1009,
             output_dir / "tmp" / f"{prefix}_{seed}_{fold}",
         )
-        model.fit(
-            fit,
-            y[fit_index],
-            cat_col_names=categorical,
-            time_to_fit_in_seconds=config.time_limit_seconds,
-        )
+        fit_kwargs = {"cat_col_names": categorical}
+        if config.family == "realmlp":
+            fit_kwargs["time_to_fit_in_seconds"] = config.time_limit_seconds
+        model.fit(fit, y[fit_index], **fit_kwargs)
         valid_prediction = model.predict_proba(valid)[:, 1]
         oof[valid_index] = valid_prediction
         test_sum += model.predict_proba(test)[:, 1]
         fold_auc.append(float(roc_auc_score(y[valid_index], valid_prediction)))
         completed.append(fold)
-        np.savez_compressed(
+        _atomic_savez(
             partial_path,
             oof=oof,
             test_sum=test_sum,
             completed=np.asarray(completed),
             fold_auc=np.asarray(fold_auc),
+            signature=signature,
         )
         print(
             f"{prefix} seed={seed} fold={fold} auc={fold_auc[-1]:.6f}",
@@ -177,11 +222,12 @@ def run_cv_seed(
         "fold_auc": fold_auc,
         "pooled_auc": float(roc_auc_score(y, oof)),
     }
-    np.savez_compressed(
+    _atomic_savez(
         final_path,
         oof=oof,
         test=test_prediction,
         metrics=json.dumps(metrics),
+        signature=signature,
     )
     partial_path.unlink(missing_ok=True)
     return oof, test_prediction, metrics
@@ -198,13 +244,13 @@ def _sha256(path: Path) -> str:
 def main() -> int:  # pragma: no cover - exercised by full competition runs
     parser = argparse.ArgumentParser()
     parser.add_argument("--data-dir", type=Path, default=Path("."))
-    parser.add_argument(
-        "--output-dir", type=Path, default=Path("artifacts/realmlp_arm")
-    )
+    parser.add_argument("--output-dir", type=Path)
     parser.add_argument("--mode", choices=("screen", "gate"), default="screen")
     parser.add_argument("--family", choices=("realmlp", "tabm"), default="realmlp")
     parser.add_argument("--v1-oof", type=Path)
     args = parser.parse_args()
+    if args.output_dir is None:
+        args.output_dir = Path(f"artifacts/{args.family}_arm")
 
     train = pd.read_csv(args.data_dir / "train.csv")
     test = pd.read_csv(args.data_dir / "test.csv")
@@ -265,7 +311,7 @@ def main() -> int:  # pragma: no cover - exercised by full competition runs
             shuffled_auc.append(metrics["pooled_auc"])
         report["shuffled_seed_auc"] = shuffled_auc
         report["shuffled_mean"] = float(np.mean(shuffled_auc))
-        report["passes_shuffled_gate"] = report["shuffled_mean"] < 0.53
+        report["passes_shuffled_gate"] = 0.47 < report["shuffled_mean"] < 0.53
 
     args.output_dir.mkdir(parents=True, exist_ok=True)
     np.savez_compressed(

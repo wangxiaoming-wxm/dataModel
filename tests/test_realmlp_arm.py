@@ -43,7 +43,7 @@ def test_realmlp_cv_seed_writes_and_reuses_checkpoint(monkeypatch, tmp_path) -> 
             features,
             target,
             cat_col_names,
-            time_to_fit_in_seconds,
+            time_to_fit_in_seconds=None,
         ):
             return self
 
@@ -68,3 +68,19 @@ def test_realmlp_cv_seed_writes_and_reuses_checkpoint(monkeypatch, tmp_path) -> 
     assert first[2]["pooled_auc"] == pytest.approx(1.0)
     assert np.array_equal(first[0], second[0])
     assert np.array_equal(first[1], second[1])
+    assert (tmp_path / "realmlp_real_seed42.npz").exists()
+
+    tabm_config = RealMLPConfig(family="tabm", folds=2, epochs=1)
+    tabm = run_cv_seed(train_features, y, test_features, 42, tmp_path, tabm_config)
+    assert tabm[2]["pooled_auc"] == pytest.approx(1.0)
+    assert (tmp_path / "tabm_real_seed42.npz").exists()
+
+    with pytest.raises(ValueError, match="incompatible cache"):
+        run_cv_seed(
+            train_features,
+            y,
+            test_features,
+            42,
+            tmp_path,
+            RealMLPConfig(folds=2, epochs=2),
+        )

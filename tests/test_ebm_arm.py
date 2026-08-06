@@ -107,3 +107,13 @@ def test_cv_seed_writes_and_reuses_checkpoint(monkeypatch, tmp_path) -> None:
     assert np.array_equal(first[1], second[1])
     assert (tmp_path / "real_seed42.npz").exists()
     assert not (tmp_path / "real_seed42_partial.npz").exists()
+
+    with pytest.raises(ValueError, match="incompatible cache"):
+        run_cv_seed(
+            train_features,
+            y,
+            test_features,
+            42,
+            tmp_path,
+            EBMConfig(folds=2, max_bins=64),
+        )
