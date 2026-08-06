@@ -29,7 +29,8 @@ seed，也不进入 shuffled 门禁。
 | TabM | 首折 0.57451 | — | 未融合 | 提前淘汰 |
 
 EBM 与 V1 的等权 rank 融合相对 V1 下降 `0.01571`，配对 bootstrap 95% CI
-`[-0.01947, -0.01196]`。RealMLP 和 TabM 的早期折结果远离可晋级区间，按惜枪
+`[-0.01947, -0.01196]`。Bootstrap 固定使用 seed `73`、3,000 次逐行有放回
+配对抽样和 `[0.025, 0.975]` 分位数。RealMLP 和 TabM 的早期折结果远离可晋级区间，按惜枪
 与算力止损原则中止；未选择性补报最好折。
 
 ## 门禁判定
@@ -40,4 +41,5 @@ EBM 与 V1 的等权 rank 融合相对 V1 下降 `0.01571`，配对 bootstrap 95
 - 没有候选稳定高于 V1 `0.693`，`SUBMIT_GATE_0.72` 为 **FAIL**。
 - **未生成、未建议任何正式提交文件。**
 
-机器可读证据：`artifacts/research_gate_20260806.json`。
+确定性复算脚本：`scripts/rebuild_research_gate.py`。机器可读证据：
+`artifacts/research_gate_20260806.json`。

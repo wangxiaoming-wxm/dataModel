@@ -1,5 +1,9 @@
 {
   "policy": "NO_FORMAL_SUBMISSION",
+  "rebuild": {
+    "script": "scripts/rebuild_research_gate.py",
+    "command": "PYTHONPATH=src python3 scripts/rebuild_research_gate.py --handover-dir /path/to/20260806-cursor"
+  },
   "handover_reproduction": {
     "v1_oof": 0.6929595789847504,
     "v1_submission_sha256": "49ece5755addf909ef0fd36146d3a1341de0fc5abf4f74a941d87f97df6663b8",
@@ -22,10 +26,20 @@
       "spearman_test_vs_v1": 0.8988015343320154,
       "equal_rank_blend_oof": 0.6772478450799875,
       "blend_delta_vs_v1": -0.01571173390476288,
-      "blend_delta_ci95": [
-        -0.019473034873895737,
-        -0.011959179368514658
-      ]
+      "blend_bootstrap": {
+        "method": "paired row bootstrap with replacement",
+        "seed": 73,
+        "requested_samples": 3000,
+        "valid_samples": 3000,
+        "quantiles": [
+          0.025,
+          0.975
+        ],
+        "ci95": [
+          -0.019473034873895737,
+          -0.011959179368514658
+        ]
+      }
     },
     "realmlp": {
       "decision": "EARLY_REJECT",
@@ -37,7 +51,7 @@
         0.5994175395744281,
         0.6005201759581956
       ],
-      "reason": "first two folds far below V1-compatible range"
+      "reason": "first two consecutive folds far below V1 range"
     },
     "tabm": {
       "decision": "EARLY_REJECT",
@@ -47,7 +61,7 @@
       "fold_auc": [
         0.5745135131672781
       ],
-      "reason": "first fold far below V1-compatible range"
+      "reason": "first consecutive fold far below V1 range"
     }
   },
   "gate": {
