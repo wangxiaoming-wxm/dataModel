@@ -1,0 +1,325 @@
+{
+  "clean_B5_no_groupstats": {
+    "recipe": "clean_B5_no_groupstats",
+    "pooled_oof_auc": 0.6982129010197606,
+    "seed_aucs": {
+      "2026": 0.6911352211922976,
+      "2027": 0.6901429965790369,
+      "2028": 0.6939672484772057,
+      "2029": 0.6889352699949605
+    },
+    "seed_mean": 0.6910451840608751,
+    "seed_std": 0.0018582415583119373,
+    "n_feat": 160,
+    "n_cat": 91,
+    "elapsed_sec": 1480.1,
+    "folds": [
+      {
+        "seed": 2026,
+        "fold": 0,
+        "auc": 0.705755321360247,
+        "best": 223
+      },
+      {
+        "seed": 2026,
+        "fold": 1,
+        "auc": 0.6861439882102979,
+        "best": 349
+      },
+      {
+        "seed": 2026,
+        "fold": 2,
+        "auc": 0.6960243361757901,
+        "best": 525
+      },
+      {
+        "seed": 2026,
+        "fold": 3,
+        "auc": 0.663271567674409,
+        "best": 172
+      },
+      {
+        "seed": 2026,
+        "fold": 4,
+        "auc": 0.7072623479771656,
+        "best": 319
+      },
+      {
+        "seed": 2027,
+        "fold": 0,
+        "auc": 0.6709911340742557,
+        "best": 606
+      },
+      {
+        "seed": 2027,
+        "fold": 1,
+        "auc": 0.6940614602950164,
+        "best": 1458
+      },
+      {
+        "seed": 2027,
+        "fold": 2,
+        "auc": 0.706405049457751,
+        "best": 558
+      },
+      {
+        "seed": 2027,
+        "fold": 3,
+        "auc": 0.6913990687230603,
+        "best": 137
+      },
+      {
+        "seed": 2027,
+        "fold": 4,
+        "auc": 0.6955609332340532,
+        "best": 403
+      },
+      {
+        "seed": 2028,
+        "fold": 0,
+        "auc": 0.6744476377653834,
+        "best": 778
+      },
+      {
+        "seed": 2028,
+        "fold": 1,
+        "auc": 0.7180242291324636,
+        "best": 671
+      },
+      {
+        "seed": 2028,
+        "fold": 2,
+        "auc": 0.690107080667104,
+        "best": 366
+      },
+      {
+        "seed": 2028,
+        "fold": 3,
+        "auc": 0.6946688689378938,
+        "best": 250
+      },
+      {
+        "seed": 2028,
+        "fold": 4,
+        "auc": 0.6946698932737653,
+        "best": 191
+      },
+      {
+        "seed": 2029,
+        "fold": 0,
+        "auc": 0.6938399055031473,
+        "best": 222
+      },
+      {
+        "seed": 2029,
+        "fold": 1,
+        "auc": 0.7023734990596368,
+        "best": 261
+      },
+      {
+        "seed": 2029,
+        "fold": 2,
+        "auc": 0.692611396629131,
+        "best": 557
+      },
+      {
+        "seed": 2029,
+        "fold": 3,
+        "auc": 0.6907306702779268,
+        "best": 470
+      },
+      {
+        "seed": 2029,
+        "fold": 4,
+        "auc": 0.6747530404566889,
+        "best": 771
+      }
+    ],
+    "cat_params": {
+      "loss_function": "Logloss",
+      "eval_metric": "AUC",
+      "iterations": 1500,
+      "learning_rate": 0.03,
+      "depth": 6,
+      "l2_leaf_reg": 12,
+      "random_strength": 0.8,
+      "od_type": "Iter",
+      "od_wait": 180,
+      "thread_count": -1,
+      "allow_writing_files": false
+    },
+    "dual_cols": [
+      "region",
+      "source",
+      "x19_cat",
+      "x20_cat",
+      "age_range",
+      "livability",
+      "version",
+      "month"
+    ],
+    "policy": "no TE; fold-local blocks+group stats; equal seed avg; no OOF weight search"
+  },
+  "clean_B5_fold_groupstats": {
+    "recipe": "clean_B5_fold_groupstats",
+    "pooled_oof_auc": 0.6956555379876583,
+    "seed_aucs": {
+      "2026": 0.6906052485552263,
+      "2027": 0.68770684407589,
+      "2028": 0.6897023893401609,
+      "2029": 0.6894002586620747
+    },
+    "seed_mean": 0.689353685158338,
+    "seed_std": 0.001049078188809135,
+    "n_feat": 170,
+    "n_cat": 91,
+    "elapsed_sec": 722.1,
+    "folds": [
+      {
+        "seed": 2026,
+        "fold": 0,
+        "auc": 0.7019639961016314,
+        "best": 218
+      },
+      {
+        "seed": 2026,
+        "fold": 1,
+        "auc": 0.6864078624567936,
+        "best": 369
+      },
+      {
+        "seed": 2026,
+        "fold": 2,
+        "auc": 0.6962172631012942,
+        "best": 513
+      },
+      {
+        "seed": 2026,
+        "fold": 3,
+        "auc": 0.6647477698269756,
+        "best": 414
+      },
+      {
+        "seed": 2026,
+        "fold": 4,
+        "auc": 0.7084872176718789,
+        "best": 583
+      },
+      {
+        "seed": 2027,
+        "fold": 0,
+        "auc": 0.6692523023650352,
+        "best": 447
+      },
+      {
+        "seed": 2027,
+        "fold": 1,
+        "auc": 0.6882350671447934,
+        "best": 862
+      },
+      {
+        "seed": 2027,
+        "fold": 2,
+        "auc": 0.6982846929287926,
+        "best": 361
+      },
+      {
+        "seed": 2027,
+        "fold": 3,
+        "auc": 0.6890515836811205,
+        "best": 237
+      },
+      {
+        "seed": 2027,
+        "fold": 4,
+        "auc": 0.6960995284189625,
+        "best": 424
+      },
+      {
+        "seed": 2028,
+        "fold": 0,
+        "auc": 0.6689871834286973,
+        "best": 592
+      },
+      {
+        "seed": 2028,
+        "fold": 1,
+        "auc": 0.7092653467145789,
+        "best": 310
+      },
+      {
+        "seed": 2028,
+        "fold": 2,
+        "auc": 0.687500700138036,
+        "best": 302
+      },
+      {
+        "seed": 2028,
+        "fold": 3,
+        "auc": 0.6968458314714848,
+        "best": 225
+      },
+      {
+        "seed": 2028,
+        "fold": 4,
+        "auc": 0.6904852320675106,
+        "best": 447
+      },
+      {
+        "seed": 2029,
+        "fold": 0,
+        "auc": 0.6948132529595612,
+        "best": 267
+      },
+      {
+        "seed": 2029,
+        "fold": 1,
+        "auc": 0.7045753553900671,
+        "best": 256
+      },
+      {
+        "seed": 2029,
+        "fold": 2,
+        "auc": 0.694718656531572,
+        "best": 714
+      },
+      {
+        "seed": 2029,
+        "fold": 3,
+        "auc": 0.6889358275258181,
+        "best": 468
+      },
+      {
+        "seed": 2029,
+        "fold": 4,
+        "auc": 0.6714693472325639,
+        "best": 789
+      }
+    ],
+    "cat_params": {
+      "loss_function": "Logloss",
+      "eval_metric": "AUC",
+      "iterations": 1500,
+      "learning_rate": 0.03,
+      "depth": 6,
+      "l2_leaf_reg": 12,
+      "random_strength": 0.8,
+      "od_type": "Iter",
+      "od_wait": 180,
+      "thread_count": -1,
+      "allow_writing_files": false
+    },
+    "dual_cols": [
+      "region",
+      "source",
+      "x19_cat",
+      "x20_cat",
+      "age_range",
+      "livability",
+      "version",
+      "month"
+    ],
+    "policy": "no TE; fold-local blocks+group stats; equal seed avg; no OOF weight search"
+  },
+  "equal_blend_auc": 0.6971856467626638
+}
