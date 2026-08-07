@@ -31,7 +31,6 @@ GAP_CAT_COLS = (
     "gap_w_pair",
     "gap_age_coarse",
     "gap_ratio5",
-    "gap_ratio10",
     "gap_days5",
     "gap_cond5",
     "gap_t3sfx_code_days5",
@@ -39,21 +38,13 @@ GAP_CAT_COLS = (
     "gap_agec_days5",
     "gap_ratio5_region",
     "gap_ratio5_source",
-    "gap_ratio5_code",
-    "gap_ratio5_t3sfx",
     "gap_daysfix_source",
     "gap_daysfix_cond5",
-    "gap_daysfix_t3sfx",
-    "gap_daysfix_code",
     "gap_code_days5",
-    "gap_car_days5",
     "gap_version_days5",
     "gap_wpair_ratio5",
     "gap_cond5_source",
     "gap_tpair_days5",
-    "gap_rpair_days5",
-    "gap_cpair_days5",
-    "gap_agec_ratio5",
 )
 
 
@@ -75,7 +66,6 @@ def fit_gap_edges(X_tr: pd.DataFrame) -> dict[str, np.ndarray]:
         "days5": _quantile_edges(days, 5),
         "cond5": _quantile_edges(cond, 5),
         "ratio5": _quantile_edges(ratio, 5),
-        "ratio10": _quantile_edges(ratio, 10),
     }
 
 
@@ -117,7 +107,6 @@ def add_gap_cats(frame: pd.DataFrame, edges: dict[str, np.ndarray]) -> pd.DataFr
     days5 = _bin_codes(days, edges["days5"], "d5")
     cond5 = _bin_codes(cond, edges["cond5"], "c5")
     ratio5 = _bin_codes(ratio, edges["ratio5"], "r5")
-    ratio10 = _bin_codes(ratio, edges["ratio10"], "r10")
     days_fixed = _days_fixed(days)
 
     t3_sfx = _t3_sfx(out["t3"]) if "t3" in out.columns else pd.Series("__NONE__", index=out.index)
@@ -125,8 +114,6 @@ def add_gap_cats(frame: pd.DataFrame, edges: dict[str, np.ndarray]) -> pd.DataFr
     region = out["region"].astype(str) if "region" in out.columns else pd.Series("__NA__", index=out.index)
     source = out["source"].astype(str) if "source" in out.columns else pd.Series("__NA__", index=out.index)
     version = out["version"].astype(str) if "version" in out.columns else pd.Series("__NA__", index=out.index)
-    # car token from source CAR_x|ENG_y
-    car = source.str.extract(r"(CAR_\d+)", expand=False).fillna("__NA__")
 
     w1 = pd.to_numeric(out.get("w1"), errors="coerce").fillna(-1).astype(int)
     w2 = pd.to_numeric(out.get("w2"), errors="coerce").fillna(-1).astype(int)
@@ -139,19 +126,12 @@ def add_gap_cats(frame: pd.DataFrame, edges: dict[str, np.ndarray]) -> pd.DataFr
     t1 = pd.to_numeric(out.get("t1"), errors="coerce").fillna(0).astype(int).clip(0, 1)
     t2 = pd.to_numeric(out.get("t2"), errors="coerce").fillna(0).astype(int).clip(0, 1)
     t_pair = t1.astype(str) + "_" + t2.astype(str)
-    r1 = pd.to_numeric(out.get("r1"), errors="coerce").fillna(0).astype(int).clip(0, 1)
-    r2 = pd.to_numeric(out.get("r2"), errors="coerce").fillna(0).astype(int).clip(0, 1)
-    r_pair = r1.astype(str) + "_" + r2.astype(str)
-    c1 = pd.to_numeric(out.get("c1"), errors="coerce").fillna(0).astype(int).clip(0, 1)
-    c2 = pd.to_numeric(out.get("c2"), errors="coerce").fillna(0).astype(int).clip(0, 1)
-    c_pair = c1.astype(str) + "_" + c2.astype(str)
 
     out["gap_days_fixed"] = days_fixed.astype(str)
     out["gap_t3_sfx"] = t3_sfx
     out["gap_w_pair"] = w_pair
     out["gap_age_coarse"] = age_coarse.astype(str)
     out["gap_ratio5"] = ratio5
-    out["gap_ratio10"] = ratio10
     out["gap_days5"] = days5
     out["gap_cond5"] = cond5
     out["gap_t3sfx_code_days5"] = (t3_sfx + "|" + code + "|" + days5).astype(str)
@@ -159,19 +139,11 @@ def add_gap_cats(frame: pd.DataFrame, edges: dict[str, np.ndarray]) -> pd.DataFr
     out["gap_agec_days5"] = (age_coarse.astype(str) + "|" + days5).astype(str)
     out["gap_ratio5_region"] = (ratio5 + "|" + region).astype(str)
     out["gap_ratio5_source"] = (ratio5 + "|" + source).astype(str)
-    out["gap_ratio5_code"] = (ratio5 + "|" + code).astype(str)
-    out["gap_ratio5_t3sfx"] = (ratio5 + "|" + t3_sfx).astype(str)
     out["gap_daysfix_source"] = (days_fixed.astype(str) + "|" + source).astype(str)
     out["gap_daysfix_cond5"] = (days_fixed.astype(str) + "|" + cond5).astype(str)
-    out["gap_daysfix_t3sfx"] = (days_fixed.astype(str) + "|" + t3_sfx).astype(str)
-    out["gap_daysfix_code"] = (days_fixed.astype(str) + "|" + code).astype(str)
     out["gap_code_days5"] = (code + "|" + days5).astype(str)
-    out["gap_car_days5"] = (car + "|" + days5).astype(str)
     out["gap_version_days5"] = (version + "|" + days5).astype(str)
     out["gap_wpair_ratio5"] = (w_pair + "|" + ratio5).astype(str)
     out["gap_cond5_source"] = (cond5 + "|" + source).astype(str)
     out["gap_tpair_days5"] = (t_pair + "|" + days5).astype(str)
-    out["gap_rpair_days5"] = (r_pair + "|" + days5).astype(str)
-    out["gap_cpair_days5"] = (c_pair + "|" + days5).astype(str)
-    out["gap_agec_ratio5"] = (age_coarse.astype(str) + "|" + ratio5).astype(str)
     return out
