@@ -22,48 +22,43 @@
 
 ## 1. 策略总览
 
-**主路径**：B5 主臂保留 + 三条近强度异构臂 → **预注册 equal-prob** 融合 → 种子扩到 **12**。
+**主路径（数据挖掘后更新）**：B5 主臂 + **gap 缺口猫特征臂** → **预注册 equal-prob(b5, gap)** → 种子 ≥8（目标 12）。  
+`fixed` 作早停对照臂（披露）；`biz`/`parse`/`lossguide` 为筛选臂，不进入默认融合。
 
 ```text
-B6 = equal_prob( Arm_B5, Arm_Lossguide, Arm_Fixed, Arm_Parse )
+B6 = equal_prob( Arm_B5, Arm_Gap )
      × seeds(2026..2037) 等权
 ```
 
-副报告：同臂集合上的 `equal_rank`（不参与选型，只披露）。  
-若某臂单 seed 明显弱于 B5（Δ < −0.008），该臂在 **后续扩种子前** 可按预注册规则剔除（见 §4），不是 OOF 搜权。
+依据：1-seed CatBoost 探针 B5 0.688 → B5+gap 0.691（+0.003）；lossguide≈0.68 会拖分。  
+副报告：同臂集合上的 `equal_rank`（不参与选型，只披露）。
 
 ---
 
-## 2. 四臂定义（预注册）
+## 2. 臂定义（预注册）
 
 ### Arm A — `b5`（主臂，复用 `build_b5`）
 
 - FE：丢 `x0..x18`；`x19/x20` 作 cat；days/condition 语义交叉；dual order-3
-- 参数：`iterations=1400, lr=0.03, depth=6, l2=10, od_type=Iter, od_wait=150, use_best_model=True`
+- 参数：`iterations=1400, lr=0.03, depth=6, l2=10, od_type=Iter, od_wait=150, use_best_model=True, thread_count=8`
 - 角色：锚点；强度天花板
 
-### Arm B — `lossguide`（同 FE，叶向生长）
+### Arm B — `gap`（主抬分臂，B5 + 挖掘缺口猫特征）
 
-- FE：与 B5 **完全相同**（`build_b5`）
-- 参数差异：
-  - `grow_policy="Lossguide"`
-  - `max_leaves=31`
-  - `depth=6`（限制树深；`depth=0` 实测无效）
-  - 其余与 B5 对齐（含 od 早停）
-- 角色：改变分裂顺序，制造预测残差相关但不等同的 OOF
-- 失败门槛：单 seed OOF < B5_same_seed − 0.008 → 标记弱臂
+- FE：`build_b5` + 折内分箱的 P0/P1 猫交叉（`ratio_q5×region/source`、`t3_sfx×code×days5`、`w_pair×days5`、`days_fixed×cond5/source`、`age_coarse` 等）
+- 参数：与 B5 相同；**无 TE**
+- 角色：吃满 B5 未覆盖的暴露/条款/车况强度切割
 
-### Arm C — `fixed`（固定迭代稳健臂）
+### Arm C — `fixed`（固定迭代稳健对照）
 
-- FE：同 B5
-- 参数：去掉 `od_type/od_wait`；`iterations=400`（B5 best_iter 中位数≈408）；`use_best_model=False`
-- 角色：对冲早停乐观与折间 early-stop 噪声；略欠拟合但偏差结构不同
+- FE：同 B5；`iterations=400`；无 OD / `use_best_model=False`
+- 角色：对冲早停乐观（审计要求）
 
-### Arm D — `parse`（解析增强臂）
+### Arm D/E/F — 筛选臂（默认不融合）
 
-- FE：`build_b5` 输出 **再拼接** 折内 `DomainParseFeatureBlock`（t3/source/version 解析键、car/eng、ver_era、业务 key）
-- 参数：与 B5 相同（含 od）
-- 角色：在 B5 骨架上注入更细的业务 token，不引入 TE
+- `biz`：lean business FE（`build_lean`）
+- `parse`：B5 + DomainParse
+- `lossguide`：同 B5 FE + Lossguide（历史弱，默认剔除）
 
 ---
 
