@@ -8,4 +8,14 @@ artifacts/**/*.npz
 artifacts/**/*.log
 *.zip
 
+# Audit / independent recompute: keep frozen OOF for B6/B7 closest & fuse0
+!artifacts/b6_frozen/
+!artifacts/b6_frozen/**
+!artifacts/b7_closest/
+!artifacts/b7_closest/**
+!artifacts/b7_fuse0_b6/
+!artifacts/b7_fuse0_b6/**
+!artifacts/b7_audit/
+!artifacts/b7_audit/**
+
 catboost_info/
