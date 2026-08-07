@@ -41,9 +41,9 @@ from insurance_claim.train_b5_focus import CAT_PARAMS, N_SPLITS, build_b5, enric
 from insurance_claim.train_lean_business import build_lean
 
 SEEDS_DEFAULT = tuple(range(2026, 2038))  # 12 seeds
-ARMS_ALL = ("b5", "gap", "gap_bag", "biz", "fixed", "parse", "lossguide")
-ARMS_DEFAULT = ("b5", "gap", "gap_bag")
-FUSE_DEFAULT = ("gap", "gap_bag")  # pre-registered: bagging-diverse near-strength pair
+ARMS_ALL = ("b5", "gap", "gap_bag", "bag_hot", "biz", "fixed", "parse", "lossguide")
+ARMS_DEFAULT = ("gap", "gap_bag", "bag_hot")
+FUSE_DEFAULT = ("gap", "gap_bag", "bag_hot")  # hotter bagging adds residual diversity
 
 # Pre-registered weak-arm drop thresholds vs b5 seed-mean (not continuous weight search).
 WEAK_DELTA = {
@@ -52,6 +52,7 @@ WEAK_DELTA = {
     "biz": -0.008,
     "gap": -0.010,
     "gap_bag": -0.010,
+    "bag_hot": -0.010,
     "fixed": -0.015,
 }
 
@@ -63,6 +64,13 @@ PARAMS_GAP_BAG = {
     **PARAMS_B5,
     "bagging_temperature": 1.0,
     "random_strength": 1.2,
+}
+
+# Hotter Bayesian bagging (1-seed screen: solo 0.69257; mean with gap+gap_bag → 0.69358).
+PARAMS_BAG_HOT = {
+    **PARAMS_B5,
+    "bagging_temperature": 2.0,
+    "random_strength": 1.5,
 }
 
 PARAMS_LOSSGUIDE = dict(
@@ -265,6 +273,8 @@ def arm_spec(name: str) -> tuple[Any, dict[str, Any], bool]:
         return build_gap, PARAMS_B5, True
     if name == "gap_bag":
         return build_gap, PARAMS_GAP_BAG, True
+    if name == "bag_hot":
+        return build_gap, PARAMS_BAG_HOT, True
     if name == "biz":
         return build_lean, PARAMS_BIZ, True
     if name == "lossguide":
