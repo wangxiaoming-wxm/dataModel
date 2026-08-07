@@ -1,0 +1,314 @@
+{
+  "experiment_id": "b7_plus_mine_h2",
+  "oof_auc": 0.6860946843311607,
+  "seed_aucs": {
+    "2026": 0.6836412160381632,
+    "2027": 0.683174087776326,
+    "2028": 0.6804662565013825,
+    "2029": 0.6839088146525816
+  },
+  "seeds": [
+    2026,
+    2027,
+    2028,
+    2029
+  ],
+  "n_splits": 10,
+  "params": {
+    "loss_function": "Logloss",
+    "eval_metric": "AUC",
+    "iterations": 2500,
+    "learning_rate": 0.02,
+    "depth": 7,
+    "l2_leaf_reg": 20,
+    "random_strength": 1.0,
+    "od_type": "Iter",
+    "od_wait": 150,
+    "thread_count": 8,
+    "allow_writing_files": false
+  },
+  "elapsed_sec": 1572.1,
+  "folds": [
+    {
+      "seed": 2026,
+      "fold": 0,
+      "valid_auc": 0.674042225950783,
+      "best_iter": 1064,
+      "n_features": 104
+    },
+    {
+      "seed": 2026,
+      "fold": 1,
+      "valid_auc": 0.7088027325023969,
+      "best_iter": 572,
+      "n_features": 104
+    },
+    {
+      "seed": 2026,
+      "fold": 2,
+      "valid_auc": 0.6829358421220836,
+      "best_iter": 489,
+      "n_features": 104
+    },
+    {
+      "seed": 2026,
+      "fold": 3,
+      "valid_auc": 0.6743318552253116,
+      "best_iter": 630,
+      "n_features": 104
+    },
+    {
+      "seed": 2026,
+      "fold": 4,
+      "valid_auc": 0.6800645321419706,
+      "best_iter": 893,
+      "n_features": 104
+    },
+    {
+      "seed": 2026,
+      "fold": 5,
+      "valid_auc": 0.6925788036733681,
+      "best_iter": 345,
+      "n_features": 104
+    },
+    {
+      "seed": 2026,
+      "fold": 6,
+      "valid_auc": 0.6506279473814842,
+      "best_iter": 797,
+      "n_features": 104
+    },
+    {
+      "seed": 2026,
+      "fold": 7,
+      "valid_auc": 0.6888260114172251,
+      "best_iter": 837,
+      "n_features": 104
+    },
+    {
+      "seed": 2026,
+      "fold": 8,
+      "valid_auc": 0.721350210970464,
+      "best_iter": 403,
+      "n_features": 104
+    },
+    {
+      "seed": 2026,
+      "fold": 9,
+      "valid_auc": 0.6772549019607843,
+      "best_iter": 1175,
+      "n_features": 104
+    },
+    {
+      "seed": 2027,
+      "fold": 0,
+      "valid_auc": 0.6689137903483541,
+      "best_iter": 270,
+      "n_features": 104
+    },
+    {
+      "seed": 2027,
+      "fold": 1,
+      "valid_auc": 0.6554310482582294,
+      "best_iter": 406,
+      "n_features": 104
+    },
+    {
+      "seed": 2027,
+      "fold": 2,
+      "valid_auc": 0.6722994566954298,
+      "best_iter": 459,
+      "n_features": 104
+    },
+    {
+      "seed": 2027,
+      "fold": 3,
+      "valid_auc": 0.6884437919463089,
+      "best_iter": 363,
+      "n_features": 104
+    },
+    {
+      "seed": 2027,
+      "fold": 4,
+      "valid_auc": 0.6798262596177711,
+      "best_iter": 893,
+      "n_features": 104
+    },
+    {
+      "seed": 2027,
+      "fold": 5,
+      "valid_auc": 0.7037279722015388,
+      "best_iter": 503,
+      "n_features": 104
+    },
+    {
+      "seed": 2027,
+      "fold": 6,
+      "valid_auc": 0.6852320675105484,
+      "best_iter": 353,
+      "n_features": 104
+    },
+    {
+      "seed": 2027,
+      "fold": 7,
+      "valid_auc": 0.7018068999751799,
+      "best_iter": 479,
+      "n_features": 104
+    },
+    {
+      "seed": 2027,
+      "fold": 8,
+      "valid_auc": 0.7078729213204271,
+      "best_iter": 1124,
+      "n_features": 104
+    },
+    {
+      "seed": 2027,
+      "fold": 9,
+      "valid_auc": 0.6803971208736659,
+      "best_iter": 902,
+      "n_features": 104
+    },
+    {
+      "seed": 2028,
+      "fold": 0,
+      "valid_auc": 0.6586469319271333,
+      "best_iter": 474,
+      "n_features": 104
+    },
+    {
+      "seed": 2028,
+      "fold": 1,
+      "valid_auc": 0.6618927772451262,
+      "best_iter": 619,
+      "n_features": 104
+    },
+    {
+      "seed": 2028,
+      "fold": 2,
+      "valid_auc": 0.7169722754873762,
+      "best_iter": 497,
+      "n_features": 104
+    },
+    {
+      "seed": 2028,
+      "fold": 3,
+      "valid_auc": 0.6803341722595078,
+      "best_iter": 411,
+      "n_features": 104
+    },
+    {
+      "seed": 2028,
+      "fold": 4,
+      "valid_auc": 0.6857880367336808,
+      "best_iter": 597,
+      "n_features": 104
+    },
+    {
+      "seed": 2028,
+      "fold": 5,
+      "valid_auc": 0.6813154628940183,
+      "best_iter": 206,
+      "n_features": 104
+    },
+    {
+      "seed": 2028,
+      "fold": 6,
+      "valid_auc": 0.6916306775874907,
+      "best_iter": 993,
+      "n_features": 104
+    },
+    {
+      "seed": 2028,
+      "fold": 7,
+      "valid_auc": 0.6657433606353934,
+      "best_iter": 442,
+      "n_features": 104
+    },
+    {
+      "seed": 2028,
+      "fold": 8,
+      "valid_auc": 0.6823777612310746,
+      "best_iter": 319,
+      "n_features": 104
+    },
+    {
+      "seed": 2028,
+      "fold": 9,
+      "valid_auc": 0.6890791759741871,
+      "best_iter": 618,
+      "n_features": 104
+    },
+    {
+      "seed": 2029,
+      "fold": 0,
+      "valid_auc": 0.7081635506551615,
+      "best_iter": 482,
+      "n_features": 104
+    },
+    {
+      "seed": 2029,
+      "fold": 1,
+      "valid_auc": 0.6807336609140302,
+      "best_iter": 304,
+      "n_features": 104
+    },
+    {
+      "seed": 2029,
+      "fold": 2,
+      "valid_auc": 0.6971077021412591,
+      "best_iter": 294,
+      "n_features": 104
+    },
+    {
+      "seed": 2029,
+      "fold": 3,
+      "valid_auc": 0.702520773410035,
+      "best_iter": 732,
+      "n_features": 104
+    },
+    {
+      "seed": 2029,
+      "fold": 4,
+      "valid_auc": 0.6717398858277488,
+      "best_iter": 712,
+      "n_features": 104
+    },
+    {
+      "seed": 2029,
+      "fold": 5,
+      "valid_auc": 0.6925192355423182,
+      "best_iter": 628,
+      "n_features": 104
+    },
+    {
+      "seed": 2029,
+      "fold": 6,
+      "valid_auc": 0.6711044924298833,
+      "best_iter": 524,
+      "n_features": 104
+    },
+    {
+      "seed": 2029,
+      "fold": 7,
+      "valid_auc": 0.6852221394887069,
+      "best_iter": 219,
+      "n_features": 104
+    },
+    {
+      "seed": 2029,
+      "fold": 8,
+      "valid_auc": 0.657458426408538,
+      "best_iter": 1024,
+      "n_features": 104
+    },
+    {
+      "seed": 2029,
+      "fold": 9,
+      "valid_auc": 0.6912037726482998,
+      "best_iter": 532,
+      "n_features": 104
+    }
+  ],
+  "target_encoding": "none"
+}

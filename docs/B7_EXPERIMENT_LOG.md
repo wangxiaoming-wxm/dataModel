@@ -37,3 +37,20 @@ B6 冻结未动（独立监督 PASS）。
 1. 吃满 plus_mine / LGB 结果并 nested 融合
 2. 若仍 <0.71：继续挖第三近强度臂（corr≲0.93）或 FN 专用排序目标
 3. 独立监督仅在 nested≥0.71 时 PASS；否则 closest honest
+
+
+## 续：2026-08-07 下午迭代
+
+| 实验 | nested / 关键 | 结论 |
+|---|---:|---|
+| plus_mine 10×4 | solo **0.68609** | 弱于 V10 plus 0.68862；corr(plus)=0.982 同质 |
+| max(B6, plus_mine) | 0.69965 | 负于 fuse0 |
+| mean(plus,plus_mine)→plus2 × B6 max | 0.70123 | 仍低于 fuse0 **0.70221** |
+| lgb_gap 4seed | 0.69990 | 臂弱 ~0.668 |
+| ebm 2seed | 0.69512 | 臂弱 ~0.644 |
+| nested residual TE | corr_model 0.686 | 负 |
+| gap_v2 1seed | 0.691 | 高相关，不抬 max |
+
+**仍权威：** fuse0 nested max(B6, plus_v10) = **0.702209**（距 0.71 = 0.007791）
+
+进行中：hybrid(gap+x0–18)、plus H3/bag 集成。
