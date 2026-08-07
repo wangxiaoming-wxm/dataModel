@@ -1,0 +1,43 @@
+{
+  "experiment_id": "b7_closest_honest_max3",
+  "recipe": "elementwise_max(gap, gap_bag, plus_v10_h2_10)",
+  "nested_oof_auc": 0.7027049552615718,
+  "pooled_oof_auc": 0.7027049552615718,
+  "pair_fuse0_nested": 0.7022093156561012,
+  "arm_aucs": {
+    "gap": 0.6986833630687241,
+    "gap_bag": 0.6989061794680111,
+    "equal_b6": 0.6989746962571622,
+    "plus": 0.6886170674774439
+  },
+  "corr": {
+    "gap_plus": 0.9162041354763769,
+    "gap_bag_plus": 0.9213441402242984,
+    "eq_plus": 0.9196856795678329
+  },
+  "shuffled_plus_max3_auc": 0.6442427188098837,
+  "shuffled_plus_max3_pass": true,
+  "gate_0_71": false,
+  "gap_to_0_71": 0.007295,
+  "protocol_declaration": {
+    "no_test_labels": true,
+    "no_global_te": true,
+    "fold_local_fe": true,
+    "no_oof_weight_search": true,
+    "fusion_rule": "elementwise_max_three_arms",
+    "rule_selection": "nested_5fold_unanimous_max3_among_preregistered_max_family",
+    "b6_freeze_untampered": true,
+    "new_data_only": true,
+    "note": "Pair nested max(eq,plus)=0.702209 remains protocol-minimal; max3 is natural multi-arm extension of pre-registered max and was disclosed at B7 open."
+  },
+  "negatives_summary": [
+    "residual_corrector 0.6971",
+    "gate_soft 0.702209 (=fuse0 floor)",
+    "plus_mine 0.686 / max 0.6997",
+    "lgb_gap 0.6999",
+    "ebm 0.6951",
+    "hybrid 0.7017",
+    "plus_h3_bag_ens 0.7017",
+    "plus_pca_groupstats 0.6836"
+  ]
+}

@@ -1,0 +1,7 @@
+gate seed=2026 fold=0 auc=0.7316
+gate seed=2026 fold=1 auc=0.7158
+gate seed=2026 fold=2 auc=0.7408
+gate seed=2026 fold=3 auc=0.7490
+gate seed=2026 fold=4 auc=0.7319
+gate seed=2026 OOF-AUC(plus_better)=0.7325
+gate seed=2027 fold=0 auc=0.7266
