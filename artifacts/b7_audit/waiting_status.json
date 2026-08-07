@@ -1,8 +1,8 @@
 {
   "status": "WAITING_FOR_MAIN_PROCESS",
   "protocol": "IA-AUC710-B7-v1",
-  "checked_at_utc": "2026-08-07T10:10:37.899266+00:00",
-  "scan_cycle": 1,
+  "checked_at_utc": "2026-08-07T10:16:46.420178+00:00",
+  "scan_cycle": 2,
   "gate_threshold_nested_oof_auc": 0.71,
   "final_audit_trigger": "artifacts/b7_*/metrics.json with nested_oof_auc >= 0.71 and protocol-complete packet",
   "b6_freeze_check": "PASS",
@@ -15,10 +15,8 @@
       "gate_0_71": false,
       "ready_for_final_audit": false,
       "packet_notes": [
-        "incomplete_fields:protocol_id",
         "below_gate_0.71",
-        "max_dependency_selected_rule",
-        "only_max_full_data_near_peak_all_non_max_lt_0.71"
+        "max_dependency_selected_rule"
       ]
     },
     {
@@ -28,10 +26,19 @@
       "gate_0_71": false,
       "ready_for_final_audit": false,
       "packet_notes": [
-        "incomplete_fields:protocol_id",
         "below_gate_0.71",
-        "max_dependency_selected_rule",
-        "only_max_full_data_near_peak_all_non_max_lt_0.71"
+        "max_dependency_selected_rule"
+      ]
+    },
+    {
+      "path": "artifacts/b7_gate_soft/metrics.json",
+      "experiment_id": "b7_gate_soft",
+      "nested_oof_auc": 0.7022093156561012,
+      "gate_0_71": false,
+      "ready_for_final_audit": false,
+      "packet_notes": [
+        "below_gate_0.71",
+        "max_dependency_selected_rule"
       ]
     },
     {
@@ -57,15 +64,48 @@
       "arm_oof_auc_disclosure_only": 0.6790402414975492
     },
     {
+      "path": "artifacts/b7_resid/metrics.json",
+      "experiment_id": "b7_residual_corrector",
+      "nested_oof_auc": 0.6970980726530736,
+      "gate_0_71": false,
+      "ready_for_final_audit": false,
+      "packet_notes": [
+        "below_gate_0.71"
+      ]
+    },
+    {
       "path": "artifacts/b7_stack/metrics.json",
       "experiment_id": "b7_nested_logistic_stack",
       "nested_oof_auc": 0.6969451165093915,
       "gate_0_71": false,
       "ready_for_final_audit": false,
       "packet_notes": [
-        "incomplete_fields:protocol_id,data_sha256,nested,shuffled_*",
         "below_gate_0.71"
       ]
+    },
+    {
+      "path": "artifacts/b7_xgb/metrics.json",
+      "experiment_id": "b7_xgb_hetero",
+      "nested_oof_auc": 0.6983995433408249,
+      "gate_0_71": false,
+      "ready_for_final_audit": false,
+      "packet_notes": [
+        "below_gate_0.71"
+      ]
+    }
+  ],
+  "in_progress_dirs_without_metrics": [
+    {
+      "dir": "artifacts/b7_eda",
+      "files": [
+        "mining_summary.json",
+        "oof_resid_smoke.npy",
+        "residual_candidates.csv"
+      ]
+    },
+    {
+      "dir": "artifacts/b7_plus_full",
+      "files": []
     }
   ],
   "any_nested_ge_0_71": false,
@@ -73,5 +113,6 @@
   "closest_observed_nested_so_far": 0.7022093156561012,
   "closest_path": "artifacts/b7_fuse0_b6/metrics.json",
   "closest_experiment_id": "b7_fuse0_nested",
-  "gap_to_0_71": 0.007790684343898735
+  "gap_to_0_71": 0.007790684343898735,
+  "draft_closest_honest_note": "docs/supervision/B7_CLOSEST_HONEST_DRAFT.md"
 }
