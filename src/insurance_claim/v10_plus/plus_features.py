@@ -216,3 +216,41 @@ def build_plus(X_tr, X_va, X_te):
     tr, va, te, extra = extra_features(tr, va, te, X_tr, X_va, X_te)
     cats = cats + extra
     return prepare(tr, va, te, cats)
+
+
+def build_plus_mine(X_tr, X_va, X_te):
+    """Plus + B6 gap cats + FN-oriented crosses (fold-local, no TE)."""
+    from insurance_claim.b6_gap_features import GAP_CAT_COLS, add_gap_cats, fit_gap_edges
+    from insurance_claim.train_b5_focus import enrich
+
+    tr, va, te, cats = build_plus(X_tr, X_va, X_te)
+    edges = fit_gap_edges(X_tr)
+
+    def part(raw):
+        g = add_gap_cats(enrich(raw), edges)
+        d = parse_frame(raw)
+        out = g.loc[:, [c for c in GAP_CAT_COLS if c in g.columns]].copy()
+        out["mine_region_month"] = d["region"].astype(str) + "|" + d["month"].astype(str)
+        out["mine_source_code"] = d["source"].astype(str) + "|" + d["code"].astype(str)
+        out["mine_t3unit_code"] = d["t3_unit"].astype(str) + "|" + d["code"].astype(str)
+        car = d["car"].fillna(-1).astype(int).astype(str)
+        out["mine_car_code"] = car + "|" + d["code"].astype(str)
+        if "x19" in raw.columns:
+            out["mine_x19"] = raw["x19"].astype(str)
+        return out
+
+    def merge(a, b):
+        out = pd.concat([a.reset_index(drop=True), b.reset_index(drop=True)], axis=1)
+        return out.loc[:, ~out.columns.duplicated()]
+
+    gtr, gva, gte = part(X_tr), part(X_va), part(X_te)
+    tr = merge(tr, gtr)
+    va = merge(va, gva).reindex(columns=tr.columns)
+    te = merge(te, gte).reindex(columns=tr.columns)
+    extra = [
+        c
+        for c in tr.columns
+        if c.startswith("mine_") or c.startswith("gap_") or c in GAP_CAT_COLS
+    ]
+    cats = list(dict.fromkeys(list(cats) + extra))
+    return prepare(tr, va, te, cats)
