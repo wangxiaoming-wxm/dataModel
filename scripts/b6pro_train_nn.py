@@ -20,8 +20,17 @@ TARGET = "label"
 
 def to_xy(df: pd.DataFrame):
     feats = build_ebm_features(df)
-    # pytabkit prefers DataFrame with mixed types
-    return feats
+    # pytabkit/torch path: keep numeric only (cats as codes)
+    out = pd.DataFrame(index=feats.index)
+    for c in feats.columns:
+        s = feats[c]
+        if pd.api.types.is_numeric_dtype(s):
+            out[c] = pd.to_numeric(s, errors="coerce")
+        else:
+            out[c] = s.astype("category").cat.codes.astype(np.float64)
+    out = out.apply(pd.to_numeric, errors="coerce").fillna(0.0).astype(np.float64)
+    assert all(out.dtypes == np.float64), out.dtypes[out.dtypes != np.float64]
+    return out
 
 
 def main() -> int:

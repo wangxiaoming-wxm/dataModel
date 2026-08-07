@@ -1,0 +1,66 @@
+{
+  "experiment_id": "b6pro_multifuse_equal_b6_ultra",
+  "protocol_id": "IA-AUC715-B6PRO-v1",
+  "arm_names": [
+    "equal_b6",
+    "ultra"
+  ],
+  "arm_aucs": {
+    "equal_b6": 0.6989746962571622,
+    "ultra": 0.6868774028146319
+  },
+  "corr": {
+    "equal_b6__ultra": 0.7971608109527818
+  },
+  "fusion": {
+    "selected_rule": "min",
+    "fold_rules": [
+      "min",
+      "min",
+      "min",
+      "min",
+      "min"
+    ],
+    "consistent_all_folds": true,
+    "full_data_scores": {
+      "mean": 0.6923969352246158,
+      "mean_2_1": 0.6949931095098318,
+      "power2": 0.6888068445535672,
+      "power3": 0.687454869478751,
+      "max": 0.6868697152010343,
+      "rank_mean": 0.6953540541637907,
+      "geom_mean": 0.697368009894282,
+      "min": 0.6990531646496757,
+      "median": 0.6923969352246158,
+      "mean_3_1_1": 0.6949931095098318
+    },
+    "rules_used": [
+      "mean",
+      "mean_2_1",
+      "power2",
+      "power3",
+      "max",
+      "rank_mean",
+      "geom_mean",
+      "min",
+      "median",
+      "mean_3_1_1"
+    ],
+    "rule_selection": "nested_5fold"
+  },
+  "nested_oof_auc": 0.6990531646496757,
+  "pooled_oof_auc": 0.6990531646496757,
+  "full_selected_auc": 0.6990531646496757,
+  "gate_0_715": false,
+  "gap_to_0_715": 0.015947,
+  "protocol_declaration": {
+    "no_test_labels": true,
+    "no_global_te": true,
+    "fold_local_fe": true,
+    "no_oof_weight_search": true,
+    "fusion_rules_preregistered": true,
+    "rule_selection_nested": true,
+    "new_data_only": true
+  },
+  "elapsed_sec": 0.2
+}

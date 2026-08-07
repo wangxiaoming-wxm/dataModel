@@ -109,3 +109,15 @@ Role: audit-only (no training/tuning). Scores from on-disk artifacts only.
 | 42 | 2026-08-07T11:59:13Z | b6pro_multifuse_equal_b6_plus_ref_plus5 | 0.7009217772130575 | yes | n/a | max | REJECT_WAITING | below 0.715; frozen OK; progress==== train plus variant=plus config=h3 === |
 | 43 | 2026-08-07T12:01:14Z | b6pro_multifuse_equal_b6_plus_ref_plus5 | 0.7009217772130575 | yes | n/a | max | REJECT_WAITING | below 0.715; frozen OK; progress==== train plus variant=plus config=h3 === |
 | 44 | 2026-08-07T12:03:45Z | b6pro_multifuse_equal_b6_plus_ref_plus5 | 0.7009217772130575 | yes | n/a | max | REJECT_WAITING | below 0.715; frozen OK; progress==== train plus variant=plus config=h3 === |
+| 45 | 2026-08-07T12:06:16Z | b6pro_multifuse_equal_b6_plus_ref_plus5 | 0.7009217772130575 | yes | n/a | max | REJECT_WAITING | below 0.715; frozen OK; progress==== train plus variant=plus config=h3 === |
+| 46 | 2026-08-07T12:08:48Z | b6pro_multifuse_equal_b6_plus_ref_plus5 | 0.7009217772130575 | yes | n/a | max | REJECT_WAITING | below 0.715; frozen OK; progress==== train plus variant=plus config=h3 === |
+| 47 | 2026-08-07T12:11:19Z | b6pro_multifuse_equal_b6_plus_ref_plus5 | 0.7009217772130575 | yes | n/a | max | REJECT_WAITING | below 0.715; frozen OK; progress==== train plus variant=plus config=h3 === |
+| 48 | 2026-08-07T12:13:50Z | b6pro_multifuse_equal_b6_plus_ref_plus5 | 0.7009217772130575 | yes | n/a | max | REJECT_WAITING | below 0.715; frozen OK; progress==== train plus variant=plus config=h3 === |
+| 49 | 2026-08-07T12:14:49Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress==== train plus variant=plus config=h3 === |
+
+### Protocol risk @ 2026-08-07T12:15:00Z
+- `b6pro_fuse3_ultra` nested=0.7020793228371782 recomputed OK; selected_rule=**median**.
+- `median` is **not** in B6PRO_AUDIT_THRESHOLDS preregistered rules (mean, mean_2_1, power2, power3, max, rank_mean).
+- Packet also mixes `plus_ref` without `reference_plus_bootstrap=true` disclosure.
+- If this score were ≥0.715, verdict would be **REJECT** (post-hoc rule expansion + undisclosed ref arm), not PASS.
+- Current: still <0.715 → REJECT_WAITING; deliver_0_715_allowed=false.

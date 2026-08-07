@@ -1,0 +1,48 @@
+{
+  "experiment_id": "b6pro_realmlp",
+  "protocol_id": "IA-AUC715-B6PRO-v1",
+  "family": "realmlp",
+  "seeds": [
+    2026
+  ],
+  "n_splits": 5,
+  "oof_auc": 0.5988688808586085,
+  "seed_aucs": {
+    "2026": 0.5988688808586085
+  },
+  "folds": [
+    {
+      "seed": 2026,
+      "fold": 0,
+      "valid_auc": 0.6126500318018254
+    },
+    {
+      "seed": 2026,
+      "fold": 1,
+      "valid_auc": 0.6119057072763323
+    },
+    {
+      "seed": 2026,
+      "fold": 2,
+      "valid_auc": 0.6110767438415858
+    },
+    {
+      "seed": 2026,
+      "fold": 3,
+      "valid_auc": 0.6235871214431432
+    },
+    {
+      "seed": 2026,
+      "fold": 4,
+      "valid_auc": 0.6278059071729958
+    }
+  ],
+  "elapsed_sec": 156.6,
+  "protocol_declaration": {
+    "no_test_labels": true,
+    "no_global_te": true,
+    "fold_local_fe": true,
+    "no_oof_weight_search": true,
+    "new_data_only": true
+  }
+}

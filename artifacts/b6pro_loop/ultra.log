@@ -1,1 +1,16 @@
 === train plus variant=plus_ultra config=h2 xf=rank ===
+plus_ultra seed=2026 fold=0 auc=0.69018 best=286 n=115 xf=rank
+plus_ultra seed=2026 fold=1 auc=0.67721 best=902 n=115 xf=rank
+plus_ultra seed=2026 fold=2 auc=0.68217 best=675 n=115 xf=rank
+plus_ultra seed=2026 fold=3 auc=0.67438 best=980 n=115 xf=rank
+plus_ultra seed=2026 fold=4 auc=0.69228 best=469 n=115 xf=rank
+plus_ultra seed=2026 OOF=0.683250
+plus_ultra seed=2027 fold=0 auc=0.66256 best=538 n=115 xf=rank
+plus_ultra seed=2027 fold=1 auc=0.68204 best=522 n=115 xf=rank
+plus_ultra seed=2027 fold=2 auc=0.69363 best=452 n=115 xf=rank
+plus_ultra seed=2027 fold=3 auc=0.69319 best=859 n=115 xf=rank
+plus_ultra seed=2027 fold=4 auc=0.69632 best=1229 n=115 xf=rank
+plus_ultra seed=2027 OOF=0.685555
+{
+  "plus_oof_auc": 0.6868774028146319
+}
