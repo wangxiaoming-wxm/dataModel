@@ -237,3 +237,20 @@ $ /usr/bin/python3 -m insurance_claim.train_b6pro --mode fuse --main-npz artifac
 
 $ /usr/bin/python3 -m insurance_claim.train_b6pro --mode plus_only --plus-variant plus --plus-config h3 --plus-seeds 2026 2027 2028 2029 --output-dir artifacts/b6pro_plus_h3
 === train plus variant=plus config=h3 ===
+
+$ /usr/bin/python3 -m insurance_claim.train_b6pro --mode fuse --main-npz artifacts/b5_8seed/predictions.npz --ref-plus --shuffled --output-dir artifacts/b6pro_fuse0_b5ref
+{
+  "nested_oof_auc": 0.7013149650619108,
+  "full_selected_auc": 0.7013149650619108,
+  "selected_rule": "max",
+  "arm_aucs": {
+    "equal_b6": 0.6981745375887981,
+    "plus": 0.6886170674774439
+  },
+  "gate_0_715": false,
+  "gap_to_0_715": 0.013685,
+  "elapsed_sec": 0.2
+}
+
+$ /usr/bin/python3 -m insurance_claim.train_b6pro --mode plus_only --plus-variant plus --plus-config h3 --plus-seeds 2026 2027 2028 2029 --output-dir artifacts/b6pro_plus_h3
+=== train plus variant=plus config=h3 xf=prob ===

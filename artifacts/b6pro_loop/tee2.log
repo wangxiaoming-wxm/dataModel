@@ -1,0 +1,3 @@
+[loop] stage=1 best_nested=0.7022093156561012 target=0.715
+RUN /usr/bin/python3 -m insurance_claim.train_b6pro --mode fuse --main-npz artifacts/b5_8seed/predictions.npz --ref-plus --shuffled --output-dir artifacts/b6pro_fuse0_b5ref
+RUN /usr/bin/python3 -m insurance_claim.train_b6pro --mode plus_only --plus-variant plus --plus-config h3 --plus-seeds 2026 2027 2028 2029 --output-dir artifacts/b6pro_plus_h3
