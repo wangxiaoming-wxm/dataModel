@@ -1,15 +1,13 @@
 {
-  "check_id": "B5_FREEZE_INTEGRITY_B6_BASELINE",
+  "check_id": "B5_FREEZE_INTEGRITY_B6_FINAL_AUDIT",
   "protocol": "IA-AUC700-B6-v1",
-  "checked_at_utc": "2026-08-07T05:11:27.867123+00:00",
-  "git_branch": "cursor/b6-audit-protocol-f5fd",
-  "git_commit": "8f9b2e2dd59e88ea174c032aaf84685ce95c92b4",
-  "b5_freeze_branch_claim": "cursor/claim-auc698-council-a5f5",
+  "checked_at_utc": "2026-08-07T08:34:35.143822+00:00",
+  "git_branch": "cursor/b6-push-auc070-a5f5",
   "expected_pooled_oof_auc": 0.6981745375887981,
   "actual_pooled_oof_auc": 0.6981745375887981,
   "oof_recomputed_auc": 0.6981745375887981,
   "verdict": "PASS",
-  "n_checks": 24,
+  "n_checks": 27,
   "n_failed": 0,
   "failed_checks": [],
   "score_fields": {
@@ -48,31 +46,6 @@
       "actual": 0.5075732199169001,
       "pass": true,
       "delta": 0.0
-    },
-    "shuffled_pass": {
-      "expected": true,
-      "actual": true,
-      "pass": true
-    },
-    "gate_0_698": {
-      "expected": true,
-      "actual": true,
-      "pass": true
-    },
-    "n_splits": {
-      "expected": 5,
-      "actual": 5,
-      "pass": true
-    },
-    "experiment_id": {
-      "expected": "b5_focus_8seed_newdata",
-      "actual": "b5_focus_8seed_newdata",
-      "pass": true
-    },
-    "fusion": {
-      "expected": "equal_seed_probability_mean_8seeds",
-      "actual": "equal_seed_probability_mean_8seeds",
-      "pass": true
     }
   },
   "file_inventory": {
@@ -93,42 +66,6 @@
       "exists": true,
       "sha256": "2b7dc63a629a51a17932d23d52f18cc61bb46e7f671b5687c016553f6367d378",
       "size_bytes": 1648
-    },
-    "artifacts/b5_8seed/metrics.json": {
-      "path": "artifacts/b5_8seed/metrics.json",
-      "exists": true,
-      "sha256": "0ab7cf26eff95cd33a309306a393b65b03acb387cd5bc3f4851163c37ef87c04",
-      "size_bytes": 1927
-    },
-    "artifacts/b5_8seed/predictions.npz": {
-      "path": "artifacts/b5_8seed/predictions.npz",
-      "exists": true,
-      "sha256": "2b3ded75823893f7c7c06d712f521bf06d789caf1a99b1aaaf7312022a6cfaa0",
-      "size_bytes": 728416
-    },
-    "artifacts/b5_8seed/submission_b5_8seed.csv": {
-      "path": "artifacts/b5_8seed/submission_b5_8seed.csv",
-      "exists": true,
-      "sha256": "b9e0eccc7cf0fb4c17ce528d2fad31af7cc61d6b2ef828f9e88ea92a299d7233",
-      "size_bytes": 236135
-    },
-    "submissions/submission_b5_8seed.csv": {
-      "path": "submissions/submission_b5_8seed.csv",
-      "exists": true,
-      "sha256": "b9e0eccc7cf0fb4c17ce528d2fad31af7cc61d6b2ef828f9e88ea92a299d7233",
-      "size_bytes": 236135
-    },
-    "docs/FINAL_B5_8SEED.md": {
-      "path": "docs/FINAL_B5_8SEED.md",
-      "exists": true,
-      "sha256": "2b7dc63a629a51a17932d23d52f18cc61bb46e7f671b5687c016553f6367d378",
-      "size_bytes": 1648
-    },
-    "docs/supervision/FINAL_AUDIT_OPINION.md": {
-      "path": "docs/supervision/FINAL_AUDIT_OPINION.md",
-      "exists": true,
-      "sha256": "e53eac9d2774ebcf1b41613824847dfd54687887ea307f3ab8278453297462f6",
-      "size_bytes": 5335
     }
   },
   "checks": [
@@ -138,9 +75,27 @@
       "detail": "present"
     },
     {
+      "id": "sha:artifacts/b5_frozen/metrics_b5_8seed.json",
+      "pass": true,
+      "detail": {
+        "expected": "0ab7cf26eff95cd33a309306a393b65b03acb387cd5bc3f4851163c37ef87c04",
+        "got": "0ab7cf26eff95cd33a309306a393b65b03acb387cd5bc3f4851163c37ef87c04",
+        "size": 1927
+      }
+    },
+    {
       "id": "exists:submissions/b5_frozen/submission_b5_8seed.csv",
       "pass": true,
       "detail": "present"
+    },
+    {
+      "id": "sha:submissions/b5_frozen/submission_b5_8seed.csv",
+      "pass": true,
+      "detail": {
+        "expected": "b9e0eccc7cf0fb4c17ce528d2fad31af7cc61d6b2ef828f9e88ea92a299d7233",
+        "got": "b9e0eccc7cf0fb4c17ce528d2fad31af7cc61d6b2ef828f9e88ea92a299d7233",
+        "size": 236135
+      }
     },
     {
       "id": "exists:docs/b5_frozen/FINAL_B5_8SEED.md",
@@ -148,9 +103,13 @@
       "detail": "present"
     },
     {
-      "id": "frozen_metrics_identical_to_b5_8seed",
+      "id": "sha:docs/b5_frozen/FINAL_B5_8SEED.md",
       "pass": true,
-      "detail": "byte-level JSON object equality"
+      "detail": {
+        "expected": "2b7dc63a629a51a17932d23d52f18cc61bb46e7f671b5687c016553f6367d378",
+        "got": "2b7dc63a629a51a17932d23d52f18cc61bb46e7f671b5687c016553f6367d378",
+        "size": 1648
+      }
     },
     {
       "id": "score:pooled_oof_auc",
@@ -215,47 +174,27 @@
     {
       "id": "score:shuffled_pass",
       "pass": true,
-      "detail": {
-        "expected": true,
-        "actual": true,
-        "pass": true
-      }
+      "detail": true
     },
     {
       "id": "score:gate_0_698",
       "pass": true,
-      "detail": {
-        "expected": true,
-        "actual": true,
-        "pass": true
-      }
+      "detail": true
     },
     {
       "id": "score:n_splits",
       "pass": true,
-      "detail": {
-        "expected": 5,
-        "actual": 5,
-        "pass": true
-      }
+      "detail": 5
     },
     {
       "id": "score:experiment_id",
       "pass": true,
-      "detail": {
-        "expected": "b5_focus_8seed_newdata",
-        "actual": "b5_focus_8seed_newdata",
-        "pass": true
-      }
+      "detail": "b5_focus_8seed_newdata"
     },
     {
       "id": "score:fusion",
       "pass": true,
-      "detail": {
-        "expected": "equal_seed_probability_mean_8seeds",
-        "actual": "equal_seed_probability_mean_8seeds",
-        "pass": true
-      }
+      "detail": "equal_seed_probability_mean_8seeds"
     },
     {
       "id": "seeds_list",
@@ -272,13 +211,23 @@
       ]
     },
     {
-      "id": "metrics_data_sha256",
+      "id": "frozen_metrics_identical_to_b5_8seed",
+      "pass": true,
+      "detail": "byte-level JSON object equality"
+    },
+    {
+      "id": "oof_recompute_auc",
       "pass": true,
       "detail": {
-        "train": "494a61073a0438f692914c4868db31df1171e662348e0024e06b120d08d44f28",
-        "test": "d6ffd26bd4873fa09f6fac361f59170a880e88e331a01d7a6356bd9184ce55ec",
-        "submit": "83cb0263cc5729f61d0e05c68d673dc3f21b41c24bad68afa35159859054c4bf"
+        "recomputed": 0.6981745375887981,
+        "expected": 0.6981745375887981,
+        "delta": 0.0
       }
+    },
+    {
+      "id": "npz_y_matches_train_label",
+      "pass": true,
+      "detail": "y in npz equals train.label"
     },
     {
       "id": "submission_sha_triple_match",
@@ -298,20 +247,6 @@
       }
     },
     {
-      "id": "oof_recompute_auc",
-      "pass": true,
-      "detail": {
-        "recomputed": 0.6981745375887981,
-        "expected": 0.6981745375887981,
-        "delta": 0.0
-      }
-    },
-    {
-      "id": "npz_y_matches_train_label",
-      "pass": true,
-      "detail": "y in npz equals train.label"
-    },
-    {
       "id": "submission_id_order",
       "pass": true,
       "detail": {
@@ -328,6 +263,15 @@
       "id": "frozen_doc_reports_0.69817454",
       "pass": true,
       "detail": true
+    },
+    {
+      "id": "metrics_data_sha256",
+      "pass": true,
+      "detail": {
+        "train": "494a61073a0438f692914c4868db31df1171e662348e0024e06b120d08d44f28",
+        "test": "d6ffd26bd4873fa09f6fac361f59170a880e88e331a01d7a6356bd9184ce55ec",
+        "submit": "83cb0263cc5729f61d0e05c68d673dc3f21b41c24bad68afa35159859054c4bf"
+      }
     }
   ],
   "summary": {
