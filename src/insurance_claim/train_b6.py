@@ -37,7 +37,7 @@ from sklearn.model_selection import StratifiedKFold
 from insurance_claim.b6_gap_features import GAP_CAT_COLS, add_gap_cats, fit_gap_edges
 from insurance_claim.feature_blocks import DomainParseFeatureBlock
 from insurance_claim.model import TARGET, audit_data, build_submission
-from insurance_claim.train_b5_focus import CAT_PARAMS, N_SPLITS, build_b5, enrich, prepare_for_cat
+from insurance_claim.train_b5_focus import CAT_PARAMS, N_SPLITS, build_b5, enrich
 from insurance_claim.train_lean_business import build_lean
 
 SEEDS_DEFAULT = tuple(range(2026, 2038))  # 12 seeds
