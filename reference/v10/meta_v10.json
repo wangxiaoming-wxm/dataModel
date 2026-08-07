@@ -1,0 +1,58 @@
+{
+  "tag": "v10",
+  "selected": "b5_12__max__plus",
+  "pooled_oof_auc": 0.7017507955311727,
+  "nested_rule": "max",
+  "nested_oof_auc": 0.7013149650619108,
+  "gate_0_70": true,
+  "b5_pool_n_seeds": 12,
+  "b5_8_auc": 0.6981745375887981,
+  "plus_auc": 0.6886170674774439,
+  "plus_source": "copied_plus_h2_10",
+  "candidates": {
+    "b5_8__mean__plus": 0.6988709507921078,
+    "b5_8__mean_2_1__plus": 0.6994478452390336,
+    "b5_8__power2__plus": 0.6994013712513306,
+    "b5_8__power3__plus": 0.699790329668755,
+    "b5_8__max__plus": 0.7013149650619108,
+    "b5_8__rank_mean__plus": 0.6961057734027876,
+    "b5_12__mean__plus": 0.6989222513074416,
+    "b5_12__mean_2_1__plus": 0.6996696664779842,
+    "b5_12__power2__plus": 0.6995149688037138,
+    "b5_12__power3__plus": 0.6999642836955319,
+    "b5_12__max__plus": 0.7017507955311727,
+    "b5_12__rank_mean__plus": 0.696276940980623,
+    "b5_8_only": 0.6981745375887981,
+    "plus_only": 0.6886170674774439
+  },
+  "protocol": {
+    "fold_local_fe": true,
+    "no_te_in_selected_arms": true,
+    "no_continuous_oof_weight_search": true,
+    "fusion_rules_preregistered": [
+      "mean",
+      "mean_2_1",
+      "power2",
+      "power3",
+      "max",
+      "rank_mean"
+    ],
+    "rule_selection": "nested_5fold_majority",
+    "v9_untouched": true,
+    "shuffled_plus_sanity_max_should_drop": true
+  },
+  "note": "V10 = B5 focus multi-seed + plus (keep-x root_plus, 10-fold) fused by nested-selected max. Public LB AUC=0.70570 (2026-08-07). Local honest primary=nested 0.701315.",
+  "public_leaderboard_auc": 0.7057,
+  "public_leaderboard_date": "2026-08-07",
+  "public_leaderboard_file": "submissions/submission_v10.csv",
+  "honest_report_local": {
+    "primary": "nested_oof_auc",
+    "nested_oof_auc": 0.7013149650619108,
+    "pooled_oof_auc_frozen": 0.7017507955311727,
+    "note": "Report nested 0.7013 locally; public 0.70570 separately; disclose max + early stopping"
+  },
+  "freeze": {
+    "b5_seeds_in_submission": "B5-8 + 2034..2037 (=12)",
+    "do_not_auto_ingest": "partial_b5_extra_s2038+.npz unless meta updated"
+  }
+}
