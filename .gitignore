@@ -5,7 +5,10 @@ __pycache__/
 *.egg-info/
 .venv/
 artifacts/**/*.npz
+!artifacts/b6pro*/predictions.npz
+!artifacts/b6pro_*/**/predictions.npz
 artifacts/**/*.log
+!artifacts/b6pro_loop/*.log
 *.zip
 
 catboost_info/
