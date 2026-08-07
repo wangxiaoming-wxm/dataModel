@@ -1,7 +1,7 @@
 {
-  "check_id": "B6_FREEZE_INTEGRITY_B7_RESCAN_AUDIT",
+  "check_id": "B6_FREEZE_INTEGRITY_B7_INDEPENDENT_OVERFIT_CHEAT_AUDIT",
   "protocol": "IA-AUC710-B7-v1",
-  "checked_at_utc": "2026-08-07T11:06:19.093916+00:00",
+  "checked_at_utc": "2026-08-07T11:56:46.840207+00:00",
   "git_branch": "cursor/b7-push-auc071-a5f5",
   "compared_against_branch": "origin/cursor/b6-push-auc070-a5f5",
   "expected_closest_honest_pooled_oof_auc": 0.6989746962571622,
@@ -81,7 +81,8 @@
         "expected": "10196365639cec6b62a1afffbebae6e83d665adcc42da4ad0d07a4d359523046",
         "got": "10196365639cec6b62a1afffbebae6e83d665adcc42da4ad0d07a4d359523046",
         "size": 2295,
-        "b6_branch_source": "artifacts/b6_gapbag_8seed/metrics_summary.json"
+        "b6_branch_source": "artifacts/b6_gapbag_8seed/metrics_summary.json",
+        "byte_equal": true
       }
     },
     {
@@ -96,7 +97,8 @@
         "expected": "48d3cffab6e861375eca6213def0bece1baf367637f5327f74bc05ed683ee415",
         "got": "48d3cffab6e861375eca6213def0bece1baf367637f5327f74bc05ed683ee415",
         "size": 236205,
-        "b6_branch_source": "submissions/submission_b6_gapbag_8seed.csv"
+        "b6_branch_source": "submissions/submission_b6_gapbag_8seed.csv",
+        "byte_equal": true
       }
     },
     {
@@ -111,7 +113,8 @@
         "expected": "82ea7d385b934b91be7254e1c3af0fbff8488e0f6228e9b17c28e6e0acdeb353",
         "got": "82ea7d385b934b91be7254e1c3af0fbff8488e0f6228e9b17c28e6e0acdeb353",
         "size": 2149,
-        "b6_branch_source": "docs/B6_FINAL_REPORT.md"
+        "b6_branch_source": "docs/B6_FINAL_REPORT.md",
+        "byte_equal": true
       }
     },
     {
@@ -126,7 +129,8 @@
         "expected": "e4b136f754f1f1e964636df6746253dae60b05412f17c57e5507b13c6fbe527a",
         "got": "e4b136f754f1f1e964636df6746253dae60b05412f17c57e5507b13c6fbe527a",
         "size": 6647,
-        "b6_branch_source": "docs/supervision/B6_FINAL_AUDIT_OPINION.md"
+        "b6_branch_source": "docs/supervision/B6_FINAL_AUDIT_OPINION.md",
+        "byte_equal": true
       }
     },
     {
@@ -207,7 +211,7 @@
       "id": "fusion:equal_prob_primary",
       "pass": true,
       "detail": {
-        "primary": "equal_prob_gap_gapbag",
+        "primary": "equal_prob",
         "equal_prob": 0.6989746962571622
       }
     },
@@ -220,8 +224,8 @@
     }
   ],
   "notes": [
-    "Rescan after plus_mine/lgb/ebm by independent B7 supervisor.",
+    "Independent overfit/cheat auditor rescan.",
     "Frozen dirs compared byte-wise to origin/cursor/b6-push-auc070-a5f5.",
-    "B6 freeze must remain immutable for entire B7 campaign."
+    "B6 pooled must remain 0.6989746962571622."
   ]
 }

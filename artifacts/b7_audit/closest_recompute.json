@@ -1,0 +1,99 @@
+{
+  "claimed_closest": 0.7027049552615718,
+  "recomputed_max3_auc": 0.7027049552615718,
+  "oof_equals_max3": true,
+  "abs_err_vs_claimed": 0.0,
+  "pass_1e-8": true,
+  "nested_pair_auc": 0.7022093156561012,
+  "nested_pair_votes": [
+    "max",
+    "max",
+    "max",
+    "max",
+    "max"
+  ],
+  "nested_pair_consistent": true,
+  "nested_max_family_auc": 0.7027049552615718,
+  "nested_max_family_votes": [
+    "max3",
+    "max3",
+    "max3",
+    "max3",
+    "max3"
+  ],
+  "shuffled_plus_max3_recomputed_seed42": 0.6442427188098837,
+  "shuffled_plus_max_pair_seed42": 0.6416433600115916,
+  "arm_aucs": {
+    "gap": 0.6986833630687241,
+    "gap_bag": 0.6989061794680111,
+    "equal_b6": 0.6989746962571622,
+    "plus": 0.6886170674774439
+  },
+  "full_pair_scores": {
+    "mean": 0.6992187593296281,
+    "mean_2_1": 0.699961596762624,
+    "power2": 0.6997875432198134,
+    "power3": 0.7002462623768091,
+    "max": 0.7022093156561012,
+    "rank_mean": 0.6964451479564582
+  },
+  "max_family_full": {
+    "max(eq,plus)": 0.7022093156561012,
+    "max(gap,plus)": 0.7020233699472724,
+    "max(gap_bag,plus)": 0.7021806550384172,
+    "max3": 0.7027049552615718
+  },
+  "max_family_fold_rows": [
+    {
+      "fold": 0,
+      "chosen": "max3",
+      "scores": {
+        "max(eq,plus)": 0.6989325924842813,
+        "max(gap,plus)": 0.698666893032028,
+        "max(gap_bag,plus)": 0.6989739476945208,
+        "max3": 0.6994919761175216
+      }
+    },
+    {
+      "fold": 1,
+      "chosen": "max3",
+      "scores": {
+        "max(eq,plus)": 0.7031471703669084,
+        "max(gap,plus)": 0.702871753994956,
+        "max(gap_bag,plus)": 0.7032550670432478,
+        "max3": 0.7037214014534492
+      }
+    },
+    {
+      "fold": 2,
+      "chosen": "max3",
+      "scores": {
+        "max(eq,plus)": 0.7055252504263979,
+        "max(gap,plus)": 0.7053789524834077,
+        "max(gap_bag,plus)": 0.7054077923010746,
+        "max3": 0.7058668973230197
+      }
+    },
+    {
+      "fold": 3,
+      "chosen": "max3",
+      "scores": {
+        "max(eq,plus)": 0.6987841179512784,
+        "max(gap,plus)": 0.698568480069315,
+        "max(gap_bag,plus)": 0.6988314587840527,
+        "max3": 0.699311319146475
+      }
+    },
+    {
+      "fold": 4,
+      "chosen": "max3",
+      "scores": {
+        "max(eq,plus)": 0.7046753973361148,
+        "max(gap,plus)": 0.7046368119510139,
+        "max(gap_bag,plus)": 0.7044510419921011,
+        "max3": 0.7051542139596945
+      }
+    }
+  ],
+  "y_matches_train": true
+}
