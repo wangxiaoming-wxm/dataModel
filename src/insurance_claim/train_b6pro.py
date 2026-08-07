@@ -80,7 +80,8 @@ def fuse_bundle(
         "arm_names": arm_names,
         "arm_aucs": {n: float(roc_auc_score(y, a)) for n, a in zip(arm_names, arms_oof)},
         "corr": corrs,
-        "rules_preregistered": list(RULE_NAMES),
+        "rules_preregistered": nested.get("rules_used", list(RULE_NAMES)),
+        "rules_used": nested.get("rules_used", list(RULE_NAMES)),
     }
 
 
@@ -270,7 +271,8 @@ def main() -> int:
         "fold_rules": fused["fold_rules"],
         "consistent_all_folds": fused["consistent_all_folds"],
         "full_data_scores": fused["full_data_scores"],
-        "rules_preregistered": fused["rules_preregistered"],
+        "rules_preregistered": fused.get("rules_used", fused["rules_preregistered"]),
+        "rules_used": fused.get("rules_used"),
         "rule_selection": "nested_5fold",
         "arm_aucs": fused["arm_aucs"],
         "corr": fused["corr"],

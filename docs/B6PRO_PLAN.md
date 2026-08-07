@@ -36,7 +36,9 @@ B6pro = nested_select( pre-registered rules on (A,B[,C]) )
 
 预注册离散规则（开跑前写死）：
 
-`mean, mean_2_1, power2, power3, max, rank_mean`
+**两臂核心集（V10 继承）：** `mean, mean_2_1, power2, power3, max, rank_mean`
+
+**多臂扩展集（≥3 臂时启用，开跑前写死）：** 上述 + `geom_mean, min, median, mean_3_1_1`
 
 嵌套：`StratifiedKFold(5, shuffle=True, random_state=42)` 在 train 段选规则 → 主报 **nested_oof_auc**。
 
