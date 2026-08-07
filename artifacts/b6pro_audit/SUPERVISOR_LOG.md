@@ -127,3 +127,4 @@ Role: audit-only (no training/tuning). Scores from on-disk artifacts only.
 | 53 | 2026-08-07T12:23:54Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress==== train plus variant=plus config=h3 === |
 | 54 | 2026-08-07T12:26:26Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress==== train plus variant=plus config=h3 === |
 | 55 | 2026-08-07T12:28:57Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress==== train plus variant=plus config=h3 xf=prob === |
+| 56 | 2026-08-07T12:30:33Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=plus seed=2026 fold=0 auc=0.68671 best=896 n=80 xf=prob |
