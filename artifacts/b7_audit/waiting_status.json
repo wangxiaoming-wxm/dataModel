@@ -1,8 +1,8 @@
 {
   "status": "WAITING_FOR_MAIN_PROCESS",
   "protocol": "IA-AUC710-B7-v1",
-  "checked_at_utc": "2026-08-07T10:20:58.350031+00:00",
-  "scan_cycle": 3,
+  "checked_at_utc": "2026-08-07T10:24:38.227952+00:00",
+  "scan_cycle": 4,
   "gate_threshold_nested_oof_auc": 0.71,
   "final_audit_trigger": "artifacts/b7_*/metrics.json with nested_oof_auc >= 0.71 and protocol-complete packet",
   "b6_freeze_check": "PASS",
@@ -100,6 +100,7 @@
       "files": [
         "mining_summary.json",
         "oof_gap_bal.npy",
+        "oof_gap_focal.npy",
         "oof_plus_bal.npy",
         "oof_resid_smoke.npy",
         "residual_candidates.csv"
@@ -111,14 +112,11 @@
     }
   ],
   "any_nested_ge_0_71": false,
-  "auditor_action": "No final PASS. Closest honest nested documented below gate. Re-scan as new metrics appear.",
+  "auditor_action": "No final PASS. Closest honest nested documented below gate. Draft REJECT-0.71 skeleton ready in B7_CLOSEST_HONEST_DRAFT.md.",
   "closest_observed_nested_so_far": 0.7022093156561012,
   "closest_path": "artifacts/b7_fuse0_b6/metrics.json",
   "closest_experiment_id": "b7_fuse0_nested",
   "gap_to_0_71": 0.007790684343898735,
   "draft_closest_honest_note": "docs/supervision/B7_CLOSEST_HONEST_DRAFT.md",
-  "closeout_signal_files_hint": [
-    "docs/supervision/B7_CLOSEST_HONEST_DRAFT.md",
-    "docs/supervision/B7_AUDIT_PROTOCOL.md"
-  ]
+  "main_process_closeout_artifact_seen": false
 }
