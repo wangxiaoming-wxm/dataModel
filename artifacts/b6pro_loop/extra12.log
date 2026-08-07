@@ -1,0 +1,95 @@
+gap seed=2034 fold=0 auc=0.68085 best=642 n=181
+gap seed=2034 fold=1 auc=0.67995 best=361 n=181
+gap seed=2034 fold=2 auc=0.68270 best=221 n=181
+gap seed=2034 fold=3 auc=0.70093 best=282 n=181
+gap seed=2034 fold=4 auc=0.70163 best=168 n=181
+gap seed=2034 OOF=0.687228
+gap seed=2035 fold=0 auc=0.67226 best=402 n=181
+gap seed=2035 fold=1 auc=0.71034 best=283 n=181
+gap seed=2035 fold=2 auc=0.67507 best=290 n=181
+gap seed=2035 fold=3 auc=0.70119 best=442 n=181
+gap seed=2035 fold=4 auc=0.67569 best=783 n=181
+gap seed=2035 OOF=0.685642
+gap seed=2036 fold=0 auc=0.69993 best=613 n=181
+gap seed=2036 fold=1 auc=0.71242 best=263 n=181
+gap seed=2036 fold=2 auc=0.67534 best=424 n=181
+gap seed=2036 fold=3 auc=0.68575 best=703 n=181
+gap seed=2036 fold=4 auc=0.69203 best=536 n=181
+gap seed=2036 OOF=0.692302
+gap seed=2037 fold=0 auc=0.69768 best=241 n=181
+gap seed=2037 fold=1 auc=0.68005 best=728 n=181
+gap seed=2037 fold=2 auc=0.68206 best=533 n=181
+gap seed=2037 fold=3 auc=0.68817 best=291 n=181
+gap seed=2037 fold=4 auc=0.70301 best=417 n=181
+gap seed=2037 OOF=0.689404
+ARM gap pooled=0.696313
+gap_bag seed=2034 fold=0 auc=0.68110 best=341 n=181
+gap_bag seed=2034 fold=1 auc=0.68289 best=395 n=181
+gap_bag seed=2034 fold=2 auc=0.68585 best=475 n=181
+gap_bag seed=2034 fold=3 auc=0.70010 best=365 n=181
+gap_bag seed=2034 fold=4 auc=0.69754 best=377 n=181
+gap_bag seed=2034 OOF=0.688696
+gap_bag seed=2035 fold=0 auc=0.67297 best=579 n=181
+gap_bag seed=2035 fold=1 auc=0.71158 best=233 n=181
+gap_bag seed=2035 fold=2 auc=0.67826 best=446 n=181
+gap_bag seed=2035 fold=3 auc=0.69934 best=541 n=181
+gap_bag seed=2035 fold=4 auc=0.67679 best=957 n=181
+gap_bag seed=2035 OOF=0.685469
+gap_bag seed=2036 fold=0 auc=0.69879 best=488 n=181
+gap_bag seed=2036 fold=1 auc=0.70998 best=420 n=181
+gap_bag seed=2036 fold=2 auc=0.67647 best=291 n=181
+gap_bag seed=2036 fold=3 auc=0.68795 best=739 n=181
+gap_bag seed=2036 fold=4 auc=0.68906 best=540 n=181
+gap_bag seed=2036 OOF=0.691746
+gap_bag seed=2037 fold=0 auc=0.69722 best=423 n=181
+gap_bag seed=2037 fold=1 auc=0.67705 best=753 n=181
+gap_bag seed=2037 fold=2 auc=0.68200 best=340 n=181
+gap_bag seed=2037 fold=3 auc=0.68703 best=421 n=181
+gap_bag seed=2037 fold=4 auc=0.70281 best=304 n=181
+gap_bag seed=2037 OOF=0.688529
+ARM gap_bag pooled=0.696009
+{
+  "arms": {
+    "gap": {
+      "oof_auc": 0.696312940905787,
+      "seed_aucs": {
+        "2034": 0.6872275748579508,
+        "2035": 0.6856417371041152,
+        "2036": 0.6923016486224194,
+        "2037": 0.6894039905133356
+      },
+      "seed_mean": 0.6886437377744552
+    },
+    "gap_bag": {
+      "oof_auc": 0.6960092677291794,
+      "seed_aucs": {
+        "2034": 0.688696132966159,
+        "2035": 0.6854686289636241,
+        "2036": 0.6917463491547905,
+        "2037": 0.6885293440938031
+      },
+      "seed_mean": 0.6886101137945942
+    }
+  },
+  "arms_kept": [
+    "gap",
+    "gap_bag"
+  ],
+  "fusion": {
+    "primary": "equal_prob",
+    "equal_prob": 0.6964590304431489,
+    "equal_rank": 0.6963854880942998,
+    "b5_only": NaN,
+    "gap_only": 0.696312940905787,
+    "delta_vs_b5_only": null,
+    "note": "primary fusion pre-registered; equal_rank reported only"
+  },
+  "pooled_oof_auc": 0.6964590304431489,
+  "seed_mean": 0.6894776945757393,
+  "seed_std": 0.0023776985255793827,
+  "gate_0_70": false,
+  "gap_to_0_70": 0.003541,
+  "shuffled_oof_auc": null,
+  "shuffled_pass": null,
+  "elapsed_sec": 2372.3
+}

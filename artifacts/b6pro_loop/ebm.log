@@ -1,0 +1,19 @@
+ebm seed=2026 fold=0 auc=0.65364
+ebm seed=2026 fold=1 auc=0.65373
+ebm seed=2026 fold=2 auc=0.64550
+ebm seed=2026 fold=3 auc=0.63769
+ebm seed=2026 fold=4 auc=0.65022
+ebm seed=2026 OOF=0.647828
+ebm seed=2027 fold=0 auc=0.62746
+ebm seed=2027 fold=1 auc=0.64719
+ebm seed=2027 fold=2 auc=0.66380
+ebm seed=2027 fold=3 auc=0.64776
+ebm seed=2027 fold=4 auc=0.65940
+ebm seed=2027 OOF=0.648823
+ebm solo 0.6500521663048263 corr_main 0.6958954105319892 nested 0.6985087621877286 mean_3_1_1
+{
+  "oof_auc": 0.6500521663048263,
+  "nested_oof_auc": 0.6985087621877286,
+  "gate_0_705": false,
+  "gap_to_0_705": 0.006491
+}

@@ -1,0 +1,48 @@
+{
+  "experiment_id": "b6pro_best_12seed_gap_gapbag_plus",
+  "protocol_id": "IA-AUC715-B6PRO-v1",
+  "nested_oof_auc": 0.7026557445829442,
+  "pooled_oof_auc": 0.7026557445829442,
+  "selected_rule": "max",
+  "arm_aucs": {
+    "gap12": 0.6987120236864082,
+    "gap_bag12": 0.6987443663973365,
+    "plus_ref": 0.6886170674774439
+  },
+  "fusion": {
+    "selected_rule": "max",
+    "fold_rules": [
+      "max",
+      "max",
+      "max",
+      "max",
+      "max"
+    ],
+    "full_data_scores": {
+      "mean": 0.6997940615200159,
+      "mean_2_1": 0.6996500120613433,
+      "power2": 0.7002447696363048,
+      "power3": 0.7006155663775925,
+      "max": 0.7026557445829442,
+      "rank_mean": 0.6978332224724719,
+      "geom_mean": 0.69923980697074,
+      "min": 0.6891290774704457,
+      "median": 0.6990357991018081,
+      "mean_3_1_1": 0.6994937718885516
+    },
+    "consistent_all_folds": true
+  },
+  "gate_0_705": false,
+  "gate_0_715": false,
+  "gap_to_0_705": 0.002344,
+  "protocol_declaration": {
+    "no_test_labels": true,
+    "no_global_te": true,
+    "fold_local_fe": true,
+    "no_oof_weight_search": true,
+    "new_data_only": true,
+    "reference_plus_bootstrap": true,
+    "n_seeds": 12
+  },
+  "note": "honest nested max(gap12,gap_bag12,plus_ref); disclose ref plus"
+}
