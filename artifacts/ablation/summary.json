@@ -1,0 +1,13 @@
+{
+  "classic": 0.6852718360071302,
+  "risk": 0.6882615962053342,
+  "physics": 0.6892977571474407,
+  "mean_classic+risk": 0.6887742530525548,
+  "rank_classic+risk": 0.6885394449712159,
+  "mean_classic+physics": 0.689345723875648,
+  "rank_classic+physics": 0.6892366543027948,
+  "mean_risk+physics": 0.6899557074037541,
+  "rank_risk+physics": 0.6898576841106332,
+  "mean_classic+risk+physics": 0.6898913205299986,
+  "rank_classic+risk+physics": 0.6897413747463336
+}

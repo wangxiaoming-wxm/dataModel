@@ -1,0 +1,35 @@
+{
+  "protocol_id": "IA-AUC698-v1",
+  "target_pooled_oof_auc": 0.698,
+  "accept": {
+    "min_n_splits": 5,
+    "min_n_seeds": 3,
+    "seed_weighting": "equal",
+    "pooled_oof_auc_min": 0.698,
+    "seed_mean_min": 0.693,
+    "seed_std_max": 0.01,
+    "shuffled_oof_auc_pass_band": [0.48, 0.52],
+    "shuffled_oof_auc_hard_band": [0.47, 0.53],
+    "reported_score": "pooled_oof_auc",
+    "protocol_declaration_all_true": true,
+    "forbid_legacy_or_thirdparty_as_self_oof": true,
+    "forbid_oof_weight_search_on_reported_oof": true,
+    "forbid_public_lb_as_blind": true,
+    "forbid_full_data_fit_before_oof_encoding": true,
+    "forbid_single_fold_as_final": true
+  },
+  "conditional": {
+    "fold_auc_range_warn": 0.06,
+    "seed_std_warn": 0.008,
+    "early_stop_borderline_pooled_max_exclusive": 0.7
+  },
+  "catboost_semantic_risks": [
+    "high_cardinality_triple_cross_memorization",
+    "vocab_frequency_must_be_fold_local",
+    "early_stopping_on_valid_mild_optimism",
+    "no_implicit_te_via_oof_feature_selection",
+    "equal_seed_average_required_no_drop_low_seeds",
+    "legacy_pred_bundle_isolation"
+  ],
+  "data_gate_ref": "artifacts/data_gate/new_data_integrity.json"
+}
