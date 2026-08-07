@@ -1,0 +1,10 @@
+{
+  "final_oof_auc": 0.6593019577192198,
+  "family_bag_auc": {
+    "cat_a": 0.6597375145193893,
+    "cat_b": 0.657842729239164,
+    "xgb": 0.6524938917058561
+  },
+  "shuffled_oof_auc": null,
+  "shuffled_pass": null
+}

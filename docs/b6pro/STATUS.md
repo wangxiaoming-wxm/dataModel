@@ -2,21 +2,17 @@
 
 ## 公开榜对齐
 
-- B7 closest ≡ 本分支冻结 max3：本地 **0.702704955**
-- 用户提交 `submission_b7_closest_honest.csv` → **公开 0.707**（Δ≈+0.0043）
-- 目标：诚实本地 nested **≥ 0.71**（继续冲）
+- B7 closest ≡ 冻结 max3：本地 **0.702704955** → 公开 **0.707**
+- 目标：诚实本地 nested **≥ 0.71**（缺口 ≈0.0073）
 
 ## Closest
 
-| 方案 | nested |
-|---|---:|
-| **max(gap,gap_bag,plus_ref)** | **0.70270496** |
-| gap_resid 四臂 | 0.70222 |
-| plus_strong 自训≈ref | plus 0.68848；嵌套 0.70145 |
-| plus_gate | 0.70270（仍选 max3） |
-| stack_raw / mlp | ≤0.7007 |
+**0.70270496**（仍未被超过）
+
+## 本轮已否定（均未超 max3）
+
+gate / plus_strong / gap_resid / stack_raw / mlp / region_spec / sink / self_max
 
 ## 进行中
 
-- gap 10-fold×4seed 重训
-- 下一步：弱 region 专模（9685/f09d/fafc/6645）
+- residw：在 max3 不确定/高误差样本上加权的 plus 异构臂

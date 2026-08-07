@@ -1,0 +1,29 @@
+{
+  "experiment_id": "b6pro_region_spec",
+  "weak_regions": [
+    "9685",
+    "f09d",
+    "fafc",
+    "6645"
+  ],
+  "spec_oof_auc": 0.663733083269444,
+  "nested_oof_auc": 0.7000957443759509,
+  "selected_rule": "median",
+  "four_arm_nested": 0.7000957443759509,
+  "max3_spec_nested": 0.6992598594515154,
+  "baseline_max3": 0.7027049552615718,
+  "gate_0_71": false,
+  "gap_to_0_71": 0.009904,
+  "public_b7_signal": {
+    "local": 0.702704955,
+    "public": 0.707
+  },
+  "protocol_declaration": {
+    "no_test_labels": true,
+    "no_global_te": true,
+    "fold_local_fe": true,
+    "region_specialist_nested": true,
+    "no_oof_weight_search": true,
+    "new_data_only": true
+  }
+}
