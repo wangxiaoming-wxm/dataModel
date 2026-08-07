@@ -103,3 +103,7 @@ Role: audit-only (no training/tuning). Scores from on-disk artifacts only.
 | 36 | 2026-08-07T11:46:08Z | b6pro_multifuse_equal_b6_plus_ref_plus5 | 0.7009217772130575 | yes | n/a | max | REJECT_WAITING | below 0.715; frozen OK; progress==== train plus variant=plus config=h3 === |
 | 37 | 2026-08-07T11:48:39Z | b6pro_multifuse_equal_b6_plus_ref_plus5 | 0.7009217772130575 | yes | n/a | max | REJECT_WAITING | below 0.715; frozen OK; progress==== train plus variant=plus config=h3 === |
 | 38 | 2026-08-07T11:51:10Z | b6pro_multifuse_equal_b6_plus_ref_plus5 | 0.7009217772130575 | yes | n/a | max | REJECT_WAITING | below 0.715; frozen OK; progress==== train plus variant=plus config=h3 === |
+| 39 | 2026-08-07T11:53:41Z | b6pro_multifuse_equal_b6_plus_ref_plus5 | 0.7009217772130575 | yes | n/a | max | REJECT_WAITING | below 0.715; frozen OK; progress==== train plus variant=plus config=h3 === |
+| 40 | 2026-08-07T11:56:12Z | b6pro_multifuse_equal_b6_plus_ref_plus5 | 0.7009217772130575 | yes | n/a | max | REJECT_WAITING | below 0.715; frozen OK; progress==== train plus variant=plus config=h3 === |
+| 41 | 2026-08-07T11:58:43Z | b6pro_multifuse_equal_b6_plus_ref_plus5 | 0.7009217772130575 | yes | n/a | max | REJECT_WAITING | below 0.715; frozen OK; progress==== train plus variant=plus config=h3 === |
+| 42 | 2026-08-07T11:59:13Z | b6pro_multifuse_equal_b6_plus_ref_plus5 | 0.7009217772130575 | yes | n/a | max | REJECT_WAITING | below 0.715; frozen OK; progress==== train plus variant=plus config=h3 === |
