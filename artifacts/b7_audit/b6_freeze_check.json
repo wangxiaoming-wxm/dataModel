@@ -1,7 +1,7 @@
 {
-  "check_id": "B6_FREEZE_INTEGRITY_B7_OPENING_AUDIT",
+  "check_id": "B6_FREEZE_INTEGRITY_B7_RESCAN_AUDIT",
   "protocol": "IA-AUC710-B7-v1",
-  "checked_at_utc": "2026-08-07T10:04:15.888870+00:00",
+  "checked_at_utc": "2026-08-07T10:10:21.957823+00:00",
   "git_branch": "cursor/b7-push-auc071-a5f5",
   "compared_against_branch": "origin/cursor/b6-push-auc070-a5f5",
   "expected_closest_honest_pooled_oof_auc": 0.6989746962571622,
@@ -207,13 +207,17 @@
       "id": "fusion:equal_prob_primary",
       "pass": true,
       "detail": {
-        "primary": "equal_prob",
+        "primary": "equal_prob_gap_gapbag",
         "equal_prob": 0.6989746962571622,
-        "equal_rank": 0.6989328000070059,
-        "gap_only": 0.6986833630687241,
-        "gap_bag_only": 0.6989061794680111,
-        "delta_vs_gap": 0.0002913331884381032,
-        "delta_vs_b6_8seed_equal_prob": 0.00027924199035256336
+        "fusion_block_keys": [
+          "primary",
+          "equal_prob",
+          "equal_rank",
+          "gap_only",
+          "gap_bag_only",
+          "delta_vs_gap",
+          "delta_vs_b6_8seed_equal_prob"
+        ]
       }
     },
     {
@@ -225,8 +229,8 @@
     }
   ],
   "notes": [
-    "Frozen dirs docs/b6_frozen, submissions/b6_frozen, artifacts/b6_frozen are B7-side mirrors of B6 certified closest-honest delivery.",
-    "Submission and metrics_summary byte-identical to origin/cursor/b6-push-auc070-a5f5 sources.",
+    "Rescan by independent B7 supervisor.",
+    "Frozen dirs compared byte-wise to origin/cursor/b6-push-auc070-a5f5.",
     "B6 freeze must remain immutable for entire B7 campaign."
   ]
 }
