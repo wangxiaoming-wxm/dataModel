@@ -121,3 +121,13 @@ RUN /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_
 RUN /usr/bin/python3 scripts/b6pro_supervisor.py
 [loop] extension best_nested=0.7022093156561012
 [loop] still short of 0.715 — sleeping then continue seeking new arms
+[loop] stage=13 best_nested=0.7022093156561012 target=0.715
+RUN /usr/bin/python3 -m insurance_claim.train_b6pro --mode fuse --main-npz artifacts/b5_8seed/predictions.npz --ref-plus --shuffled --output-dir artifacts/b6pro_fuse0_b5ref
+RUN /usr/bin/python3 scripts/b6pro_supervisor.py
+[loop] after stage=13 best_nested=0.7022093156561012
+RUN /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz lgb=artifacts/b6pro_lgb/predictions.npz --output-dir artifacts/b6pro_fuse3_lgb
+RUN /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz xgb=artifacts/b6pro_xgb/predictions.npz --output-dir artifacts/b6pro_fuse3_xgb
+RUN /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz nn=artifacts/b6pro_realmlp/predictions.npz --output-dir artifacts/b6pro_fuse3_nn
+RUN /usr/bin/python3 scripts/b6pro_supervisor.py
+[loop] extension best_nested=0.7022093156561012
+[loop] still short of 0.715 — sleeping then continue seeking new arms

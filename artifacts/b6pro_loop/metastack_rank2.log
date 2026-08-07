@@ -1,0 +1,18 @@
+meta fold=0 auc=0.71267 (rank-OOF)
+meta fold=1 auc=0.69310 (rank-OOF)
+meta fold=2 auc=0.68846 (rank-OOF)
+meta fold=3 auc=0.71644 (rank-OOF)
+meta fold=4 auc=0.69229 (rank-OOF)
+{
+  "nested_oof_auc": 0.7005888214435557,
+  "baseline_max_main_plus": 0.7022093156561012,
+  "gate_0_715": false,
+  "gap_to_0_715": 0.014411,
+  "fold_aucs": [
+    0.7126695734323443,
+    0.6931036714616269,
+    0.6884640900757145,
+    0.7164378719288834,
+    0.6922908910399603
+  ]
+}
