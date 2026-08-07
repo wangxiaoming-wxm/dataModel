@@ -106,6 +106,15 @@ def audit_candidate(metrics_path: Path) -> dict:
     checks["E_rules_preregistered"] = set(THRESH["accept"]["fusion_rules_preregistered"]).issubset(set(rules)) or decl.get("fusion_rules_preregistered") is True
     checks["E_nested_rule_selection"] = fusion.get("rule_selection") == "nested_5fold" or decl.get("rule_selection_nested") is True
     checks["E_selected_rule"] = fusion.get("selected_rule")
+    prereg = set(THRESH["accept"]["fusion_rules_preregistered"])
+    selected = fusion.get("selected_rule")
+    checks["E_selected_rule_preregistered"] = selected in prereg if selected else False
+    used = set(fusion.get("rules_used") or [])
+    checks["E_no_extra_rules_in_search"] = (not used) or used.issubset(prereg)
+    arms = m.get("arm_names") or []
+    checks["D_uses_ref_arm"] = any("ref" in str(a).lower() for a in arms) or bool(
+        (m.get("plus") or {}).get("reference_bootstrap")
+    )
 
     # F not single seed packaging
     checks["F_multi_seed"] = len(seeds) >= 8
@@ -123,8 +132,14 @@ def audit_candidate(metrics_path: Path) -> dict:
         hard_fail.append("D protocol_declaration incomplete")
     if checks["D_reference_bootstrap"]:
         hard_fail.append("D reference_plus_bootstrap=true (not eligible for final PASS)")
+    if checks["D_uses_ref_arm"] and not checks["D_reference_bootstrap"]:
+        hard_fail.append("D uses ref arm without reference_plus_bootstrap disclosure")
     if not checks["E_nested_rule_selection"]:
         hard_fail.append("E rule selection not nested")
+    if not checks["E_selected_rule_preregistered"]:
+        hard_fail.append(f"E selected_rule={selected!r} not in preregistered set")
+    if not checks["E_no_extra_rules_in_search"]:
+        hard_fail.append("E fusion searched non-preregistered rules")
     if not checks["frozen_integrity"]:
         hard_fail.append("frozen integrity fail")
     if checks["C_shuffled_in_hard_band"] is False:

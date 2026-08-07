@@ -121,3 +121,8 @@ Role: audit-only (no training/tuning). Scores from on-disk artifacts only.
 - Packet also mixes `plus_ref` without `reference_plus_bootstrap=true` disclosure.
 - If this score were ≥0.715, verdict would be **REJECT** (post-hoc rule expansion + undisclosed ref arm), not PASS.
 - Current: still <0.715 → REJECT_WAITING; deliver_0_715_allowed=false.
+| 50 | 2026-08-07T12:16:21Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress==== train plus variant=plus config=h3 === |
+| 51 | 2026-08-07T12:18:52Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress==== train plus variant=plus config=h3 === |
+| 52 | 2026-08-07T12:21:23Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress==== train plus variant=plus config=h3 === |
+| 53 | 2026-08-07T12:23:54Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress==== train plus variant=plus config=h3 === |
+| 54 | 2026-08-07T12:26:26Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress==== train plus variant=plus config=h3 === |
