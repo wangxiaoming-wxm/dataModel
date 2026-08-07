@@ -1,0 +1,37 @@
+{
+  "experiment_id": "b6pro_gap_resid",
+  "arm_aucs": {
+    "gap": 0.6986833630687241,
+    "gap_bag": 0.6989061794680111,
+    "plus": 0.6886170674774439,
+    "gap_resid": 0.6967241909147434
+  },
+  "nested_oof_auc": 0.7022224020145229,
+  "selected_rule": "max",
+  "full_data_scores": {
+    "mean": 0.6996162761259443,
+    "mean_2_1": 0.6994066456011127,
+    "power2": 0.6999271642149896,
+    "power3": 0.700178591473944,
+    "max": 0.7022224020145229,
+    "rank_mean": 0.6980716380100296,
+    "geom_mean": 0.6992673231540372,
+    "min": 0.6903661612844414,
+    "median": 0.6986120598306316,
+    "mean_3_1_1": 0.6992544855856996
+  },
+  "baseline_max3": 0.7027049552615718,
+  "gate_0_71": false,
+  "gap_to_0_71": 0.007778,
+  "public_b7_signal": {
+    "local": 0.702704955,
+    "public": 0.707
+  },
+  "protocol_declaration": {
+    "no_test_labels": true,
+    "no_global_te": true,
+    "fold_local_fe": true,
+    "no_oof_weight_search": true,
+    "new_data_only": true
+  }
+}

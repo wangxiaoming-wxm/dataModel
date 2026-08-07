@@ -5,3 +5,18 @@ gate seed=2026 fold=3 auc=0.7490
 gate seed=2026 fold=4 auc=0.7319
 gate seed=2026 OOF-AUC(plus_better)=0.7325
 gate seed=2027 fold=0 auc=0.7266
+gate seed=2027 fold=1 auc=0.7488
+gate seed=2027 fold=2 auc=0.7254
+gate seed=2027 fold=3 auc=0.7336
+gate seed=2027 fold=4 auc=0.7300
+gate seed=2027 OOF-AUC(plus_better)=0.7323
+gate pooled 0.7365674397636457
+nested 0.7027049552615718 maj max3 max3 0.7027049552615718
+top full [('max3', 0.7027049552615718), ('soft_gate2', 0.7003775737831777), ('soft_gate', 0.7002153128903517), ('main', 0.6989746962571622), ('soft_gate_plus', 0.6988817980397729), ('gate0.35_max_else_gap', 0.698812236332269), ('gate0.35_max_else_main', 0.6986598772847886), ('gate0.45_max_else_gap', 0.6984396483023759)]
+4arm nested 0.7027049552615718 max
+{
+  "nested_oof_auc": 0.7027049552615718,
+  "gate_0_71": false,
+  "gap_to_0_71": 0.007295,
+  "baseline_max3": 0.7027049552615718
+}

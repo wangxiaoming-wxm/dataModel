@@ -1,0 +1,24 @@
+{
+  "experiment_id": "b6pro_stack_raw",
+  "stack_oof_auc": 0.640820511687561,
+  "nested_oof_auc": 0.7007168736998232,
+  "selected_rule": "median",
+  "four_arm_nested": 0.7007168736998232,
+  "stack_max3_nested": 0.6914642211994628,
+  "baseline_max3": 0.7027049552615718,
+  "gate_0_71": false,
+  "gap_to_0_71": 0.009283,
+  "public_b7_signal": {
+    "local": 0.702704955,
+    "public": 0.707
+  },
+  "protocol_declaration": {
+    "no_test_labels": true,
+    "no_global_te": true,
+    "fold_local_fe": true,
+    "stage1_oof_as_features": true,
+    "no_oof_weight_search": true,
+    "new_data_only": true,
+    "note": "stage1 OOF from B7 closest arms; stacker nested by outer SKF"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "experiment_id": "b6pro_plus_strong",
+  "plus_oof_auc": 0.6884843877256128,
+  "nested_oof_auc": 0.7014462764682795,
+  "selected_rule": "median",
+  "full_data_scores": {
+    "mean": 0.6961768029717876,
+    "mean_2_1": 0.6997728148468367,
+    "power2": 0.6918644249286868,
+    "power3": 0.6895704310795738,
+    "max": 0.6884622205291228,
+    "rank_mean": 0.6963733471381975,
+    "geom_mean": 0.698816216973614,
+    "min": 0.6899515028513333,
+    "median": 0.7014462764682795,
+    "mean_3_1_1": 0.700115100244491
+  },
+  "baseline_max3": 0.7027049552615718,
+  "gate_0_71": false,
+  "gap_to_0_71": 0.008554,
+  "public_b7_signal": {
+    "local": 0.702704955,
+    "public": 0.707
+  },
+  "protocol_declaration": {
+    "no_test_labels": true,
+    "no_global_te": true,
+    "fold_local_fe": true,
+    "no_oof_weight_search": true,
+    "oof_transform": "fold_rank",
+    "new_data_only": true
+  }
+}

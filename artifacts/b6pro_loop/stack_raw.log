@@ -1,0 +1,22 @@
+stack_raw seed=2026 fold=0 auc=0.71180 max3fold=0.71198
+stack_raw seed=2026 fold=1 auc=0.69739 max3fold=0.70280
+stack_raw seed=2026 fold=2 auc=0.70427 max3fold=0.70126
+stack_raw seed=2026 fold=3 auc=0.67608 max3fold=0.68297
+stack_raw seed=2026 fold=4 auc=0.71300 max3fold=0.71536
+stack_raw seed=2026 OOF=0.637713
+stack_raw seed=2027 fold=0 auc=0.68385 max3fold=0.68319
+stack_raw seed=2027 fold=1 auc=0.69934 max3fold=0.70488
+stack_raw seed=2027 fold=2 auc=0.70808 max3fold=0.71440
+stack_raw seed=2027 fold=3 auc=0.71013 max3fold=0.70831
+stack_raw seed=2027 fold=4 auc=0.70360 max3fold=0.70344
+stack_raw seed=2027 OOF=0.631540
+solo stack 0.640820511687561 max3 0.7027049552615718
+max(stack,max3) 0.6456625140616156
+4arm nested 0.7007168736998232 median
+stack×max3 nested 0.6914642211994628 mean_2_1
+{
+  "stack_oof_auc": 0.640820511687561,
+  "nested_oof_auc": 0.7007168736998232,
+  "gate_0_71": false,
+  "gap_to_0_71": 0.009283
+}

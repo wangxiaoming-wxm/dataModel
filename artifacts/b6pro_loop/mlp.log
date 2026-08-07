@@ -1,0 +1,19 @@
+mlp seed=2026 fold=0 auc=0.60937
+mlp seed=2026 fold=1 auc=0.62294
+mlp seed=2026 fold=2 auc=0.61058
+mlp seed=2026 fold=3 auc=0.60180
+mlp seed=2026 fold=4 auc=0.57942
+mlp seed=2026 OOF=0.600131
+mlp seed=2027 fold=0 auc=0.56820
+mlp seed=2027 fold=1 auc=0.59387
+mlp seed=2027 fold=2 auc=0.61772
+mlp seed=2027 fold=3 auc=0.61899
+mlp seed=2027 fold=4 auc=0.62591
+mlp seed=2027 OOF=0.598976
+solo 0.6104292355417136 corr 0.45350211005102586 nested 0.69807288196045 mean_3_1_1
+{
+  "oof_auc": 0.6104292355417136,
+  "nested_oof_auc": 0.69807288196045,
+  "gate_0_71": false,
+  "gap_to_0_71": 0.011927
+}
