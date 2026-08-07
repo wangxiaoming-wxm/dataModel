@@ -1,0 +1,13 @@
+{
+  "experiment_id": "b6pro_flaml",
+  "oof_auc": 0.640661982645996,
+  "nested_oof_auc": 0.6984498486958225,
+  "selected_rule": "mean_3_1_1",
+  "baseline_max3": 0.7027049552615718,
+  "gate_0_71": false,
+  "gap_to_0_71": 0.01155,
+  "public_b7_signal": {
+    "local": 0.702704955,
+    "public": 0.707
+  }
+}

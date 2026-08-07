@@ -1,0 +1,47 @@
+gapw seed=2026 fold=0 auc=0.69558
+gapw seed=2026 fold=1 auc=0.67362
+gapw seed=2026 fold=2 auc=0.69001
+gapw seed=2026 fold=3 auc=0.66637
+gapw seed=2026 fold=4 auc=0.70387
+gapw seed=2026 OOF=0.684735
+gapw seed=2027 fold=0 auc=0.66465
+gapw seed=2027 fold=1 auc=0.69066
+gapw seed=2027 fold=2 auc=0.69771
+gapw seed=2027 fold=3 auc=0.68727
+gapw seed=2027 fold=4 auc=0.69145
+gapw seed=2027 OOF=0.685538
+gapw seed=2028 fold=0 auc=0.66654
+gapw seed=2028 fold=1 auc=0.71454
+gapw seed=2028 fold=2 auc=0.68761
+gapw seed=2028 fold=3 auc=0.69111
+gapw seed=2028 fold=4 auc=0.68514
+gapw seed=2028 OOF=0.688786
+gapw seed=2029 fold=0 auc=0.68997
+gapw seed=2029 fold=1 auc=0.69729
+gapw seed=2029 fold=2 auc=0.69456
+gapw seed=2029 fold=3 auc=0.69028
+gapw seed=2029 fold=4 auc=0.67155
+gapw seed=2029 OOF=0.688032
+gapw seed=2030 fold=0 auc=0.68528
+gapw seed=2030 fold=1 auc=0.67976
+gapw seed=2030 fold=2 auc=0.67962
+gapw seed=2030 fold=3 auc=0.69978
+gapw seed=2030 fold=4 auc=0.70283
+gapw seed=2030 OOF=0.688327
+gapw seed=2031 fold=0 auc=0.69583
+gapw seed=2031 fold=1 auc=0.69452
+gapw seed=2031 fold=2 auc=0.67193
+gapw seed=2031 fold=3 auc=0.68051
+gapw seed=2031 fold=4 auc=0.69631
+gapw seed=2031 OOF=0.686392
+solo 0.6959117917742434 corr_max3 0.9282260110438382 corr_gap 0.9349910031284447
+nested 0.7013681066238668 median
+full {'mean': 0.6992310993177977, 'mean_2_1': 0.6992696617808274, 'power2': 0.699090284130218, 'power3': 0.6987649662162969, 'max': 0.6959686651874604, 'rank_mean': 0.6978996743039252, 'geom_mean': 0.6990917271127055, 'min': 0.6899075416434794, 'median': 0.7013681066238668, 'mean_3_1_1': 0.6991733302602783}
+max3×gapw 0.7011480269155045 mean_2_1
+{
+  "oof_auc": 0.6959117917742434,
+  "corr_max3": 0.9282260110438382,
+  "nested_oof_auc": 0.7013681066238668,
+  "gate_0_71": false,
+  "gap_to_0_71": 0.008632
+}
