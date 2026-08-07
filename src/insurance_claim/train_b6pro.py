@@ -26,7 +26,7 @@ from insurance_claim.b6pro_fusion import (
     apply_rule_test,
     nested_select_rule,
 )
-from insurance_claim.b6pro_plus import PARAMS_H2, PARAMS_H3, run_plus_arm
+from insurance_claim.b6pro_plus import PARAMS_H2, PARAMS_H2_FIXED, PARAMS_H3, run_plus_arm
 from insurance_claim.model import TARGET, audit_data, build_submission
 from insurance_claim.train_b6 import run_arm
 
@@ -93,9 +93,10 @@ def main() -> int:
     parser.add_argument("--seeds", type=int, nargs="+", default=list(range(2026, 2034)))
     parser.add_argument("--b6-arms", nargs="+", default=["gap", "gap_bag"])
     parser.add_argument("--plus-variant", choices=["plus", "plus_gap", "plus_ultra"], default="plus")
-    parser.add_argument("--plus-config", choices=["h2", "h3"], default="h2")
+    parser.add_argument("--plus-config", choices=["h2", "h3", "h2_fixed"], default="h2")
     parser.add_argument("--plus-folds", type=int, default=5)
     parser.add_argument("--plus-seeds", type=int, nargs="+", default=None)
+    parser.add_argument("--oof-transform", choices=["prob", "rank"], default="prob")
     parser.add_argument("--main-npz", type=Path, default=None, help="Existing main arm OOF npz")
     parser.add_argument("--plus-npz", type=Path, default=None, help="Existing plus OOF npz")
     parser.add_argument(
@@ -184,9 +185,12 @@ def main() -> int:
         arm_names.append("equal_b6")
 
     # --- plus hetero ---
-    plus_params = PARAMS_H3 if args.plus_config == "h3" else PARAMS_H2
+    plus_params = (
+        PARAMS_H3 if args.plus_config == "h3" else PARAMS_H2_FIXED if args.plus_config == "h2_fixed" else PARAMS_H2
+    )
+    use_best = args.plus_config != "h2_fixed"
     if args.mode in ("full", "plus_only") and args.plus_npz is None and not args.ref_plus:
-        print(f"=== train plus variant={args.plus_variant} config={args.plus_config} ===", flush=True)
+        print(f"=== train plus variant={args.plus_variant} config={args.plus_config} xf={args.oof_transform} ===", flush=True)
         plus = run_plus_arm(
             train,
             test,
@@ -195,6 +199,8 @@ def main() -> int:
             variant=args.plus_variant,
             params=plus_params,
             n_splits=args.plus_folds,
+            oof_transform=args.oof_transform,
+            use_best_model=use_best,
         )
         save["oof_plus"] = plus["oof"]
         save["test_plus"] = plus["test"]

@@ -11,6 +11,7 @@ from typing import Any
 import numpy as np
 import pandas as pd
 from catboost import CatBoostClassifier
+from scipy.stats import rankdata
 from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import StratifiedKFold
 
@@ -31,6 +32,19 @@ PARAMS_H2 = dict(
     random_strength=1.0,
     od_type="Iter",
     od_wait=150,
+    verbose=False,
+    thread_count=THREAD_COUNT,
+    allow_writing_files=False,
+)
+
+PARAMS_H2_FIXED = dict(
+    loss_function="Logloss",
+    eval_metric="AUC",
+    iterations=600,
+    learning_rate=0.02,
+    depth=7,
+    l2_leaf_reg=20,
+    random_strength=1.0,
     verbose=False,
     thread_count=THREAD_COUNT,
     allow_writing_files=False,
@@ -91,8 +105,15 @@ def run_plus_arm(
     variant: str = "plus",
     params: dict[str, Any] | None = None,
     n_splits: int = N_SPLITS_DEFAULT,
+    oof_transform: str = "prob",
+    use_best_model: bool = True,
 ) -> dict[str, Any]:
-    """Train plus or plus_gap arm; return pooled OOF/test and per-seed arrays."""
+    """Train plus or plus_gap arm; return pooled OOF/test and per-seed arrays.
+
+    oof_transform:
+      - prob: raw predict_proba (may suffer fold-scale mismatch)
+      - rank: within-fold rankdata / (n+1) for OOF and test (stable pooling)
+    """
     builder = {
         "plus": build_plus,
         "plus_gap": build_plus_gap,
@@ -120,11 +141,20 @@ def run_plus_arm(
             p = dict(params_base)
             p["random_seed"] = seed + fold
             model = CatBoostClassifier(**p)
-            model.fit(tr, y_tr, eval_set=(va, y_va), cat_features=cats, use_best_model=True)
-            oof[va_idx] = model.predict_proba(va)[:, 1]
-            pred_test += model.predict_proba(te)[:, 1] / n_splits
+            if use_best_model and "od_type" in p:
+                model.fit(tr, y_tr, eval_set=(va, y_va), cat_features=cats, use_best_model=True)
+                best = model.get_best_iteration()
+            else:
+                model.fit(tr, y_tr, cat_features=cats)
+                best = p.get("iterations", -1)
+            pv = model.predict_proba(va)[:, 1]
+            pt = model.predict_proba(te)[:, 1]
+            if oof_transform == "rank":
+                pv = rankdata(pv) / (len(pv) + 1.0)
+                pt = rankdata(pt) / (len(pt) + 1.0)
+            oof[va_idx] = pv
+            pred_test += pt / n_splits
             auc = float(roc_auc_score(y_va, oof[va_idx]))
-            best = model.get_best_iteration()
             fold_rows.append(
                 {
                     "arm": variant,
@@ -134,10 +164,11 @@ def run_plus_arm(
                     "best_iter": int(best if best is not None else -1),
                     "n_features": int(tr.shape[1]),
                     "n_cats": len(cats),
+                    "oof_transform": oof_transform,
                 }
             )
             print(
-                f"{variant} seed={seed} fold={fold} auc={auc:.5f} best={best} n={tr.shape[1]}",
+                f"{variant} seed={seed} fold={fold} auc={auc:.5f} best={best} n={tr.shape[1]} xf={oof_transform}",
                 flush=True,
             )
         seed_auc = float(roc_auc_score(y, oof))
@@ -158,4 +189,5 @@ def run_plus_arm(
         "variant": variant,
         "params": {k: v for k, v in params_base.items() if k != "verbose"},
         "n_splits": n_splits,
+        "oof_transform": oof_transform,
     }
