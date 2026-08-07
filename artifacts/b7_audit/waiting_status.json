@@ -1,0 +1,41 @@
+{
+  "status": "WAITING_FOR_MAIN_PROCESS",
+  "protocol": "IA-AUC710-B7-v1",
+  "checked_at_utc": "2026-08-07T10:04:15.890405+00:00",
+  "gate_threshold_nested_oof_auc": 0.71,
+  "final_audit_trigger": "artifacts/b7_*/metrics.json with nested_oof_auc >= 0.71 and protocol-complete packet",
+  "b6_freeze_check": "PASS",
+  "candidates_observed": [
+    {
+      "path": "artifacts/b7_fuse0_b6/metrics.json",
+      "experiment_id": "b7_fuse0_nested",
+      "nested_oof_auc": 0.7022093156561012,
+      "gate_0_71": false,
+      "ready_for_final_audit": false
+    },
+    {
+      "path": "artifacts/b7_fuse0_gapbag/metrics.json",
+      "experiment_id": "b7_fuse0_nested",
+      "nested_oof_auc": 0.7021806550384172,
+      "gate_0_71": false,
+      "ready_for_final_audit": false
+    },
+    {
+      "path": "artifacts/b7_plus_s1/metrics.json",
+      "experiment_id": null,
+      "nested_oof_auc": null,
+      "gate_0_71": null,
+      "ready_for_final_audit": false
+    },
+    {
+      "path": "artifacts/b7_stack/metrics.json",
+      "experiment_id": "b7_nested_logistic_stack",
+      "nested_oof_auc": 0.6969451165093915,
+      "gate_0_71": false,
+      "ready_for_final_audit": false
+    }
+  ],
+  "any_nested_ge_0_71": false,
+  "auditor_action": "No final audit yet. Do not invent scores. Re-scan when main process lands nested>=0.71.",
+  "closest_observed_nested_so_far": 0.7022093156561012
+}
