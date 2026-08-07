@@ -48,7 +48,7 @@ B6 = equal_prob( Arm_B5, Arm_Lossguide, Arm_Fixed, Arm_Parse )
 - 参数差异：
   - `grow_policy="Lossguide"`
   - `max_leaves=31`
-  - `depth=0`（Lossguide 下由 max_leaves 控复杂度）
+  - `depth=6`（限制树深；`depth=0` 实测无效）
   - 其余与 B5 对齐（含 od 早停）
 - 角色：改变分裂顺序，制造预测残差相关但不等同的 OOF
 - 失败门槛：单 seed OOF < B5_same_seed − 0.008 → 标记弱臂
