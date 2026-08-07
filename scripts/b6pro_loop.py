@@ -250,24 +250,168 @@ def main() -> int:
             ]
         )
         if planned_done:
-            print("[loop] planned ladder complete; waiting for new arms / extensions", flush=True)
-            # Keep process alive for supervisor; exit code non-zero means not done
-            time.sleep(60)
-            # Future: residual mining script hooks here
-            if not Path("artifacts/b6pro_resid_note.json").exists():
-                Path("artifacts/b6pro_resid_note.json").write_text(
-                    json.dumps(
-                        {
-                            "status": "need_new_hetero_arm",
-                            "best_nested": b,
-                            "gap": None if b is None else TARGET - b,
-                        },
-                        indent=2,
-                    )
-                    + "\n"
+            # Extension ladder — keep going until 0.715
+            if not Path("artifacts/b6pro_lgb/metrics.json").exists():
+                run(
+                    [
+                        sys.executable,
+                        "-c",
+                        "from pathlib import Path; import json,numpy as np,pandas as pd; "
+                        "from sklearn.metrics import roc_auc_score; "
+                        "from insurance_claim.b6pro_tree_arm import run_tree_arm; "
+                        "train=pd.read_csv('train.csv'); test=pd.read_csv('test.csv'); y=train['label'].astype(int); "
+                        "r=run_tree_arm(train,test,y,(2026,2027,2028,2029),backend='lgb'); "
+                        "out=Path('artifacts/b6pro_lgb'); out.mkdir(parents=True,exist_ok=True); "
+                        "np.savez_compressed(out/'predictions.npz',y=y.to_numpy(),oof=r['oof'],test=r['test']); "
+                        "m=dict(experiment_id='b6pro_lgb',protocol_id='IA-AUC715-B6PRO-v1',oof_auc=r['oof_auc'],"
+                        "seed_aucs=r['seed_aucs'],pooled_oof_auc=r['oof_auc']); "
+                        "(out/'metrics.json').write_text(json.dumps(m,indent=2)+'\\n'); print(r['oof_auc'])",
+                    ],
+                    log,
                 )
-            # Don't busy-spin forever without work — return and let parent extend
-            return 2
+            if (
+                Path("artifacts/b6pro_main/predictions.npz").exists()
+                and Path("artifacts/b6pro_plus_h2/predictions.npz").exists()
+                and Path("artifacts/b6pro_lgb/predictions.npz").exists()
+                and not Path("artifacts/b6pro_fuse3_lgb/metrics.json").exists()
+            ):
+                run(
+                    [
+                        sys.executable,
+                        "scripts/b6pro_fuse_npzs.py",
+                        "--arms",
+                        "equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main",
+                        "plus=artifacts/b6pro_plus_h2/predictions.npz",
+                        "lgb=artifacts/b6pro_lgb/predictions.npz",
+                        "--output-dir",
+                        "artifacts/b6pro_fuse3_lgb",
+                    ],
+                    log,
+                )
+            if not Path("artifacts/b6pro_xgb/metrics.json").exists():
+                run(
+                    [
+                        sys.executable,
+                        "-c",
+                        "from pathlib import Path; import json,numpy as np,pandas as pd; "
+                        "from insurance_claim.b6pro_tree_arm import run_tree_arm; "
+                        "train=pd.read_csv('train.csv'); test=pd.read_csv('test.csv'); y=train['label'].astype(int); "
+                        "r=run_tree_arm(train,test,y,(2026,2027,2028,2029),backend='xgb'); "
+                        "out=Path('artifacts/b6pro_xgb'); out.mkdir(parents=True,exist_ok=True); "
+                        "np.savez_compressed(out/'predictions.npz',y=y.to_numpy(),oof=r['oof'],test=r['test']); "
+                        "m=dict(experiment_id='b6pro_xgb',protocol_id='IA-AUC715-B6PRO-v1',oof_auc=r['oof_auc'],"
+                        "seed_aucs=r['seed_aucs'],pooled_oof_auc=r['oof_auc']); "
+                        "(out/'metrics.json').write_text(json.dumps(m,indent=2)+'\\n'); print(r['oof_auc'])",
+                    ],
+                    log,
+                )
+            if (
+                Path("artifacts/b6pro_main/predictions.npz").exists()
+                and Path("artifacts/b6pro_plus_h2/predictions.npz").exists()
+                and Path("artifacts/b6pro_xgb/predictions.npz").exists()
+                and not Path("artifacts/b6pro_fuse3_xgb/metrics.json").exists()
+            ):
+                run(
+                    [
+                        sys.executable,
+                        "scripts/b6pro_fuse_npzs.py",
+                        "--arms",
+                        "equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main",
+                        "plus=artifacts/b6pro_plus_h2/predictions.npz",
+                        "xgb=artifacts/b6pro_xgb/predictions.npz",
+                        "--output-dir",
+                        "artifacts/b6pro_fuse3_xgb",
+                    ],
+                    log,
+                )
+            if not Path("artifacts/b6pro_realmlp/metrics.json").exists():
+                run(
+                    [
+                        sys.executable,
+                        "scripts/b6pro_train_nn.py",
+                        "--family",
+                        "realmlp",
+                        "--seeds",
+                        "2026",
+                        "2027",
+                        "--epochs",
+                        "96",
+                        "--output-dir",
+                        "artifacts/b6pro_realmlp",
+                    ],
+                    log,
+                )
+            if (
+                Path("artifacts/b6pro_main/predictions.npz").exists()
+                and Path("artifacts/b6pro_plus_h2/predictions.npz").exists()
+                and Path("artifacts/b6pro_realmlp/predictions.npz").exists()
+                and not Path("artifacts/b6pro_fuse3_nn/metrics.json").exists()
+            ):
+                run(
+                    [
+                        sys.executable,
+                        "scripts/b6pro_fuse_npzs.py",
+                        "--arms",
+                        "equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main",
+                        "plus=artifacts/b6pro_plus_h2/predictions.npz",
+                        "nn=artifacts/b6pro_realmlp/predictions.npz",
+                        "--output-dir",
+                        "artifacts/b6pro_fuse3_nn",
+                    ],
+                    log,
+                )
+
+            # plus 10-fold like V10
+            if not Path("artifacts/b6pro_plus_h2_10f/metrics.json").exists():
+                run(
+                    [
+                        sys.executable,
+                        "-m",
+                        "insurance_claim.train_b6pro",
+                        "--mode",
+                        "plus_only",
+                        "--plus-variant",
+                        "plus",
+                        "--plus-config",
+                        "h2",
+                        "--plus-folds",
+                        "10",
+                        "--plus-seeds",
+                        *map(str, range(2026, 2030)),
+                        "--output-dir",
+                        "artifacts/b6pro_plus_h2_10f",
+                    ],
+                    log,
+                )
+            if (
+                Path("artifacts/b6pro_main/predictions.npz").exists()
+                and Path("artifacts/b6pro_plus_h2_10f/predictions.npz").exists()
+                and not Path("artifacts/b6pro_fuse_plus10/metrics.json").exists()
+            ):
+                run(
+                    [
+                        sys.executable,
+                        "scripts/b6pro_fuse_npzs.py",
+                        "--arms",
+                        "equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main",
+                        "plus10=artifacts/b6pro_plus_h2_10f/predictions.npz",
+                        "--output-dir",
+                        "artifacts/b6pro_fuse_plus10",
+                    ],
+                    log,
+                )
+
+            run([sys.executable, "scripts/b6pro_supervisor.py"], log)
+            b = best_nested()
+            print(f"[loop] extension best_nested={b}", flush=True)
+            if b is not None and b >= TARGET:
+                print("[loop] TARGET REACHED", flush=True)
+                return 0
+
+            # If still short after all extensions, sleep and retry (new scripts may appear)
+            print("[loop] still short of 0.715 — sleeping then continue seeking new arms", flush=True)
+            time.sleep(120)
+            continue
 
         time.sleep(5)
 
