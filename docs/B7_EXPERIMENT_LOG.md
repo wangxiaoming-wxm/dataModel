@@ -54,3 +54,11 @@ B6 冻结未动（独立监督 PASS）。
 **仍权威：** fuse0 nested max(B6, plus_v10) = **0.702209**（距 0.71 = 0.007791）
 
 进行中：hybrid(gap+x0–18)、plus H3/bag 集成。
+
+## 终局
+
+- **REJECT 0.71**
+- Closest honest nested **0.702704955** = max(gap, gap_bag, plus_v10)
+- 提交：`submissions/submission_b7_closest_honest.csv`
+- 终审：`docs/supervision/B7_FINAL_AUDIT_OPINION.md`
+- 总报告：`docs/B7_FINAL_REPORT.md`

@@ -1,0 +1,54 @@
+{
+  "experiment_id": "b7_plus_h3_bag_ens",
+  "variants": {
+    "h3": {
+      "auc": 0.6863864653417501,
+      "elapsed": 1088.317705631256,
+      "corr_b6": 0.9147861190037269,
+      "corr_refplus": 0.9892965722103316,
+      "max_b6": 0.7009978572207639
+    },
+    "bag": {
+      "auc": 0.6873292802443157,
+      "elapsed": 443.7931373119354,
+      "corr_b6": 0.9120027841131602,
+      "corr_refplus": 0.9882636121246117,
+      "max_b6": 0.7010694590069573
+    }
+  },
+  "plus_ens_auc": 0.6881150090878042,
+  "nested": {
+    "selected_rule": "max",
+    "nested_oof_auc": 0.7016789947129121,
+    "votes": [
+      "max",
+      "max",
+      "max",
+      "max",
+      "max"
+    ],
+    "full_scores": {
+      "mean": 0.6989041891473387,
+      "mean_2_1": 0.699731615208916,
+      "power2": 0.6994731720695913,
+      "power3": 0.6998863626412033,
+      "max": 0.7016789947129121,
+      "rank_mean": 0.6962237745396587
+    }
+  },
+  "baseline_fuse0": 0.7022093156561012,
+  "gate_0_71": false,
+  "gap_to_0_71": 0.008321,
+  "protocol_declaration": {
+    "fusion_rules_preregistered": [
+      "mean",
+      "mean_2_1",
+      "power2",
+      "power3",
+      "max",
+      "rank_mean"
+    ],
+    "rule_selection": "nested_5fold",
+    "no_global_te": true
+  }
+}
