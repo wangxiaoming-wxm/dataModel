@@ -37,7 +37,7 @@ def build_lgb_matrix(X_tr, X_va, X_te):
     gtr, gva, gte = gap_frame(X_tr), gap_frame(X_va), gap_frame(X_te)
 
     # Keep a compact numeric set from B5 frame
-    num_ Prefer = [
+    num_prefer = [
         c
         for c in tr_b5.columns
         if c not in cats_b5 and pd.api.types.is_numeric_dtype(tr_b5[c])
@@ -45,7 +45,7 @@ def build_lgb_matrix(X_tr, X_va, X_te):
     # Cap to avoid huge sparsity: take all numerics (usually ~70)
 
     def pack(base, gap, cats):
-        out = base[num_Prefer].copy()
+        out = base[num_prefer].copy()
         for c in GAP_CAT_COLS:
             # category codes fold-local from train mapping
             out[c] = gap[c].astype(str)
