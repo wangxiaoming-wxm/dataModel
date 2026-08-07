@@ -217,9 +217,16 @@ def main() -> int:
         else:
             path = Path("reference/v10/oof_plus_h2_10.npz")
         bundle = _load_oof_bundle(path)
-        poof = bundle["oof"]
+        if "oof" in bundle:
+            poof = bundle["oof"]
+        elif "oof_plus" in bundle:
+            poof = bundle["oof_plus"]
+        else:
+            raise KeyError(f"no oof/oof_plus in {path}: {list(bundle)}")
         if "test" in bundle:
             pte = bundle["test"]
+        elif "test_plus" in bundle:
+            pte = bundle["test_plus"]
         else:
             pte = np.load("reference/v10/test_plus_h2_10.npy")
         save["oof_plus"] = poof
