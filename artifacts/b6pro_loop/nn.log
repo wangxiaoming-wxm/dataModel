@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_train_nn.py", line 127, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_train_nn.py", line 71, in main
+    model.fit(Xtr, ytr.to_numpy())
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/pytabkit/models/sklearn/sklearn_base.py", line 243, in fit
+    x_ds = self.x_converter_.fit_transform(X_df)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/pytabkit/models/data/conversion.py", line 58, in fit_transform
+    x_cont = torch.as_tensor(self.num_tf.fit_transform(x), dtype=torch.float32)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: can't convert np.ndarray of type numpy.object_. The only supported types are: float64, float32, float16, complex64, complex128, int64, int32, int16, int8, uint64, uint32, uint16, uint8, and bool.

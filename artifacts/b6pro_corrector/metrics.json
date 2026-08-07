@@ -1,0 +1,23 @@
+{
+  "experiment_id": "b6pro_nested_corrector",
+  "protocol_id": "IA-AUC715-B6PRO-v1",
+  "oof_auc": 0.6284063840729763,
+  "seed_aucs": {
+    "2026": 0.6442665031419202,
+    "2027": 0.6165759179956037
+  },
+  "corr_vs_main": 0.5466199054920373,
+  "nested_max_with_main": 0.6841007064444196,
+  "nested_oof_auc": 0.6841007064444196,
+  "pooled_oof_auc": 0.6841007064444196,
+  "gate_0_715": false,
+  "gap_to_0_715": 0.030899,
+  "protocol_declaration": {
+    "no_test_labels": true,
+    "no_global_te": true,
+    "fold_local_fe": true,
+    "no_oof_weight_search": true,
+    "nested_corrector_with_frozen_base_scores": true,
+    "new_data_only": true
+  }
+}
