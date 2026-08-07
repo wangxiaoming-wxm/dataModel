@@ -1,7 +1,7 @@
 {
   "protocol_id": "IA-AUC715-B6PRO-v1",
   "role": "independent_supervisor",
-  "updated_at": "2026-08-07T13:06:09.343995+00:00",
+  "updated_at": "2026-08-07T13:12:34.389496+00:00",
   "target": 0.715,
   "baseline_b6": 0.6989746962571622,
   "candidates": [
@@ -16,6 +16,20 @@
       "protocol_id": "IA-AUC715-B6PRO-v1",
       "reference_bootstrap": null,
       "recomputed_auc": 0.6841007064444196,
+      "recompute_delta": 0.0,
+      "recompute_ok": true
+    },
+    {
+      "path": "artifacts/b6pro_dropout/metrics.json",
+      "experiment_id": "b6pro_feature_dropout",
+      "nested_oof_auc": 0.6983837202914784,
+      "pooled_oof_auc": 0.6983837202914784,
+      "gate_0_715": false,
+      "gap_to_0_715": 0.016616,
+      "selected_rule": null,
+      "protocol_id": "IA-AUC715-B6PRO-v1",
+      "reference_bootstrap": null,
+      "recomputed_auc": 0.6983837202914784,
       "recompute_delta": 0.0,
       "recompute_ok": true
     },

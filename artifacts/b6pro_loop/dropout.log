@@ -1,0 +1,36 @@
+drop0 fold=0 auc=0.70417 dropped=23
+drop0 fold=1 auc=0.68803 dropped=23
+drop0 fold=2 auc=0.69439 dropped=23
+drop0 fold=3 auc=0.67258 dropped=23
+drop0 fold=4 auc=0.70161 dropped=23
+drop0 OOF=0.691639
+drop1 fold=0 auc=0.67280 dropped=23
+drop1 fold=1 auc=0.69279 dropped=23
+drop1 fold=2 auc=0.69895 dropped=23
+drop1 fold=3 auc=0.69780 dropped=23
+drop1 fold=4 auc=0.69007 dropped=23
+drop1 OOF=0.689331
+drop2 fold=0 auc=0.67054 dropped=23
+drop2 fold=1 auc=0.71671 dropped=23
+drop2 fold=2 auc=0.68933 dropped=23
+drop2 fold=3 auc=0.70009 dropped=23
+drop2 fold=4 auc=0.69107 dropped=23
+drop2 OOF=0.693101
+drop3 fold=0 auc=0.69375 dropped=23
+drop3 fold=1 auc=0.70580 dropped=23
+drop3 fold=2 auc=0.69477 dropped=23
+drop3 fold=3 auc=0.68985 dropped=23
+drop3 fold=4 auc=0.67459 dropped=23
+drop3 OOF=0.691370
+{
+  "dropout_arm_aucs": {
+    "drop0": 0.691639170386576,
+    "drop1": 0.6893307964706041,
+    "drop2": 0.6931011106785481,
+    "drop3": 0.6913696312095019
+  },
+  "nested_oof_auc": 0.6983837202914784,
+  "selected_rule": "power3",
+  "gate_0_715": false,
+  "gap_to_0_715": 0.016616
+}
