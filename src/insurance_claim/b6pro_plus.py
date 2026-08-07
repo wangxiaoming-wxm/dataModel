@@ -15,6 +15,7 @@ from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import StratifiedKFold
 
 from insurance_claim.b6_gap_features import GAP_CAT_COLS, add_gap_cats, fit_gap_edges
+from insurance_claim.b6pro_plus_ultra import build_plus_ultra
 from insurance_claim.v10_plus.plus_features import build_plus
 
 N_SPLITS_DEFAULT = 5
@@ -92,7 +93,13 @@ def run_plus_arm(
     n_splits: int = N_SPLITS_DEFAULT,
 ) -> dict[str, Any]:
     """Train plus or plus_gap arm; return pooled OOF/test and per-seed arrays."""
-    builder = build_plus_gap if variant == "plus_gap" else build_plus
+    builder = {
+        "plus": build_plus,
+        "plus_gap": build_plus_gap,
+        "plus_ultra": build_plus_ultra,
+    }.get(variant)
+    if builder is None:
+        raise ValueError(f"unknown plus variant: {variant}")
     params_base = dict(params or PARAMS_H2)
     features = train.drop(columns=["label"])
     oof_by_seed: dict[int, np.ndarray] = {}

@@ -1,0 +1,10 @@
+{
+  "checked_at": "2026-08-07T10:40:15Z",
+  "note": "Baseline hashes for b6_frozen integrity; tampering => FAIL",
+  "files": {
+    "artifacts/b6_frozen/metrics_summary.json": {"size": 10787, "sha256_16": "2c4e6abb3da1438f"},
+    "docs/b6_frozen/B6_FINAL_AUDIT_OPINION.md": {"size": 6647, "sha256_16": "e4b136f754f1f1e9"},
+    "docs/b6_frozen/B6_FINAL_REPORT.md": {"size": 2149, "sha256_16": "82ea7d385b934b91"},
+    "submissions/b6_frozen/submission_b6_gapbag_8seed.csv": {"size": 236205, "sha256_16": "48d3cffab6e86137"}
+  }
+}

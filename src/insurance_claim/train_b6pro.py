@@ -92,7 +92,7 @@ def main() -> int:
     parser.add_argument("--mode", choices=["full", "fuse", "plus_only", "b6_arms"], default="full")
     parser.add_argument("--seeds", type=int, nargs="+", default=list(range(2026, 2034)))
     parser.add_argument("--b6-arms", nargs="+", default=["gap", "gap_bag"])
-    parser.add_argument("--plus-variant", choices=["plus", "plus_gap"], default="plus")
+    parser.add_argument("--plus-variant", choices=["plus", "plus_gap", "plus_ultra"], default="plus")
     parser.add_argument("--plus-config", choices=["h2", "h3"], default="h2")
     parser.add_argument("--plus-folds", type=int, default=5)
     parser.add_argument("--plus-seeds", type=int, nargs="+", default=None)
