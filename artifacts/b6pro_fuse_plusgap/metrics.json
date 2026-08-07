@@ -32,12 +32,12 @@
     "target_rate": 0.10020093770931011,
     "id_overlap": 0
   },
-  "main_source": "artifacts/b5_8seed/predictions.npz",
-  "main_equal_prob_auc": 0.6981745375887981,
+  "main_source": "artifacts/b6pro_main/predictions.npz",
+  "main_equal_prob_auc": 0.6989746962571622,
   "plus": {
-    "oof_auc": 0.6886170674774439,
-    "source": "reference/v10/oof_plus_h2_10.npz",
-    "reference_bootstrap": true
+    "oof_auc": 0.6861497166977555,
+    "source": "artifacts/b6pro_plus_gap/predictions.npz",
+    "reference_bootstrap": false
   },
   "fusion": {
     "selected_rule": "max",
@@ -50,12 +50,12 @@
     ],
     "consistent_all_folds": true,
     "full_data_scores": {
-      "mean": 0.6988709507921078,
-      "mean_2_1": 0.6994478452390336,
-      "power2": 0.6994013712513306,
-      "power3": 0.699790329668755,
-      "max": 0.7013149650619108,
-      "rank_mean": 0.6961057734027876
+      "mean": 0.6973955260775795,
+      "mean_2_1": 0.6985993217783277,
+      "power2": 0.6979740127810433,
+      "power3": 0.6984190982414323,
+      "max": 0.7000905695422023,
+      "rank_mean": 0.6947164300573452
     },
     "rules_preregistered": [
       "mean",
@@ -75,18 +75,18 @@
     ],
     "rule_selection": "nested_5fold",
     "arm_aucs": {
-      "equal_b6": 0.6981745375887981,
-      "plus": 0.6886170674774439
+      "equal_b6": 0.6989746962571622,
+      "plus": 0.6861497166977555
     },
     "corr": {
-      "equal_b6__plus": 0.9149755685424793
+      "equal_b6__plus": 0.9302045178308488
     }
   },
-  "nested_oof_auc": 0.7013149650619108,
-  "pooled_oof_auc": 0.7013149650619108,
-  "full_selected_auc": 0.7013149650619108,
+  "nested_oof_auc": 0.7000905695422023,
+  "pooled_oof_auc": 0.7000905695422023,
+  "full_selected_auc": 0.7000905695422023,
   "gate_0_715": false,
-  "gap_to_0_715": 0.013685,
+  "gap_to_0_715": 0.014909,
   "protocol_declaration": {
     "no_test_labels": true,
     "no_global_te": true,
@@ -97,10 +97,10 @@
     "equal_seed_average": true,
     "new_data_only": true,
     "b6_freeze_untampered": true,
-    "reference_plus_bootstrap": true,
+    "reference_plus_bootstrap": false,
     "early_stopping_on_valid": true
   },
-  "shuffled_plus_max_auc": 0.6466122453285184,
+  "shuffled_plus_max_auc": 0.6488379711785645,
   "shuffled_plus_max_pass": true,
   "elapsed_sec": 0.2
 }

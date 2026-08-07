@@ -1,0 +1,4 @@
+corr seed=2026 fold=0 auc=0.70322
+corr seed=2026 fold=1 auc=0.70015
+corr seed=2026 fold=2 auc=0.69437
+corr seed=2026 fold=3 auc=0.68154
