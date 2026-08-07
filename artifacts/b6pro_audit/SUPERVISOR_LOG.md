@@ -156,3 +156,10 @@ Role: audit-only (no training/tuning). Scores from on-disk artifacts only.
 | 82 | 2026-08-07T13:26:55Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=} |
 | 83 | 2026-08-07T13:29:26Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main pl |
 | 84 | 2026-08-07T13:31:57Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=} |
+| 85 | 2026-08-07T13:34:28Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=} |
+| 86 | 2026-08-07T13:36:59Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=} |
+| 87 | 2026-08-07T13:39:30Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=} |
+| 88 | 2026-08-07T13:42:02Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=} |
+| 89 | 2026-08-07T13:44:32Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=} |
+| 90 | 2026-08-07T13:47:03Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=} |
+| 91 | 2026-08-07T13:47:13Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=} |
