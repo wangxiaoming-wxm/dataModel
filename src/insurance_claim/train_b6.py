@@ -41,9 +41,9 @@ from insurance_claim.train_b5_focus import CAT_PARAMS, N_SPLITS, build_b5, enric
 from insurance_claim.train_lean_business import build_lean
 
 SEEDS_DEFAULT = tuple(range(2026, 2038))  # 12 seeds
-ARMS_ALL = ("b5", "gap", "biz", "fixed", "parse", "lossguide")
-ARMS_DEFAULT = ("b5", "gap", "fixed")
-FUSE_DEFAULT = ("b5", "gap")  # pre-registered primary fusion set
+ARMS_ALL = ("b5", "gap", "gap_bag", "biz", "fixed", "parse", "lossguide")
+ARMS_DEFAULT = ("b5", "gap", "gap_bag")
+FUSE_DEFAULT = ("gap", "gap_bag")  # pre-registered: bagging-diverse near-strength pair
 
 # Pre-registered weak-arm drop thresholds vs b5 seed-mean (not continuous weight search).
 WEAK_DELTA = {
@@ -51,12 +51,19 @@ WEAK_DELTA = {
     "parse": -0.008,
     "biz": -0.008,
     "gap": -0.010,
+    "gap_bag": -0.010,
     "fixed": -0.015,
 }
 
 THREAD_COUNT = 8  # fixed for determinism (avoid thread_count=-1 nondeterminism)
 
 PARAMS_B5 = {**dict(CAT_PARAMS), "thread_count": THREAD_COUNT}
+
+PARAMS_GAP_BAG = {
+    **PARAMS_B5,
+    "bagging_temperature": 1.0,
+    "random_strength": 1.2,
+}
 
 PARAMS_LOSSGUIDE = dict(
     loss_function="Logloss",
@@ -256,6 +263,8 @@ def arm_spec(name: str) -> tuple[Any, dict[str, Any], bool]:
         return build_b5, PARAMS_B5, True
     if name == "gap":
         return build_gap, PARAMS_B5, True
+    if name == "gap_bag":
+        return build_gap, PARAMS_GAP_BAG, True
     if name == "biz":
         return build_lean, PARAMS_BIZ, True
     if name == "lossguide":
