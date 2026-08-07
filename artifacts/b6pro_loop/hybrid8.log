@@ -1,1 +1,56 @@
 hybrid seed=2026 fold=0 auc=0.70005
+hybrid seed=2026 fold=1 auc=0.68599
+hybrid seed=2026 fold=2 auc=0.69588
+hybrid seed=2026 fold=3 auc=0.66816
+hybrid seed=2026 fold=4 auc=0.70466
+hybrid seed=2026 OOF=0.689358
+hybrid seed=2027 fold=0 auc=0.66537
+hybrid seed=2027 fold=1 auc=0.69419
+hybrid seed=2027 fold=2 auc=0.70469
+hybrid seed=2027 fold=3 auc=0.68775
+hybrid seed=2027 fold=4 auc=0.69830
+hybrid seed=2027 OOF=0.687964
+hybrid seed=2028 fold=0 auc=0.67219
+hybrid seed=2028 fold=1 auc=0.71390
+hybrid seed=2028 fold=2 auc=0.68954
+hybrid seed=2028 fold=3 auc=0.69791
+hybrid seed=2028 fold=4 auc=0.69167
+hybrid seed=2028 OOF=0.691920
+hybrid seed=2029 fold=0 auc=0.69941
+hybrid seed=2029 fold=1 auc=0.70264
+hybrid seed=2029 fold=2 auc=0.68785
+hybrid seed=2029 fold=3 auc=0.68754
+hybrid seed=2029 fold=4 auc=0.66979
+hybrid seed=2029 OOF=0.688278
+hybrid seed=2030 fold=0 auc=0.68900
+hybrid seed=2030 fold=1 auc=0.68113
+hybrid seed=2030 fold=2 auc=0.68324
+hybrid seed=2030 fold=3 auc=0.70207
+hybrid seed=2030 fold=4 auc=0.69488
+hybrid seed=2030 OOF=0.689110
+hybrid seed=2031 fold=0 auc=0.70065
+hybrid seed=2031 fold=1 auc=0.70615
+hybrid seed=2031 fold=2 auc=0.66845
+hybrid seed=2031 fold=3 auc=0.68395
+hybrid seed=2031 fold=4 auc=0.69794
+hybrid seed=2031 OOF=0.690823
+hybrid seed=2032 fold=0 auc=0.69272
+hybrid seed=2032 fold=1 auc=0.69941
+hybrid seed=2032 fold=2 auc=0.68411
+hybrid seed=2032 fold=3 auc=0.68035
+hybrid seed=2032 fold=4 auc=0.68156
+hybrid seed=2032 OOF=0.686984
+hybrid seed=2033 fold=0 auc=0.69911
+hybrid seed=2033 fold=1 auc=0.69175
+hybrid seed=2033 fold=2 auc=0.70837
+hybrid seed=2033 fold=3 auc=0.68771
+hybrid seed=2033 fold=4 auc=0.67154
+hybrid seed=2033 OOF=0.690169
+{
+  "oof_auc": 0.6973943816431928,
+  "nested_oof_auc": 0.7018709611417753,
+  "corr_vs_main": 0.9935391110972926,
+  "corr_vs_plus": 0.9305459858230251,
+  "gate_0_715": false,
+  "gap_to_0_715": 0.013129
+}

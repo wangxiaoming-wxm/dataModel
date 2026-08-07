@@ -128,3 +128,16 @@ Role: audit-only (no training/tuning). Scores from on-disk artifacts only.
 | 54 | 2026-08-07T12:26:26Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress==== train plus variant=plus config=h3 === |
 | 55 | 2026-08-07T12:28:57Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress==== train plus variant=plus config=h3 xf=prob === |
 | 56 | 2026-08-07T12:30:33Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=plus seed=2026 fold=0 auc=0.68671 best=896 n=80 xf=prob |
+| 57 | 2026-08-07T12:31:29Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=plus seed=2026 fold=1 auc=0.67862 best=995 n=80 xf=prob |
+| 58 | 2026-08-07T12:34:00Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=plus seed=2026 fold=3 auc=0.67457 best=1516 n=80 xf=prob |
+| 59 | 2026-08-07T12:36:31Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=plus seed=2027 fold=1 auc=0.68070 best=986 n=80 xf=prob |
+| 60 | 2026-08-07T12:39:02Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=plus seed=2027 fold=3 auc=0.68137 best=607 n=80 xf=prob |
+| 61 | 2026-08-07T12:41:34Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=plus seed=2028 fold=1 auc=0.70152 best=708 n=80 xf=prob |
+| 62 | 2026-08-07T12:44:05Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=plus seed=2028 OOF=0.678099 |
+| 63 | 2026-08-07T12:45:48Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=plus seed=2029 fold=1 auc=0.69963 best=597 n=80 xf=prob |
+| 64 | 2026-08-07T12:46:37Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=plus seed=2029 fold=2 auc=0.68106 best=744 n=80 xf=prob |
+| 65 | 2026-08-07T12:49:08Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=xgb seed=2029 fold=1 auc=0.66518 best=65 |
+| 66 | 2026-08-07T12:51:39Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=} |
+| 67 | 2026-08-07T12:54:11Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=} |
+| 68 | 2026-08-07T12:56:42Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=} |
+| 69 | 2026-08-07T12:59:13Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=} |
