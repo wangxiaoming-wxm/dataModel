@@ -142,4 +142,5 @@ PYTHONPATH=src python3 -m insurance_claim.train_b6 \
 | **B6×8seed equal_prob(gap,gap_bag)** | **0.69897470** | gap_bag_only 0.69891；shuffled 0.5056 PASS |
 | corr(gap,gap_bag) @8seed | 0.996 | 多样性仍不足 |
 | LGB / lossguide / main | ≤0.683 | 弱臂，不进融合 |
+| B6×8seed equal_prob(gap,gap_bag,bag_hot) | 0.698904 | bag_hot_only 0.69849；**未超** 两方 0.698975 |
 | 距 0.70（当前最佳） | **0.001025** | 继续筛 Bernoulli/MVS/hot-bag 异构 |
