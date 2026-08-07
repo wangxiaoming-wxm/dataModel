@@ -127,3 +127,16 @@ PYTHONPATH=src python3 -m insurance_claim.train_b6 \
   --arms b5 lossguide fixed parse --shuffled \
   --output-dir artifacts/b6_12seed
 ```
+
+## 8. 实测进度（诚实数字，勿改写）
+
+| 实验 | pooled OOF | 备注 |
+|---|---:|---|
+| B5×8seed 冻结 | 0.69817454 | 基线 |
+| B6 1-seed equal_prob(b5,gap) | 0.69221373 | gap 0.69184 > b5 0.69055；biz 弱 |
+| B6×8seed equal_prob(b5,gap) | **0.69869545** | gap_only 0.69868；fixed 0.69682；shuffled 0.5062 PASS |
+| corr(b5,gap) @8seed | 0.995 | 融合增益仅 +0.00001 vs gap |
+| lossguide 2seed | 0.67950 | 弱臂，剔除 |
+| main (v2 dual rewrite) 1seed | 0.682998 | 伤分，放弃 |
+| 距 0.70（B6×8） | **0.001305** | 下一刀：12seed + 真正异构（LGB/深度超参） |
+
