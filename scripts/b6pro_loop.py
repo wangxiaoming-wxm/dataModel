@@ -362,6 +362,44 @@ def main() -> int:
                 )
 
             # plus 10-fold like V10
+            
+            if not Path("artifacts/b6pro_plus_ultra/metrics.json").exists():
+                run(
+                    [
+                        sys.executable,
+                        "-m",
+                        "insurance_claim.train_b6pro",
+                        "--mode",
+                        "plus_only",
+                        "--plus-variant",
+                        "plus_ultra",
+                        "--plus-config",
+                        "h2",
+                        "--plus-seeds",
+                        *map(str, range(2026, 2030)),
+                        "--output-dir",
+                        "artifacts/b6pro_plus_ultra",
+                    ],
+                    log,
+                )
+            if (
+                Path("artifacts/b6pro_main/predictions.npz").exists()
+                and Path("artifacts/b6pro_plus_ultra/predictions.npz").exists()
+                and not Path("artifacts/b6pro_fuse_ultra/metrics.json").exists()
+            ):
+                run(
+                    [
+                        sys.executable,
+                        "scripts/b6pro_fuse_npzs.py",
+                        "--arms",
+                        "equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main",
+                        "ultra=artifacts/b6pro_plus_ultra/predictions.npz",
+                        "--output-dir",
+                        "artifacts/b6pro_fuse_ultra",
+                    ],
+                    log,
+                )
+
             if not Path("artifacts/b6pro_plus_h2_10f/metrics.json").exists():
                 run(
                     [
