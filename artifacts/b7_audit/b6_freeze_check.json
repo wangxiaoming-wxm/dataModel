@@ -1,7 +1,7 @@
 {
   "check_id": "B6_FREEZE_INTEGRITY_B7_RESCAN_AUDIT",
   "protocol": "IA-AUC710-B7-v1",
-  "checked_at_utc": "2026-08-07T10:29:15.844125+00:00",
+  "checked_at_utc": "2026-08-07T11:06:19.093916+00:00",
   "git_branch": "cursor/b7-push-auc071-a5f5",
   "compared_against_branch": "origin/cursor/b6-push-auc070-a5f5",
   "expected_closest_honest_pooled_oof_auc": 0.6989746962571622,
@@ -220,7 +220,7 @@
     }
   ],
   "notes": [
-    "Rescan cycle by independent B7 supervisor.",
+    "Rescan after plus_mine/lgb/ebm by independent B7 supervisor.",
     "Frozen dirs compared byte-wise to origin/cursor/b6-push-auc070-a5f5.",
     "B6 freeze must remain immutable for entire B7 campaign."
   ]
