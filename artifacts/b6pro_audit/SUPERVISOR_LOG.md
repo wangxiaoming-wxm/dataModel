@@ -148,3 +148,11 @@ Role: audit-only (no training/tuning). Scores from on-disk artifacts only.
 | 74 | 2026-08-07T13:09:17Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=} |
 | 75 | 2026-08-07T13:11:48Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=} |
 | 76 | 2026-08-07T13:14:19Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=} |
+| 77 | 2026-08-07T13:16:50Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=} |
+| 78 | 2026-08-07T13:19:21Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=} |
+| 79 | 2026-08-07T13:21:53Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=} |
+| 80 | 2026-08-07T13:24:24Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=} |
+| 81 | 2026-08-07T13:26:19Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=} |
+| 82 | 2026-08-07T13:26:55Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=} |
+| 83 | 2026-08-07T13:29:26Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main pl |
+| 84 | 2026-08-07T13:31:57Z | b6pro_multifuse_equal_b6_plus_ref_ultra | 0.7020793228371782 | yes | n/a | median | REJECT_WAITING | below 0.715; frozen OK; progress=} |

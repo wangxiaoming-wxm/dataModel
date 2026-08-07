@@ -1,1 +1,48 @@
 === train plus variant=plus config=h2_fixed xf=rank ===
+plus seed=2026 fold=0 auc=0.66719 best=600 n=80 xf=rank
+plus seed=2026 fold=1 auc=0.70720 best=600 n=80 xf=rank
+plus seed=2026 fold=2 auc=0.67494 best=600 n=80 xf=rank
+plus seed=2026 fold=3 auc=0.68112 best=600 n=80 xf=rank
+plus seed=2026 fold=4 auc=0.67862 best=600 n=80 xf=rank
+plus seed=2026 fold=5 auc=0.67926 best=600 n=80 xf=rank
+plus seed=2026 fold=6 auc=0.65199 best=600 n=80 xf=rank
+plus seed=2026 fold=7 auc=0.69061 best=600 n=80 xf=rank
+plus seed=2026 fold=8 auc=0.71828 best=600 n=80 xf=rank
+plus seed=2026 fold=9 auc=0.67179 best=600 n=80 xf=rank
+plus seed=2026 OOF=0.682098
+plus seed=2027 fold=0 auc=0.67043 best=600 n=80 xf=rank
+plus seed=2027 fold=1 auc=0.64334 best=600 n=80 xf=rank
+plus seed=2027 fold=2 auc=0.66507 best=600 n=80 xf=rank
+plus seed=2027 fold=3 auc=0.68683 best=600 n=80 xf=rank
+plus seed=2027 fold=4 auc=0.69039 best=600 n=80 xf=rank
+plus seed=2027 fold=5 auc=0.70737 best=600 n=80 xf=rank
+plus seed=2027 fold=6 auc=0.68163 best=600 n=80 xf=rank
+plus seed=2027 fold=7 auc=0.68867 best=600 n=80 xf=rank
+plus seed=2027 fold=8 auc=0.70531 best=600 n=80 xf=rank
+plus seed=2027 fold=9 auc=0.68336 best=600 n=80 xf=rank
+plus seed=2027 OOF=0.682277
+plus seed=2028 fold=0 auc=0.66802 best=600 n=80 xf=rank
+plus seed=2028 fold=1 auc=0.66353 best=600 n=80 xf=rank
+plus seed=2028 fold=2 auc=0.72299 best=600 n=80 xf=rank
+plus seed=2028 fold=3 auc=0.68159 best=600 n=80 xf=rank
+plus seed=2028 fold=4 auc=0.68209 best=600 n=80 xf=rank
+plus seed=2028 fold=5 auc=0.68792 best=600 n=80 xf=rank
+plus seed=2028 fold=6 auc=0.69202 best=600 n=80 xf=rank
+plus seed=2028 fold=7 auc=0.66691 best=600 n=80 xf=rank
+plus seed=2028 fold=8 auc=0.67430 best=600 n=80 xf=rank
+plus seed=2028 fold=9 auc=0.68655 best=600 n=80 xf=rank
+plus seed=2028 OOF=0.682590
+plus seed=2029 fold=0 auc=0.69417 best=600 n=80 xf=rank
+plus seed=2029 fold=1 auc=0.68219 best=600 n=80 xf=rank
+plus seed=2029 fold=2 auc=0.69692 best=600 n=80 xf=rank
+plus seed=2029 fold=3 auc=0.69785 best=600 n=80 xf=rank
+plus seed=2029 fold=4 auc=0.67093 best=600 n=80 xf=rank
+plus seed=2029 fold=5 auc=0.69670 best=600 n=80 xf=rank
+plus seed=2029 fold=6 auc=0.67028 best=600 n=80 xf=rank
+plus seed=2029 fold=7 auc=0.67493 best=600 n=80 xf=rank
+plus seed=2029 fold=8 auc=0.65804 best=600 n=80 xf=rank
+plus seed=2029 fold=9 auc=0.68668 best=600 n=80 xf=rank
+plus seed=2029 OOF=0.682845
+{
+  "plus_oof_auc": 0.6848141368894791
+}

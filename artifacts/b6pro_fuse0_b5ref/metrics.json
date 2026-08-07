@@ -1,7 +1,7 @@
 {
   "experiment_id": "b6pro_fuse_plus_h2",
   "protocol_id": "IA-AUC715-B6PRO-v1",
-  "git_commit": "aa218526dabe3cd746bee1ffd0f83139f1c6ca0e",
+  "git_commit": "01be965da7bfaa6ed448dc3846d666025e64bb48",
   "data_sha256": {
     "train": "494a61073a0438f692914c4868db31df1171e662348e0024e06b120d08d44f28",
     "test": "d6ffd26bd4873fa09f6fac361f59170a880e88e331a01d7a6356bd9184ce55ec",
