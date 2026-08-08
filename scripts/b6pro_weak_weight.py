@@ -110,16 +110,25 @@ def main() -> int:
     fr = np.load("artifacts/b6pro_frozen/predictions.npz")
     max3 = np.maximum.reduce([b7["gap"], b7["gap_bag"], b7["plus"]])
     tmax = np.maximum.reduce([fr["test_gap"], fr["test_gap_bag"], fr["test_plus"]])
-    cur = np.load("artifacts/b6pro_long_best/predictions.npz")
-    kx = np.load("artifacts/b6pro_full_keepx/predictions.npz")
+    # Eager-load from stable paths (avoid lazy NpzFile + concurrent long_best writes)
+    cur_path = "artifacts/b6pro_honest_blend/predictions.npz"
+    if not Path(cur_path).exists():
+        cur_path = "artifacts/b6pro_long_best/predictions.npz"
+    _cur = np.load(cur_path)
+    cur = {"oof": np.asarray(_cur["oof"], float).copy(), "test": np.asarray(_cur["test"], float).copy()}
+    _kx = np.load("artifacts/b6pro_full_keepx/predictions.npz")
+    kx = {
+        "oof": np.asarray(_kx["oof"] if "oof" in _kx.files else _kx["oof_k"], float).copy(),
+        "test": np.asarray(_kx["test"] if "test" in _kx.files else _kx["te_k"], float).copy(),
+    }
 
     seeds = [2026, 2027, 2028, 2029]
+    # Focused set: moderate weights (high weights previously underfit f09d)
     runs = [
+        ("f09d_w2", FOCUS_F09D, 2.0),
         ("f09d_w3", FOCUS_F09D, 3.0),
-        ("f09d_w5", FOCUS_F09D, 5.0),
-        ("f09d_w8", FOCUS_F09D, 8.0),
+        ("weak_w2", WEAK, 2.0),
         ("weak_w3", WEAK, 3.0),
-        ("weak_w5", WEAK, 5.0),
     ]
 
     locals_ = {}

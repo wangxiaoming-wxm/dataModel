@@ -1,0 +1,59 @@
+{
+  "best": "direct_patch03_f09d_cls",
+  "nested": 0.7087845390297903,
+  "cls": 0.6915005943097527,
+  "res": 0.6606462451804385,
+  "promoted": false,
+  "gate": false,
+  "closest_prev": 0.7089008235150814,
+  "top": [
+    [
+      "direct_patch03_f09d_cls",
+      0.7087845390297903
+    ],
+    [
+      "direct_patch05_f09d_cls",
+      0.7085270910508017
+    ],
+    [
+      "direct_patch03_weak_cls",
+      0.7081749535658186
+    ],
+    [
+      "direct_patch05_weak_cls",
+      0.7072447274415065
+    ],
+    [
+      "direct_patch1_f09d_cls",
+      0.7066936574053065
+    ],
+    [
+      "cur+mean_cur_cls",
+      0.7065447316609863
+    ],
+    [
+      "cur+mean_cur_res",
+      0.7064779564024236
+    ],
+    [
+      "cur+mean_cur_blend",
+      0.7064179482341475
+    ],
+    [
+      "b7+patch03_f09d_cls",
+      0.7062143881873673
+    ],
+    [
+      "b7+patch05_f09d_cls",
+      0.7060614818017019
+    ],
+    [
+      "cur+patch1_weak_cls",
+      0.7059509194883443
+    ],
+    [
+      "b7+patch03_weak_cls",
+      0.7059364896634686
+    ]
+  ]
+}
