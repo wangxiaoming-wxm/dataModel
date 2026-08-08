@@ -1,0 +1,237 @@
+{
+  "protocol_id": "B6PRO-ANTI-OVERFIT-AUDIT-v1",
+  "written_at_utc": "2026-08-08T10:13:00Z",
+  "auditor_role": "independent_auditor_no_training_no_tuning",
+  "language": "zh-CN",
+  "status": "active",
+  "current_verdict": {
+    "b6pro_0_710071": "REJECT_QUARANTINE",
+    "reason": "local nested OOF 0.7100714803766324 was contradicted by public LB 0.70208, below verified B7 public 0.707",
+    "public_lb_observed": 0.70208,
+    "b7_public_verified": 0.707,
+    "b7_local_nested": 0.7027049552615718
+  },
+  "safe_submission": {
+    "verdict": "ONLY_SAFE_CURRENT_SUBMISSION",
+    "files": [
+      "reference/b7_closest/submission_b7_closest_honest.csv",
+      "submissions/b6pro_closest/submission_SUBMIT_THIS.csv"
+    ],
+    "sha256": "5c9ccfdaaed914c92e153cb9ba2b0fb4e066b462b09406184d3f4ed1e75c1de8",
+    "known_equivalent_file": "submissions/b6pro_closest/submission_B7_SAFE_public0707.csv"
+  },
+  "invalidated_candidates": [
+    {
+      "id": "direct_nodays_ultra_patch_s2027",
+      "artifacts": [
+        "artifacts/b6pro_long_best/metrics.json",
+        "artifacts/b6pro_nodays_ultra/metrics.json",
+        "artifacts/b6pro_honest_blend/metrics.json"
+      ],
+      "local_nested": 0.7100714803766324,
+      "public_lb": 0.70208,
+      "invalidated": true,
+      "deny_promote": true,
+      "risk_tags": [
+        "single_seed_2027",
+        "ultra_slice_alpha_search",
+        "post_hoc_candidate_chain",
+        "public_lb_below_b7"
+      ]
+    }
+  ],
+  "risk_findings": [
+    {
+      "id": "pass_claim_main_entry",
+      "severity": "medium",
+      "finding": "artifacts/b6pro_long_best/metrics.json no longer claims PASS; gate_0_71 is false and overfit_invalidated is true. Automated scanners must not use nested_oof_auc alone.",
+      "required_action": "Require overfit_invalidated != true and all protocol gates before promote."
+    },
+    {
+      "id": "status_doc",
+      "severity": "low",
+      "finding": "docs/b6pro/STATUS.md has been corrected and points to B7 safe fallback.",
+      "required_action": "Keep B7 fallback until a new candidate passes this protocol."
+    },
+    {
+      "id": "secondary_gate_true_artifacts",
+      "severity": "high",
+      "finding": "artifacts/b6pro_nodays_ultra/metrics.json and artifacts/b6pro_honest_blend/metrics.json still contain historical gate=true records for the invalidated 0.710071 run.",
+      "required_action": "Treat these as quarantined evidence, not promote sources."
+    },
+    {
+      "id": "single_seed",
+      "severity": "critical",
+      "finding": "scripts/b6pro_nodays_ultra.py hard-codes seed 2027 for the final over-threshold helper.",
+      "required_action": "Forbid any candidate whose threshold crossing depends on one seed."
+    },
+    {
+      "id": "ultra_small_n_alpha",
+      "severity": "critical",
+      "finding": "ultra slice has train n=1806 with 216 positives; alpha is selected over 21 grid points and then applied to test ultra.",
+      "required_action": "Require repeated outer CV and pre-registered alpha grids; n<2000 slice lift cannot be sole promote driver."
+    },
+    {
+      "id": "pick_blend3_chain",
+      "severity": "high",
+      "finding": "region pick and blend3 perform multi-region, multi-arm, multi-alpha selection before later stacking.",
+      "required_action": "Evaluate the whole search chain under repeated outer CV, not only the last local nested step."
+    },
+    {
+      "id": "non_preregistered_fusion_rules",
+      "severity": "high",
+      "finding": "metrics show searches involving rules outside the preregistered set, including mean_3_1_1, median, geom_mean, and min.",
+      "required_action": "Only preregistered rules may be eligible for promote."
+    }
+  ],
+  "hard_promote_gates": {
+    "all_must_pass": true,
+    "target": {
+      "metric": "nested_oof_auc",
+      "minimum": 0.71,
+      "comparison": "mean_over_repeated_outer_cv",
+      "note": "A single reported metrics.json score is insufficient."
+    },
+    "seeds": {
+      "minimum_equal_weight_seeds": 4,
+      "forbid_single_seed_threshold_crossing": true,
+      "required_report_fields": [
+        "seed_ids",
+        "per_seed_oof_auc",
+        "equal_weight_mean_oof_auc",
+        "standard_deviation",
+        "worst_seed_auc"
+      ]
+    },
+    "outer_cv_repeats": {
+      "minimum_repeats": 3,
+      "splitter": "StratifiedKFold",
+      "different_random_state_required": true,
+      "rerun_full_selection_pipeline_each_repeat": true,
+      "required_report_fields": [
+        "outer_random_states",
+        "per_repeat_nested_auc",
+        "mean_nested_auc",
+        "worst_repeat_nested_auc",
+        "standard_deviation"
+      ],
+      "pass_rule": "mean_nested_auc >= 0.71 and no repeat is materially below B7 local baseline"
+    },
+    "pre_registration": {
+      "required_before_run": true,
+      "manifest_required": true,
+      "manifest_fields": [
+        "candidate_id",
+        "base_artifact",
+        "training_seeds",
+        "outer_cv_random_states",
+        "slice_definitions",
+        "alpha_grid",
+        "fusion_rules",
+        "model_classes",
+        "feature_sets",
+        "promotion_thresholds"
+      ],
+      "forbid_posthoc_rule_expansion": true,
+      "forbid_posthoc_slice_expansion": true,
+      "forbid_oof_weight_search_outside_nested_outer_cv": true
+    },
+    "allowed_fusion_rules": [
+      "mean",
+      "mean_2_1",
+      "power2",
+      "power3",
+      "max",
+      "rank_mean"
+    ],
+    "forbidden_unless_preregistered_and_revalidated": [
+      "mean_3_1_1",
+      "median",
+      "geom_mean",
+      "min",
+      "region_pick",
+      "post_stack",
+      "sequential_ultra_mid_patch"
+    ],
+    "small_slice_policy": {
+      "small_slice_n_threshold": 2000,
+      "ultra_train_n_observed": 1806,
+      "ultra_train_positive_observed": 216,
+      "ultra_test_n_observed": 805,
+      "requirements": [
+        "Report slice n and positives for every optimized slice.",
+        "No n<2000 slice may be the only reason a candidate crosses 0.71.",
+        "Report overall, ultra, non-ultra, long, and non-long AUC deltas against B7.",
+        "If alpha median or fold alphas concentrate above 0.2 on n<2000 slice, require explicit stability evidence across all outer repeats.",
+        "Alpha grids must be fixed in the manifest before any score is computed."
+      ]
+    },
+    "b7_relative_stability": {
+      "baseline_files": [
+        "reference/b7_closest/submission_b7_closest_honest.csv",
+        "submissions/b6pro_closest/submission_SUBMIT_THIS.csv"
+      ],
+      "checks_required": [
+        "per_repeat_auc_delta_vs_b7",
+        "overall_auc_delta_vs_b7",
+        "ultra_auc_delta_vs_b7",
+        "non_ultra_auc_delta_vs_b7",
+        "test_prediction_correlation_vs_b7",
+        "test_prediction_mean_std_min_max",
+        "max_absolute_row_delta_vs_b7",
+        "top_shifted_rows_slice_breakdown"
+      ],
+      "fail_conditions": [
+        "mean repeated nested AUC does not exceed B7 local by a stable margin",
+        "overall improvement is driven primarily by n<2000 slice high-alpha patch",
+        "test distribution shifts materially while repeated CV lift is not stable",
+        "publicly invalidated candidate is repackaged"
+      ]
+    },
+    "public_lb_denylist": {
+      "enabled": true,
+      "entries": [
+        {
+          "candidate": "direct_nodays_ultra_patch_s2027",
+          "local_nested": 0.7100714803766324,
+          "public_lb": 0.70208,
+          "b7_public": 0.707,
+          "deny_reason": "public_lb_below_b7"
+        }
+      ]
+    },
+    "audit_packet_required": {
+      "required_files": [
+        "metrics.json",
+        "predictions.npz",
+        "submission.csv",
+        "manifest.json",
+        "repeat_cv_report.json",
+        "b7_relative_stability.json",
+        "slice_report.json",
+        "auditor_opinion.md"
+      ],
+      "must_recompute_oof_from_predictions": true,
+      "must_include_no_test_label_declaration": true,
+      "must_include_no_global_te_declaration": true
+    }
+  },
+  "automatic_promote_rule": {
+    "default": "fallback_to_b7",
+    "promote_allowed_only_if": [
+      "candidate_id not in invalidated_candidates",
+      "all hard_promote_gates pass",
+      "independent auditor verdict is PASS",
+      "safe submission replacement hash is explicitly recorded",
+      "docs/b6pro/STATUS.md is updated without claiming unverified public performance"
+    ],
+    "never_promote_if": [
+      "single seed crosses threshold but multi-seed mean does not",
+      "only one outer CV split is reported",
+      "historical gate=true artifact belongs to an invalidated public-LB failure",
+      "non-preregistered fusion rule supplies the winning score",
+      "n<2000 slice alpha patch supplies the decisive lift without repeat stability",
+      "candidate public LB is known below B7 public"
+    ]
+  }
+}
