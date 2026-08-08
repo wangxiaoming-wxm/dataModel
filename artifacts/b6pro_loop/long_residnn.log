@@ -1,0 +1,39 @@
+device cpu
+seed0 fold0 auc=0.60384
+seed0 fold1 auc=0.62222
+seed0 fold2 auc=0.62308
+seed0 fold3 auc=0.63532
+seed0 fold4 auc=0.63811
+seed 0 long 0.5985703548646915
+seed1 fold0 auc=0.62988
+seed1 fold1 auc=0.62639
+seed1 fold2 auc=0.63431
+seed1 fold3 auc=0.61832
+seed1 fold4 auc=0.62465
+seed 1 long 0.6143564379696489
+residnn long 0.6214737795444855 all 0.6387588380189463
+resid region 0.15 0.7013775108890444
+resid region 0.3 0.7013702462185898
+resid region 0.5 0.7013756200844056
+mix cur 0.3 0.7013648225947571
+mix cur 0.5 0.7013433768895109
+mix cur 0.7 0.701373629763733
+b7+cur+resid 0.7018481222120583 median
+{
+  "resid_long_auc": 0.6214737795444855,
+  "resid_auc": 0.6387588380189463,
+  "best_nested": 0.7018481222120583,
+  "all": {
+    "resid_wo0.15": 0.7013775108890444,
+    "resid_wo0.3": 0.7013702462185898,
+    "resid_wo0.5": 0.7013756200844056,
+    "mix0.3": 0.7013648225947571,
+    "mix0.5": 0.7013433768895109,
+    "mix0.7": 0.701373629763733,
+    "b7_cur_resid": 0.7018481222120583
+  },
+  "baseline_max3": 0.7027049552615718,
+  "prev_closest": 0.7054481147284526,
+  "gate_0_71": false,
+  "gap_to_0_71": 0.008151877787941686
+}

@@ -1,0 +1,34 @@
+pairlogit failed seed=2026 fold=0: catboost/private/libs/pairs/util.cpp:117: Toо many pairs should be generated for group: 562974 , use max_pairs option to limit generated pair count
+pairlogit failed seed=2026 fold=1: catboost/private/libs/pairs/util.cpp:117: Toо many pairs should be generated for group: 576239 , use max_pairs option to limit generated pair count
+pairlogit failed seed=2026 fold=2: catboost/private/libs/pairs/util.cpp:117: Toо many pairs should be generated for group: 580176 , use max_pairs option to limit generated pair count
+pairlogit failed seed=2026 fold=3: catboost/private/libs/pairs/util.cpp:117: Toо many pairs should be generated for group: 554490 , use max_pairs option to limit generated pair count
+pairlogit failed seed=2026 fold=4: catboost/private/libs/pairs/util.cpp:117: Toо many pairs should be generated for group: 552369 , use max_pairs option to limit generated pair count
+pairlogit seed=2026 slice=0.636724
+pairlogit failed seed=2027 fold=0: catboost/private/libs/pairs/util.cpp:117: Toо many pairs should be generated for group: 563307 , use max_pairs option to limit generated pair count
+pairlogit failed seed=2027 fold=1: catboost/private/libs/pairs/util.cpp:117: Toо many pairs should be generated for group: 550244 , use max_pairs option to limit generated pair count
+pairlogit failed seed=2027 fold=2: catboost/private/libs/pairs/util.cpp:117: Toо many pairs should be generated for group: 543752 , use max_pairs option to limit generated pair count
+pairlogit failed seed=2027 fold=3: catboost/private/libs/pairs/util.cpp:117: Toо many pairs should be generated for group: 592184 , use max_pairs option to limit generated pair count
+pairlogit failed seed=2027 fold=4: catboost/private/libs/pairs/util.cpp:117: Toо many pairs should be generated for group: 577212 , use max_pairs option to limit generated pair count
+pairlogit seed=2027 slice=0.635202
+pairlogit slice 0.643685273089855
+pairlogit_wo0.15 0.7036428938784901
+pairlogit_wo0.2 0.7036085110888727
+pairlogit_wo0.3 0.7035088955392137
+ens4_pairlogit 0.7051154823860601
+prev+ens4_pairlogit 0.7052164911601898
+{
+  "experiment_id": "b6pro_long_rank",
+  "best": "ens4_pairlogit",
+  "nested_oof_auc": 0.7051154823860601,
+  "baseline_max3": 0.7027049552615718,
+  "prev_closest": 0.7054481147284526,
+  "gate_0_71": false,
+  "gap_to_0_71": 0.0048845176139398205,
+  "all": {
+    "pairlogit_wo0.15": 0.7036428938784901,
+    "pairlogit_wo0.2": 0.7036085110888727,
+    "pairlogit_wo0.3": 0.7035088955392137,
+    "ens4_pairlogit": 0.7051154823860601,
+    "prev+ens4_pairlogit": 0.7052164911601898
+  }
+}
