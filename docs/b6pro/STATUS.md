@@ -7,11 +7,6 @@
 - 距 0.71 缺口 ≈ **0.00441**
 - 产物：`artifacts/b6pro_long_best/`、`submissions/b6pro_closest/`
 
-## 最近实验
-
-- keepx8：solo≈0.697，微抬 closest
-- hardw / XGB / f09d-only / ultra-long：见 artifacts
-
 ## 协议
 
-未达 0.71 不宣称 PASS；继续直到达标。
+未达 0.71 不宣称 PASS；nested < B7 则 fallback。继续实验直到达标。
