@@ -1,9 +1,9 @@
 {
   "experiment_id": "b6pro_long_best",
-  "spec": "cur+rb_mix_m3_kx_w0.2",
-  "nested_oof_auc": 0.7055828096799643,
+  "spec": "cur+rb_mix_m3_w0.2",
+  "nested_oof_auc": 0.7055853970968387,
   "baseline_max3": 0.7027049552615718,
   "gate_0_71": false,
-  "gap_to_0_71": 0.004417190320035624,
-  "source": "quick_fuse_fullkx"
+  "gap_to_0_71": 0.004414602903161313,
+  "source": "b6pro_keepx8"
 }
