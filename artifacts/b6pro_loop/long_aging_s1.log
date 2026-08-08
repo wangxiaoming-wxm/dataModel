@@ -1,0 +1,33 @@
+long_aging seed=2026 fold=0 auc=0.70017 long=0.6769335984817896
+long_aging seed=2026 fold=1 auc=0.68479 long=0.6297608159671935
+long_aging seed=2026 fold=2 auc=0.68876 long=0.6622652672737561
+long_aging seed=2026 fold=3 auc=0.66990 long=0.6104855364114623
+long_aging seed=2026 fold=4 auc=0.70709 long=0.6493681198961709
+long_aging seed=2026 OOF=0.688980 long=0.644827
+
+=== solo AUCs ===
+max3=0.702705 long=0.663010
+long_aging: all=0.688980 long=0.644827 corr_max3=0.9298
+long_aging_patch: all=0.691405 long=0.644827 corr_max3=0.9422
+long_aging_rt: all=0.692016 long=0.644827 corr_max3=0.9498
+long_aging_meanL: all=0.699563 long=0.658089 corr_max3=0.9838
+
+=== nested fusions ===
+b7_max3_only: nested=0.70270496 rule=mean folds=['mean', 'mean', 'mean', 'mean', 'mean'] FLOOR_OK
+b7_3arm: nested=0.70270496 rule=max folds=['max', 'max', 'max', 'max', 'max'] FLOOR_OK
+max3×long_aging_meanL: nested=0.70224773 rule=mean_2_1 folds=['mean_2_1', 'mean_2_1', 'mean_2_1', 'mean_2_1', 'mean_2_1'] below_floor
+max3×long_aging_rt: nested=0.70151076 rule=mean_2_1 folds=['mean_2_1', 'mean_2_1', 'mean_2_1', 'mean_2_1', 'mean_2_1'] below_floor
+max3×long_aging_patch: nested=0.70117490 rule=mean_2_1 folds=['mean_2_1', 'mean_2_1', 'mean_2_1', 'mean_2_1', 'mean_2_1'] below_floor
+max3×long_aging: nested=0.70081256 rule=mean_2_1 folds=['mean_2_1', 'mean_2_1', 'mean_2_1', 'mean_2_1', 'mean_2_1'] below_floor
+b7+long_aging_meanL: nested=0.69995632 rule=max folds=['max', 'max', 'median', 'max', 'max'] below_floor
+b7+long_aging_patch: nested=0.69994652 rule=median folds=['median', 'median', 'median', 'median', 'median'] below_floor
+b7+long_aging_rt: nested=0.69915171 rule=power3 folds=['max', 'power3', 'power3', 'power3', 'power3'] below_floor
+b7+long_aging: nested=0.69844378 rule=power3 folds=['power3', 'mean_2_1', 'median', 'power3', 'power3'] below_floor
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_long_aging.py", line 343, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_long_aging.py", line 305, in main
+    sub = build_submission(sample, deliver_test)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: build_submission() missing 2 required positional arguments: 'predictions' and 'output_path'
