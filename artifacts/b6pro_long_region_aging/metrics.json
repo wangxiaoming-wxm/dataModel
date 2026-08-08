@@ -1,6 +1,6 @@
 {
   "experiment_id": "b6pro_long_region_aging",
-  "nested_oof_auc": 0.7050925439403095,
+  "nested_oof_auc": 0.7051591699248215,
   "selected_rule": "max",
   "fold_rules": [
     "max",
@@ -17,10 +17,11 @@
     "f167",
     "fafc"
   ],
+  "weights": "weak_long:1.0 aging_lo; other_long:0.3 aging_lo + 0.7 max3; short:max3",
   "long_specialist": "aging 4seed days>=3000",
   "baseline_max3": 0.7027049552615718,
   "gate_0_71": false,
-  "gap_to_0_71": 0.0049074560596904515,
+  "gap_to_0_71": 0.004840830075178437,
   "protocol_declaration": {
     "no_test_labels": true,
     "no_global_te": true,
