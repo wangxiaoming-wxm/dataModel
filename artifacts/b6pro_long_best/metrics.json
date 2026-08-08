@@ -1,9 +1,9 @@
 {
   "experiment_id": "b6pro_long_best",
-  "spec": "prev_agk",
-  "wo": 0.15,
-  "nested_oof_auc": 0.7054481147284526,
-  "baseline_max3": 0.702704955,
+  "spec": "cur+mean_m3",
+  "nested_oof_auc": 0.7054764270400189,
+  "baseline_max3": 0.7027049552615718,
   "gate_0_71": false,
-  "gap_to_0_71": 0.0045518852715473734
+  "gap_to_0_71": 0.00452357295998107,
+  "source": "b6pro_nodays"
 }
