@@ -1,9 +1,9 @@
 {
   "experiment_id": "b6pro_long_best",
-  "spec": "direct_pick_all_i0.001",
-  "nested_oof_auc": 0.707823512693071,
+  "spec": "direct_logit_post+pick_C0.05",
+  "nested_oof_auc": 0.7082845207188402,
   "baseline_max3": 0.7027049552615718,
   "gate_0_71": false,
-  "gap_to_0_71": 0.002176487306928987,
-  "source": "b6pro_region_pick"
+  "gap_to_0_71": 0.0017154792811597819,
+  "source": "b6pro_post_stack2"
 }
