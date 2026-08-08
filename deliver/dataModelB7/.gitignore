@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+catboost_info/
+*.zip
+# ignore root symlinks only (real data lives in data/)
+/train.csv
+/test.csv
+/submit_sample.csv
+artifacts/**/*.log
+artifacts/b6_retrain/
+artifacts/b7_plus_retrain/
