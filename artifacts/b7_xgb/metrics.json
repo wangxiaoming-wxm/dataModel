@@ -1,0 +1,113 @@
+{
+  "experiment_id": "b7_xgb_hetero",
+  "stage1_auc": 0.7022093156561012,
+  "stage2_auc": 0.6549750752142183,
+  "corr_s1_s2": 0.7265066012068747,
+  "corr_b6": 0.7103292342273535,
+  "corr_plus": 0.7489707597849662,
+  "nested": {
+    "selected_rule": "mean_2_1",
+    "nested_oof_auc": 0.6983995433408249,
+    "votes": [
+      "mean_2_1",
+      "mean_2_1",
+      "mean_2_1",
+      "mean_2_1",
+      "mean_2_1"
+    ],
+    "full_scores": {
+      "mean": 0.6948393572378808,
+      "mean_2_1": 0.6983995433408249,
+      "power2": 0.6956806657861487,
+      "power3": 0.696177499584023,
+      "max": 0.6969834301823373,
+      "rank_mean": 0.6832951490312313
+    }
+  },
+  "max_s1_s2": 0.6969834301823373,
+  "pooled_selected_auc": 0.6983995433408249,
+  "gate_0_71": false,
+  "gap_to_0_71": 0.0116,
+  "seeds": [
+    2026,
+    2027
+  ],
+  "n_splits": 5,
+  "elapsed_sec": 6.1,
+  "folds": [
+    {
+      "seed": 2026,
+      "fold": 0,
+      "auc": 0.6589051957088073,
+      "best": 41
+    },
+    {
+      "seed": 2026,
+      "fold": 1,
+      "auc": 0.6433017638499751,
+      "best": 55
+    },
+    {
+      "seed": 2026,
+      "fold": 2,
+      "auc": 0.6514756420421378,
+      "best": 21
+    },
+    {
+      "seed": 2026,
+      "fold": 3,
+      "auc": 0.6346511694483411,
+      "best": 123
+    },
+    {
+      "seed": 2026,
+      "fold": 4,
+      "auc": 0.6794502357905187,
+      "best": 18
+    },
+    {
+      "seed": 2027,
+      "fold": 0,
+      "auc": 0.6383534993832563,
+      "best": 22
+    },
+    {
+      "seed": 2027,
+      "fold": 1,
+      "auc": 0.659373199089385,
+      "best": 79
+    },
+    {
+      "seed": 2027,
+      "fold": 2,
+      "auc": 0.6696095283496781,
+      "best": 33
+    },
+    {
+      "seed": 2027,
+      "fold": 3,
+      "auc": 0.660609798447374,
+      "best": 24
+    },
+    {
+      "seed": 2027,
+      "fold": 4,
+      "auc": 0.6624063042938695,
+      "best": 109
+    }
+  ],
+  "protocol_declaration": {
+    "stage1_frozen_b6_plus": true,
+    "fusion_rules_preregistered": [
+      "mean",
+      "mean_2_1",
+      "power2",
+      "power3",
+      "max",
+      "rank_mean"
+    ],
+    "rule_selection": "nested_5fold",
+    "no_global_te": true,
+    "hetero_model": "xgboost"
+  }
+}

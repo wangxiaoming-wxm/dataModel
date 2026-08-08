@@ -1,0 +1,81 @@
+{
+  "protocol": "IA-AUC710-B7-v1",
+  "auditor": "independent_overfit_cheat_agent",
+  "items": [
+    {
+      "id": "global_or_external_target_encoding",
+      "verdict": "PASS",
+      "evidence": [
+        "Closest arms are frozen B6 gap/gap_bag (fold-local FE in train_b6.py) + reference/v10 plus OOF.",
+        "No TargetEncoder / global TE path in b7_fusion.py / scripts/b7_fuse0.py.",
+        "protocol_declaration.no_global_te / fold_local_fe claimed and code-consistent for delivery path."
+      ]
+    },
+    {
+      "id": "full_fit_fe_then_cv",
+      "verdict": "PASS",
+      "evidence": [
+        "B6 builders fit FE on fold train only (b6_builders / train_b6).",
+        "Delivery closest does not re-fit FE; reuses frozen OOFs."
+      ]
+    },
+    {
+      "id": "continuous_oof_weight_search",
+      "verdict": "PASS",
+      "evidence": [
+        "FUSION_RULES discrete set in src/insurance_claim/b7_fusion.py.",
+        "fuse0 nested_select_pair 5/5 chose max; no grid weights on reported OOF.",
+        "b7_stack logistic nested meta scored 0.6969 and was not used as main."
+      ]
+    },
+    {
+      "id": "test_pseudo_or_test_labels",
+      "verdict": "PASS",
+      "evidence": [
+        "artifacts/b7_audit/data_gate.json: test has no label.",
+        "No pseudo-label flags true on closest/fuse0 metrics."
+      ]
+    },
+    {
+      "id": "nested_rule_selection_honesty",
+      "verdict": "PASS",
+      "evidence": [
+        "Pair fuse0: independent recompute nested_oof_auc=0.7022093156561012; votes 5x max; matches artifacts/b7_fuse0_b6/metrics.json.",
+        "Pre-registered rules in docs/B7_PLAN.md match FUSION_RULES."
+      ]
+    },
+    {
+      "id": "max3_posthoc_rule_expansion",
+      "verdict": "CONDITIONAL",
+      "evidence": [
+        "scripts/b7_fuse0.py labels max3 under three_arm_disclosure (not primary nested).",
+        "docs/B7_EXPERIMENT_LOG.md initially: disclosure max3 非主报.",
+        "Later elevated to closest honest in artifacts/b7_closest and B7_FINAL_REPORT.",
+        "B7_PLAN allows (A,B[,C]) + max, and nested among max-family 5/5 picks max3 — not hard cheat, but disclosure→main elevation requires CONDITIONAL tag.",
+        "Protocol §3.2 max dependency also applies."
+      ]
+    },
+    {
+      "id": "oof_stacking_leak_as_main",
+      "verdict": "PASS",
+      "evidence": [
+        "b7_resid uses stage1 OOF as feature (standard OOF stacking risk noted in experiment log) but nested 0.6971 < fuse0; not main report.",
+        "Closest path is pure discrete max of frozen OOFs — no stage2 meta fit on full OOF."
+      ]
+    },
+    {
+      "id": "b6_freeze_integrity",
+      "verdict": "PASS",
+      "evidence": [
+        "artifacts/b7_audit/b6_freeze_check.json verdict PASS; pooled still 0.6989746962571622."
+      ]
+    },
+    {
+      "id": "data_sha_gate",
+      "verdict": "PASS",
+      "evidence": [
+        "artifacts/b7_audit/data_gate.json verdict PASS."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,202 @@
+{
+  "check_id": "B6_FINAL_AUDIT_RECOMPUTE",
+  "protocol": "IA-AUC700-B6-v1",
+  "checked_at_utc": "2026-08-07T08:33:37.736644+00:00",
+  "b5_freeze_verdict": "PASS",
+  "verdict_all_checks": "PASS",
+  "n_checks": 29,
+  "n_failed": 0,
+  "failed_checks": [],
+  "b6": {
+    "oof_recomputed_auc": 0.6989746962571622,
+    "reported_pooled": 0.6989746962571622,
+    "delta": 0.0,
+    "gate_0_70": false,
+    "shuffled_oof_auc": 0.5055995184220101,
+    "seed_mean": 0.6916341572663821,
+    "seed_std": 0.00123881803678489,
+    "closest_honest_pooled_oof_auc": 0.6989746962571622
+  },
+  "checks": [
+    {
+      "id": "exists:artifacts/b5_frozen/metrics_b5_8seed.json",
+      "pass": true,
+      "detail": "present"
+    },
+    {
+      "id": "sha:artifacts/b5_frozen/metrics_b5_8seed.json",
+      "pass": true,
+      "detail": {
+        "expected": "0ab7cf26eff95cd33a309306a393b65b03acb387cd5bc3f4851163c37ef87c04",
+        "got": "0ab7cf26eff95cd33a309306a393b65b03acb387cd5bc3f4851163c37ef87c04"
+      }
+    },
+    {
+      "id": "exists:submissions/b5_frozen/submission_b5_8seed.csv",
+      "pass": true,
+      "detail": "present"
+    },
+    {
+      "id": "sha:submissions/b5_frozen/submission_b5_8seed.csv",
+      "pass": true,
+      "detail": {
+        "expected": "b9e0eccc7cf0fb4c17ce528d2fad31af7cc61d6b2ef828f9e88ea92a299d7233",
+        "got": "b9e0eccc7cf0fb4c17ce528d2fad31af7cc61d6b2ef828f9e88ea92a299d7233"
+      }
+    },
+    {
+      "id": "exists:docs/b5_frozen/FINAL_B5_8SEED.md",
+      "pass": true,
+      "detail": "present"
+    },
+    {
+      "id": "sha:docs/b5_frozen/FINAL_B5_8SEED.md",
+      "pass": true,
+      "detail": {
+        "expected": "2b7dc63a629a51a17932d23d52f18cc61bb46e7f671b5687c016553f6367d378",
+        "got": "2b7dc63a629a51a17932d23d52f18cc61bb46e7f671b5687c016553f6367d378"
+      }
+    },
+    {
+      "id": "score:pooled",
+      "pass": true,
+      "detail": 0.6981745375887981
+    },
+    {
+      "id": "score:auc_8seed",
+      "pass": true,
+      "detail": 0.6981745375887981
+    },
+    {
+      "id": "experiment_id",
+      "pass": true,
+      "detail": "b5_focus_8seed_newdata"
+    },
+    {
+      "id": "seeds",
+      "pass": true,
+      "detail": [
+        2026,
+        2027,
+        2028,
+        2029,
+        2030,
+        2031,
+        2032,
+        2033
+      ]
+    },
+    {
+      "id": "frozen_eq_live_metrics",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "b5_oof_recompute",
+      "pass": true,
+      "detail": {
+        "recomputed": 0.6981745375887981,
+        "expected": 0.6981745375887981,
+        "delta": 0.0
+      }
+    },
+    {
+      "id": "b5_y_match",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "submission_sha_triple",
+      "pass": true,
+      "detail": [
+        "b9e0eccc7cf0fb4c17ce528d2fad31af7cc61d6b2ef828f9e88ea92a299d7233",
+        "b9e0eccc7cf0fb4c17ce528d2fad31af7cc61d6b2ef828f9e88ea92a299d7233",
+        "b9e0eccc7cf0fb4c17ce528d2fad31af7cc61d6b2ef828f9e88ea92a299d7233"
+      ]
+    },
+    {
+      "id": "frozen_doc_score",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "fusion_equal_prob_algebra",
+      "pass": true,
+      "detail": {
+        "maxabs": 0.0
+      }
+    },
+    {
+      "id": "arm_gap_auc_match",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "id": "arm_gap_bag_auc_match",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "id": "fused_auc_match",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "id": "test_fusion_algebra",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "id": "seed_mean_match",
+      "pass": true,
+      "detail": [
+        0.6916341572663821,
+        0.6916341572663821
+      ]
+    },
+    {
+      "id": "seed_std_match",
+      "pass": true,
+      "detail": {
+        "std0": 0.00123881803678489,
+        "std1": 0.0013243521880585646,
+        "reported": 0.00123881803678489
+      }
+    },
+    {
+      "id": "shuffled_hard_band",
+      "pass": true,
+      "detail": 0.5055995184220101
+    },
+    {
+      "id": "shuffled_pass_band",
+      "pass": true,
+      "detail": 0.5055995184220101
+    },
+    {
+      "id": "gate_0_70_false",
+      "pass": true,
+      "detail": false
+    },
+    {
+      "id": "pooled_lt_0.70",
+      "pass": true,
+      "detail": 0.6989746962571622
+    },
+    {
+      "id": "primary_equal_prob",
+      "pass": true,
+      "detail": "equal_prob"
+    },
+    {
+      "id": "no_blend_weights_key",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "delivery_is_equal_prob",
+      "pass": true,
+      "detail": "equal_prob_gap_gapbag"
+    }
+  ]
+}

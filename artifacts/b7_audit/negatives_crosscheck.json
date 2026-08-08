@@ -1,0 +1,147 @@
+{
+  "closest_ref": 0.7027049552615718,
+  "rows": [
+    {
+      "dir": "artifacts/b7_resid",
+      "experiment_id": "b7_residual_corrector",
+      "scores": {
+        "gate_0_71": false,
+        "nested.nested_oof_auc": 0.6970980726530736,
+        "stage1_auc": 0.7022093156561012,
+        "stage2_auc": 0.6682104588962955,
+        "pooled_selected_auc": 0.6970980726530736
+      },
+      "max_reported_auc": 0.7022093156561012,
+      "exceeds_closest": false,
+      "gate_0_71": false
+    },
+    {
+      "dir": "artifacts/b7_gate_soft",
+      "experiment_id": "b7_gate_soft",
+      "scores": {
+        "gate_0_71": false,
+        "nested.nested_oof_auc": 0.7022093156561012,
+        "stage1_auc": 0.7022093156561012,
+        "stage2_auc": 0.6962850764163719,
+        "direct_stage2_auc": 0.6962850764163719,
+        "max_s1_s2_auc": 0.7022093156561012,
+        "pooled_selected_auc": 0.7022093156561012
+      },
+      "max_reported_auc": 0.7022093156561012,
+      "exceeds_closest": false,
+      "gate_0_71": false
+    },
+    {
+      "dir": "artifacts/b7_plus_mine",
+      "experiment_id": "b7_plus_mine_h2",
+      "scores": {
+        "oof_auc": 0.6860946843311607
+      },
+      "max_reported_auc": 0.6860946843311607,
+      "exceeds_closest": false,
+      "gate_0_71": null
+    },
+    {
+      "dir": "artifacts/b7_hybrid",
+      "experiment_id": "b7_hybrid_gap_x",
+      "scores": {
+        "gate_0_71": false,
+        "stage2_auc": 0.6955570171143695
+      },
+      "max_reported_auc": 0.6955570171143695,
+      "exceeds_closest": false,
+      "gate_0_71": false
+    },
+    {
+      "dir": "artifacts/b7_lgb_gap",
+      "experiment_id": "b7_lgb_gap",
+      "scores": {
+        "gate_0_71": false,
+        "nested.nested_oof_auc": 0.6998994987576419,
+        "stage1_auc": 0.7022093156561012,
+        "stage2_auc": 0.6684188952287237
+      },
+      "max_reported_auc": 0.7022093156561012,
+      "exceeds_closest": false,
+      "gate_0_71": false
+    },
+    {
+      "dir": "artifacts/b7_ebm",
+      "experiment_id": "b7_ebm",
+      "scores": {
+        "gate_0_71": false,
+        "nested.nested_oof_auc": 0.6951199426946871,
+        "stage1_auc": 0.7022093156561012,
+        "stage2_auc": 0.6442380913143202
+      },
+      "max_reported_auc": 0.7022093156561012,
+      "exceeds_closest": false,
+      "gate_0_71": false
+    },
+    {
+      "dir": "artifacts/b7_plus_h3",
+      "experiment_id": "b7_plus_h3_bag_ens",
+      "scores": {
+        "gate_0_71": false,
+        "nested.nested_oof_auc": 0.7016789947129121,
+        "plus_ens_auc": 0.6881150090878042
+      },
+      "max_reported_auc": 0.7016789947129121,
+      "exceeds_closest": false,
+      "gate_0_71": false
+    },
+    {
+      "dir": "artifacts/b7_fuse_plusmine",
+      "experiment_id": "b7_fuse_b6_plus2",
+      "scores": {
+        "gate_0_71": false,
+        "nested.nested_oof_auc": 0.7012312223196153,
+        "plus_mine_auc": 0.6860946843311607,
+        "plus2_auc": 0.6883047861639275
+      },
+      "max_reported_auc": 0.7012312223196153,
+      "exceeds_closest": false,
+      "gate_0_71": false
+    },
+    {
+      "dir": "artifacts/b7_xgb",
+      "experiment_id": "b7_xgb_hetero",
+      "scores": {
+        "gate_0_71": false,
+        "nested.nested_oof_auc": 0.6983995433408249,
+        "stage1_auc": 0.7022093156561012,
+        "stage2_auc": 0.6549750752142183,
+        "pooled_selected_auc": 0.6983995433408249
+      },
+      "max_reported_auc": 0.7022093156561012,
+      "exceeds_closest": false,
+      "gate_0_71": false
+    },
+    {
+      "dir": "artifacts/b7_stack",
+      "experiment_id": "b7_nested_logistic_stack",
+      "scores": {
+        "nested_oof_auc": 0.6969451165093915,
+        "gate_0_71": false
+      },
+      "max_reported_auc": 0.6969451165093915,
+      "exceeds_closest": false,
+      "gate_0_71": false
+    },
+    {
+      "dir": "artifacts/b7_fuse0_gapbag",
+      "experiment_id": "b7_fuse0_nested",
+      "scores": {
+        "nested_oof_auc": 0.7021806550384172,
+        "pooled_oof_auc": 0.7021806550384172,
+        "gate_0_71": false,
+        "nested.nested_oof_auc": 0.7021806550384172,
+        "shuffled_plus_max_auc": 0.6482690877723455
+      },
+      "max_reported_auc": 0.7021806550384172,
+      "exceeds_closest": false,
+      "gate_0_71": false
+    }
+  ],
+  "any_exceeds_closest": false
+}
