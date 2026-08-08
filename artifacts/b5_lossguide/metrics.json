@@ -1,8 +1,0 @@
-{
-  "lossguide_auc": 0.6817801666933371,
-  "mean_with_b5": 0.693637054277637,
-  "rank_with_b5": 0.6906635151929138,
-  "gate_mean": false,
-  "gate_rank": false,
-  "elapsed": 1042.1
-}

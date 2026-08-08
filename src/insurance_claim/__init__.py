@@ -1,1 +1,1 @@
-"""Leakage-resistant insurance claim prediction package."""
+"""Insurance claim B7 package."""

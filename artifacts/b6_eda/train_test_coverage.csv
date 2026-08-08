@@ -1,8 +1,0 @@
-feature,train_nunique,test_nunique,overlap,test_only,train_only
-t3_sfx,3,3,3,0,0
-code,4,4,4,0,0
-w_pair,4,4,4,0,0
-age_coarse,8,8,8,0,0
-days_fixed,7,7,7,0,0
-car,11,11,11,0,0
-version,19,19,19,0,0
