@@ -1,10 +1,9 @@
 {
   "experiment_id": "b6pro_long_best",
-  "spec": "direct_honest_pick_blend3",
-  "nested_oof_auc": 0.7089008235150814,
+  "spec": "mlp",
+  "nested_oof_auc": 0.7097647222029824,
   "baseline_max3": 0.7027049552615718,
   "gate_0_71": false,
-  "gap_to_0_71": 0.0010991764849185293,
-  "source": "b6pro_honest_blend",
-  "note": "honest nested alpha/weights"
+  "gap_to_0_71": 0.00023527779701759677,
+  "source": "b6pro_mlp_knn"
 }
