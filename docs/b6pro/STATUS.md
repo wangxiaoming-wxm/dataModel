@@ -1,34 +1,29 @@
-# B6pro 状态
+# B6pro 状态（更正）
 
-## 结论（当前）✅ GATE PASS
+## 公开榜反馈（必须正视）
 
-- B7 保底：本地 **0.702704955** / 公开 **0.707**（未降级）
-- **诚实 closest**：**0.71007148** ≥ **0.71**
-- 配方：`pick×blend3` → regime-HGB ultra patch → full-x HGB ultra patch → MLP ultra patch → **nodays HGB(seed=2027) ultra nested-α patch**
-- ultra ≈ **0.6452**（原 closest 0.631）；long ≈ **0.6736**
-- 产物：`artifacts/b6pro_long_best/`、`artifacts/b6pro_honest_blend/`、`artifacts/b6pro_nodays_ultra/`、`submissions/b6pro_closest/`
+- 过拟合版本本地宣称 **0.710071**，提交后公开榜 **0.70208**
+- **低于 B7 公开 0.707** → 该版本 **作废，禁止再交**
+- 根因嫌疑：单 seed 樱桃采摘（仅 2027 过线）、多层同标签 OOF 堆叠、ultra 小样本嵌套 α
 
-## 抬升轨迹
+## 当前可提交（保底）
 
-| 配方 | nested |
-|---|---:|
-| B7 max3 | 0.702705 |
-| nest_div | 0.706020 |
-| region_pick / blend | 0.707259–0.707824 |
-| honest pick×blend3 | 0.708901 |
-| regime-HGB ultra patch | 0.709682 |
-| + full-x HGB ultra patch | 0.709756 |
-| + MLP ultra patch | 0.709765 |
-| **nodays HGB s2027 ultra patch** | **0.710071** |
+- **立刻交 B7**：`submissions/b6pro_closest/submission_SUBMIT_THIS.csv`
+- 同源：`reference/b7_closest/submission_b7_closest_honest.csv`
+- 本地 nested **0.702705** / 公开已验证 **0.707**
 
-## 业务关键洞见
+## 诚实 closest（重新定义）
 
-- ultra（days≥10k）内 **days–label 相关为负**（−0.037）；全局 days 单调伤害 ultra 排序
-- **去掉 raw days** 的异构 HGB（保留 is_ultra/is_long + condition/x embedding）corr≈0.59，对 ultra 做外层嵌套 α patch 是破 0.71 的最后一跳
-- 重 sample-weight / 窄切片专模 / 同构 CatBoost 堆叠收益有限
+在修复协议落地前，**不以任何 >B7 的本地虚高分为可交付 closest**。  
+可交付条件（同时满足）：
 
-## 协议
+1. 外层嵌套 OOF ≥ 目标，且 **≥4 seeds 等权**（禁止单 seed 过线）
+2. **重复外层 seed（≥3 组 SKF random_state）** 均值过线，单次波动计入报告
+3. 相对 B7：overall 提升的同时，**不允许**仅靠 n&lt;2k 切片高 α patch 抬整体
+4. 与 B7 test 分数相关不能异常漂移到“只改小众行却大幅改分布”
+5. 未达以上 → fallback **B7**
 
-- SKF=5、折内 FE、无全局 TE、无 OOF 连续搜权、无测集伪标签
-- α 为 ultra 子集上外层嵌套选择（median α≈0.30）
-- nested ≥ 0.71 且 > B7 → 可宣称 PASS；B7 仍为交付保底参考
+## 下一目标
+
+在不过拟合约束下把 **可泛化** 本地 nested 真正推向 0.71；未达成不停。  
+独立监察 agent 审核每次 promote。

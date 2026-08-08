@@ -3,11 +3,14 @@
   "spec": "direct_nodays_ultra_patch_s2027",
   "nested_oof_auc": 0.7100714803766324,
   "baseline_max3": 0.7027049552615718,
-  "gate_0_71": true,
+  "gate_0_71": false,
   "gap_to_0_71": -7.148037663240459e-05,
   "source": "b6pro_nodays_ultra",
   "alpha_median": 0.30000000000000004,
-  "note": "base=pick\u00d7blend3+regimeHGB+xallHGB+mlp; ultra nested-\u03b1 patch with nodays HGB (no raw days; ultra days-label corr negative)",
+  "note": "INVALIDATED: local 0.710071 overfit; public LB 0.70208 < B7 public 0.707. Do NOT submit. Use B7 SAFE submission.",
   "ultra_auc": 0.645198579082227,
-  "long_auc": 0.6736174005042477
+  "long_auc": 0.6736174005042477,
+  "public_lb_observed": 0.70208,
+  "overfit_invalidated": true,
+  "safe_submit": "reference/b7_closest/submission_b7_closest_honest.csv"
 }

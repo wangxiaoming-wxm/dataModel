@@ -1,5 +1,8 @@
 {
   "best": "direct_nodays_ultra_patch_s2027",
   "nested": 0.7100714803766324,
-  "gate": true
+  "gate": false,
+  "overfit_invalidated": true,
+  "public_lb_observed": 0.70208,
+  "note": "QUARANTINED after public LB 0.70208; do not promote/submit"
 }

@@ -1,0 +1,15 @@
+{
+  "event": "public_lb_fail",
+  "claimed_local": 0.7100714803766324,
+  "public_lb": 0.70208,
+  "b7_public": 0.707,
+  "b7_local": 0.7027049552615718,
+  "delta_local_minus_public": 0.007991480376632332,
+  "root_causes_suspected": [
+    "single-seed cherry-pick (only seed 2027 crossed 0.71)",
+    "multi-stage OOF stacking on same labels (pick/blend + multiple ultra patches)",
+    "ultra-only nested alpha on n=1806 high-variance slice",
+    "promoting tiny local margins without repeated outer-seed stability"
+  ],
+  "action": "quarantine overfit closest; deliver B7 SAFE; continue under stricter anti-overfit protocol"
+}
