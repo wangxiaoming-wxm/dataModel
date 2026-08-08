@@ -22,7 +22,9 @@
 | V10 nested | 0.701314965 | 参考 |
 | 距 0.71 | **0.007295** | — |
 
-提交：`submissions/submission_b7_closest_honest.csv`（≡ `artifacts/b7_closest/submission_b7.csv`）
+提交：`submissions/submission_b7_closest_honest.csv`
+
+**公开榜 AUC：0.70722**（同一文件；相对本地 closest ≈ +0.0045）
 
 ---
 
@@ -75,10 +77,15 @@ B7_closest = elementwise_max(gap, gap_bag, plus)
 
 ---
 
-## 5. 公开榜建议
+## 5. 公开榜
 
-- **本地诚实主报：0.7027**（勿把公开榜当 CV）
-- 上榜文件优先仍可用 **V10（公开 0.70570）**；B7 closest 为 B6×plus 三臂 max，本地略高于 V10 nested，是否上浮需实榜验证
+| 文件 | 公开榜 AUC |
+|---|---:|
+| `submissions/submission_b7_closest_honest.csv` | **0.70722** |
+| V10（历史参考） | 0.70570 |
+
+- **本地诚实主报仍为 0.7027**；公开 0.70722 分列披露，勿把公开榜当 CV
+- B7 closest 公开高于 V10 历史公开 0.70570
 - **不要**用未过门禁的 0.71 叙事包装
 
 ---
