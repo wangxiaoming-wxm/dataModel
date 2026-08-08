@@ -1,0 +1,30 @@
+{
+  "b6_equal_auc": 0.6989746962571622,
+  "b6_equal_abs_err_vs_frozen": 0.0,
+  "closest_max3_auc": 0.7027049552615718,
+  "closest_abs_err_vs_claimed": 0.0,
+  "fuse0_pair_nested_auc": 0.7022093156561012,
+  "fuse0_pair_nested_votes": [
+    "max",
+    "max",
+    "max",
+    "max",
+    "max"
+  ],
+  "fuse0_pair_abs_err_vs_claimed": 0.0,
+  "shuffled_plus_max3_auc": 0.6442427188098837,
+  "shuffled_plus_max3_pass_lt_0_66": true,
+  "public_leaderboard_auc": 0.70722,
+  "public_leaderboard_file": "submissions/submission_b7_closest_honest.csv",
+  "cross_check_closest_npz": {
+    "closest_oof_matches_max3": true,
+    "closest_arms_match_sources": true,
+    "closest_claimed_abs_err": 0.0
+  },
+  "sources": {
+    "b6": "artifacts/b6_frozen/predictions.npz",
+    "plus": "reference/v10/oof_plus_h2_10.npz",
+    "closest": "artifacts/b7_closest/predictions.npz"
+  },
+  "pass_recompute_lt_1e-8": true
+}
