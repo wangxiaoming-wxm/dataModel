@@ -1,9 +1,9 @@
 {
   "experiment_id": "b6pro_long_best",
-  "spec": "direct_logit_gap+gap_bag+plus+kx8+cur_C3.0",
-  "nested_oof_auc": 0.7057343725991757,
+  "spec": "direct_logit_base+ebm+flaml_C0.5_nestedC",
+  "nested_oof_auc": 0.7060203816798147,
   "baseline_max3": 0.7027049552615718,
   "gate_0_71": false,
-  "gap_to_0_71": 0.004265627400824257,
-  "source": "b6pro_nest_stack"
+  "gap_to_0_71": 0.00397961832018523,
+  "source": "b6pro_nest_div"
 }

@@ -1,0 +1,142 @@
+['gap', 'gap_bag', 'plus', 'kx8'] C=0.1: direct=0.699210 long=0.65840 b7+=0.702511 cur+=0.705445
+['gap', 'gap_bag', 'plus', 'kx8'] C=0.5: direct=0.699343 long=0.65887 b7+=0.702508 cur+=0.705465
+['gap', 'gap_bag', 'plus', 'kx8'] C=1.0: direct=0.699353 long=0.65899 b7+=0.702485 cur+=0.705454
+['gap', 'gap_bag', 'plus', 'kx8'] C=3.0: direct=0.699362 long=0.65908 b7+=0.702471 cur+=0.705433
+['gap', 'gap_bag', 'plus', 'kx8', 'nd'] C=0.1: direct=0.699202 long=0.65827 b7+=0.702490 cur+=0.705444
+['gap', 'gap_bag', 'plus', 'kx8', 'nd'] C=0.5: direct=0.699319 long=0.65866 b7+=0.702471 cur+=0.705449
+['gap', 'gap_bag', 'plus', 'kx8', 'nd'] C=1.0: direct=0.699332 long=0.65875 b7+=0.702458 cur+=0.705435
+['gap', 'gap_bag', 'plus', 'kx8', 'nd'] C=3.0: direct=0.699344 long=0.65882 b7+=0.702439 cur+=0.705414
+['gap', 'gap_bag', 'plus', 'kx8', 'meanL3'] C=0.1: direct=0.698820 long=0.65957 b7+=0.702583 cur+=0.705434
+['gap', 'gap_bag', 'plus', 'kx8', 'meanL3'] C=0.5: direct=0.698967 long=0.66014 b7+=0.702716 cur+=0.705482
+['gap', 'gap_bag', 'plus', 'kx8', 'meanL3'] C=1.0: direct=0.698977 long=0.66026 b7+=0.702729 cur+=0.705485
+['gap', 'gap_bag', 'plus', 'kx8', 'meanL3'] C=3.0: direct=0.698966 long=0.66029 b7+=0.702735 cur+=0.705490
+['gap', 'gap_bag', 'plus', 'kx', 'ag', 'nd'] C=0.1: direct=0.698707 long=0.65760 b7+=0.702533 cur+=0.705489
+['gap', 'gap_bag', 'plus', 'kx', 'ag', 'nd'] C=0.5: direct=0.698403 long=0.65745 b7+=0.702509 cur+=0.705468
+['gap', 'gap_bag', 'plus', 'kx', 'ag', 'nd'] C=1.0: direct=0.698311 long=0.65738 b7+=0.702483 cur+=0.705447
+['gap', 'gap_bag', 'plus', 'kx', 'ag', 'nd'] C=3.0: direct=0.698257 long=0.65732 b7+=0.702496 cur+=0.705443
+['gap', 'gap_bag', 'plus', 'kx8', 'nd', 'dae'] C=0.1: direct=0.699500 long=0.65810 b7+=0.702307 cur+=0.705330
+['gap', 'gap_bag', 'plus', 'kx8', 'nd', 'dae'] C=0.5: direct=0.699636 long=0.65827 b7+=0.702239 cur+=0.705231
+['gap', 'gap_bag', 'plus', 'kx8', 'nd', 'dae'] C=1.0: direct=0.699635 long=0.65826 b7+=0.702211 cur+=0.705197
+['gap', 'gap_bag', 'plus', 'kx8', 'nd', 'dae'] C=3.0: direct=0.699628 long=0.65824 b7+=0.702193 cur+=0.705172
+['gap', 'gap_bag', 'plus', 'kx8', 'cur'] C=0.1: direct=0.705080 long=0.66730 b7+=0.704213 cur+=0.705644
+['gap', 'gap_bag', 'plus', 'kx8', 'cur'] C=0.5: direct=0.705592 long=0.66819 b7+=0.704540 cur+=0.705681
+['gap', 'gap_bag', 'plus', 'kx8', 'cur'] C=1.0: direct=0.705633 long=0.66827 b7+=0.704582 cur+=0.705702
+['gap', 'gap_bag', 'plus', 'kx8', 'cur'] C=3.0: direct=0.705734 long=0.66846 b7+=0.704627 cur+=0.705718
+['gap', 'gap_bag', 'plus', 'kx8', 'nd', 'meanL3', 'dae'] C=0.1: direct=0.699169 long=0.65931 b7+=0.702383 cur+=0.705244
+['gap', 'gap_bag', 'plus', 'kx8', 'nd', 'meanL3', 'dae'] C=0.5: direct=0.699256 long=0.65946 b7+=0.702438 cur+=0.705208
+['gap', 'gap_bag', 'plus', 'kx8', 'nd', 'meanL3', 'dae'] C=1.0: direct=0.699248 long=0.65944 b7+=0.702433 cur+=0.705192
+['gap', 'gap_bag', 'plus', 'kx8', 'nd', 'meanL3', 'dae'] C=3.0: direct=0.699203 long=0.65942 b7+=0.702436 cur+=0.705181
+['gap', 'gap_bag', 'plus', 'kx8', 'hardw', 'nd'] C=0.1: direct=0.698961 long=0.65803 b7+=0.702455 cur+=0.705407
+['gap', 'gap_bag', 'plus', 'kx8', 'hardw', 'nd'] C=0.5: direct=0.699037 long=0.65841 b7+=0.702478 cur+=0.705433
+['gap', 'gap_bag', 'plus', 'kx8', 'hardw', 'nd'] C=1.0: direct=0.699055 long=0.65850 b7+=0.702471 cur+=0.705424
+['gap', 'gap_bag', 'plus', 'kx8', 'hardw', 'nd'] C=3.0: direct=0.699055 long=0.65856 b7+=0.702458 cur+=0.705411
+TOP10:
+  best=0.70573437 direct=0.705734 b7+=0.704627 cur+=0.705718 long=0.66846 ['gap', 'gap_bag', 'plus', 'kx8', 'cur'] C=3.0
+  best=0.70570203 direct=0.705633 b7+=0.704582 cur+=0.705702 long=0.66827 ['gap', 'gap_bag', 'plus', 'kx8', 'cur'] C=1.0
+  best=0.70568063 direct=0.705592 b7+=0.704540 cur+=0.705681 long=0.66819 ['gap', 'gap_bag', 'plus', 'kx8', 'cur'] C=0.5
+  best=0.70564396 direct=0.705080 b7+=0.704213 cur+=0.705644 long=0.66730 ['gap', 'gap_bag', 'plus', 'kx8', 'cur'] C=0.1
+  best=0.70549011 direct=0.698966 b7+=0.702735 cur+=0.705490 long=0.66029 ['gap', 'gap_bag', 'plus', 'kx8', 'meanL3'] C=3.0
+  best=0.70548917 direct=0.698707 b7+=0.702533 cur+=0.705489 long=0.65760 ['gap', 'gap_bag', 'plus', 'kx', 'ag', 'nd'] C=0.1
+  best=0.70548454 direct=0.698977 b7+=0.702729 cur+=0.705485 long=0.66026 ['gap', 'gap_bag', 'plus', 'kx8', 'meanL3'] C=1.0
+  best=0.70548215 direct=0.698967 b7+=0.702716 cur+=0.705482 long=0.66014 ['gap', 'gap_bag', 'plus', 'kx8', 'meanL3'] C=0.5
+  best=0.70546847 direct=0.698403 b7+=0.702509 cur+=0.705468 long=0.65745 ['gap', 'gap_bag', 'plus', 'kx', 'ag', 'nd'] C=0.5
+  best=0.70546548 direct=0.699343 b7+=0.702508 cur+=0.705465 long=0.65887 ['gap', 'gap_bag', 'plus', 'kx8'] C=0.5
+{
+  "best_spec": "direct_logit_gap+gap_bag+plus+kx8+cur_C3.0",
+  "nested": 0.7057343725991757,
+  "promoted": true,
+  "gate": false,
+  "closest_prev": 0.7055853970968387,
+  "top": [
+    [
+      0.7057343725991757,
+      [
+        "gap",
+        "gap_bag",
+        "plus",
+        "kx8",
+        "cur"
+      ],
+      3.0
+    ],
+    [
+      0.7057020298882475,
+      [
+        "gap",
+        "gap_bag",
+        "plus",
+        "kx8",
+        "cur"
+      ],
+      1.0
+    ],
+    [
+      0.705680633941018,
+      [
+        "gap",
+        "gap_bag",
+        "plus",
+        "kx8",
+        "cur"
+      ],
+      0.5
+    ],
+    [
+      0.7056439622826272,
+      [
+        "gap",
+        "gap_bag",
+        "plus",
+        "kx8",
+        "cur"
+      ],
+      0.1
+    ],
+    [
+      0.7054901104946425,
+      [
+        "gap",
+        "gap_bag",
+        "plus",
+        "kx8",
+        "meanL3"
+      ],
+      3.0
+    ],
+    [
+      0.7054891650923231,
+      [
+        "gap",
+        "gap_bag",
+        "plus",
+        "kx",
+        "ag",
+        "nd"
+      ],
+      0.1
+    ],
+    [
+      0.7054845375967594,
+      [
+        "gap",
+        "gap_bag",
+        "plus",
+        "kx8",
+        "meanL3"
+      ],
+      1.0
+    ],
+    [
+      0.7054821492119524,
+      [
+        "gap",
+        "gap_bag",
+        "plus",
+        "kx8",
+        "meanL3"
+      ],
+      0.5
+    ]
+  ]
+}
+GATE=FAIL nested=0.70573437 promoted=True

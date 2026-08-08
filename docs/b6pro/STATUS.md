@@ -3,15 +3,16 @@
 ## 结论（当前）
 
 - B7 保底：本地 **0.702704955** / 公开 **0.707**
-- **新 closest**：**0.70573437**（direct_logit_gap+gap_bag+plus+kx8+cur_C3.0 / b6pro_nest_stack）
-- 距 0.71 缺口 ≈ **0.00427**
+- **新 closest**：**0.70602038**（direct_logit_base+ebm+flaml nestedC / b6pro_nest_div）
+- 距 0.71 缺口 ≈ **0.00398**
 - 产物：`artifacts/b6pro_long_best/`、`submissions/b6pro_closest/`
 
 ## 本轮
 
-- 嵌套 logit stack（gap/gap_bag/plus/kx8/cur）抬到 **0.70573**
-- DAE/hardw/XGB/f09d 等未超
-- 主缺口仍约 0.0043；继续异构与业务残差
+- 嵌套 logit 加入低相关 EBM+FLAML 臂，抬到 **0.70602**
+- resid_cb2 / f09d-only 专模未超（切片专模欠拟合 ~0.52）
+- 灵敏度：f09d-long 0.60→0.64 ⇒ 整体≈0.711；主攻弱区域加权全量训练
+- 进行中：`b6pro_weak_weight`、`b6pro_ordered_kx`、`b6pro_iso_resid`
 
 ## 协议
 
