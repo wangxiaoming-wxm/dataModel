@@ -1,0 +1,66 @@
+=== specialist region=9685 n=1889 pos=216 ===
+  9685 seed=2026 fold=0 auc=0.64297
+  9685 seed=2026 fold=1 auc=0.62277
+  9685 seed=2026 fold=2 auc=0.67136
+  9685 seed=2026 fold=3 auc=0.61850
+  9685 seed=2026 fold=4 auc=0.60618
+  9685 seed=2026 OOF=0.536601
+  9685 seed=2027 fold=0 auc=0.63110
+  9685 seed=2027 fold=1 auc=0.64478
+  9685 seed=2027 fold=2 auc=0.60507
+  9685 seed=2027 fold=3 auc=0.61459
+  9685 seed=2027 fold=4 auc=0.57962
+  9685 seed=2027 OOF=0.567290
+  9685 region AUC max3=0.65752 spec=0.55661
+=== specialist region=f09d n=3560 pos=424 ===
+  f09d seed=2026 fold=0 auc=0.63469
+  f09d seed=2026 fold=1 auc=0.63115
+  f09d seed=2026 fold=2 auc=0.67196
+  f09d seed=2026 fold=3 auc=0.59311
+  f09d seed=2026 fold=4 auc=0.62426
+  f09d seed=2026 OOF=0.621686
+  f09d seed=2027 fold=0 auc=0.64991
+  f09d seed=2027 fold=1 auc=0.60283
+  f09d seed=2027 fold=2 auc=0.65432
+  f09d seed=2027 fold=3 auc=0.58983
+  f09d seed=2027 fold=4 auc=0.64302
+  f09d seed=2027 OOF=0.602771
+  f09d region AUC max3=0.66048 spec=0.61782
+=== specialist region=fafc n=907 pos=104 ===
+  fafc seed=2026 fold=0 auc=0.64153
+  fafc seed=2026 fold=1 auc=0.64641
+  fafc seed=2026 fold=2 auc=0.69565
+  fafc seed=2026 fold=3 auc=0.59554
+  fafc seed=2026 fold=4 auc=0.63065
+  fafc seed=2026 OOF=0.567314
+  fafc seed=2027 fold=0 auc=0.65765
+  fafc seed=2027 fold=1 auc=0.67229
+  fafc seed=2027 fold=2 auc=0.75807
+  fafc seed=2027 fold=3 auc=0.60804
+  fafc seed=2027 fold=4 auc=0.60179
+  fafc seed=2027 OOF=0.583455
+  fafc region AUC max3=0.66861 spec=0.58249
+=== specialist region=6645 n=856 pos=76 ===
+  6645 seed=2026 fold=0 auc=0.63421
+  6645 seed=2026 fold=1 auc=0.71581
+  6645 seed=2026 fold=2 auc=0.60919
+  6645 seed=2026 fold=3 auc=0.55620
+  6645 seed=2026 fold=4 auc=0.60897
+  6645 seed=2026 OOF=0.557018
+  6645 seed=2027 fold=0 auc=0.62981
+  6645 seed=2027 fold=1 auc=0.68803
+  6645 seed=2027 fold=2 auc=0.50214
+  6645 seed=2027 fold=3 auc=0.65128
+  6645 seed=2027 fold=4 auc=0.69231
+  6645 seed=2027 OOF=0.574899
+  6645 region AUC max3=0.67259 spec=0.54200
+global max3 0.7027049552615718
+spec patched 0.663733083269444
+4arm 0.7000957443759509 median
+max3×spec 0.6992598594515154 mean_2_1
+{
+  "spec_oof_auc": 0.663733083269444,
+  "nested_oof_auc": 0.7000957443759509,
+  "gate_0_71": false,
+  "gap_to_0_71": 0.009904
+}

@@ -1,0 +1,15 @@
+{
+  "experiment_id": "b6pro_flaml",
+  "best": "b7+region+flaml",
+  "nested_oof_auc": 0.6994433172595036,
+  "flaml_auc": 0.6337679347795799,
+  "baseline_max3": 0.7027049552615718,
+  "gate_0_71": false,
+  "gap_to_0_71": 0.01055668274049637,
+  "all": {
+    "b7+flaml": 0.6987259061730989,
+    "max3\u00d7flaml": 0.6984523365966631,
+    "region\u00d7flaml": 0.6972313246220978,
+    "b7+region+flaml": 0.6994433172595036
+  }
+}

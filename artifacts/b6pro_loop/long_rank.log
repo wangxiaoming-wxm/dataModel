@@ -1,0 +1,30 @@
+lossguide seed=2026 fold=0 auc=0.64007
+lossguide seed=2026 fold=1 auc=0.61178
+lossguide seed=2026 fold=2 auc=0.61924
+lossguide seed=2026 fold=3 auc=0.61183
+lossguide seed=2026 fold=4 auc=0.64374
+lossguide seed=2026 slice=0.623352
+lossguide seed=2027 fold=0 auc=0.60815
+lossguide seed=2027 fold=1 auc=0.62556
+lossguide seed=2027 fold=2 auc=0.66061
+lossguide seed=2027 fold=3 auc=0.59668
+lossguide seed=2027 fold=4 auc=0.63388
+lossguide seed=2027 slice=0.619805
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_long_rank.py", line 283, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_long_rank.py", line 204, in main
+    oof, pte = run_pairlogit(features, y, test, days, args.seeds)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_long_rank.py", line 119, in run_pairlogit
+    train_pool = Pool(trd, y.iloc[gtr].to_numpy(), cat_features=cats, group_id=group_tr)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/catboost/core.py", line 863, in __init__
+    self._init(data, label, cat_features, text_features, embedding_features, embedding_features_data, pairs, graph, weight,
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/catboost/core.py", line 1518, in _init
+    self._init_pool(data, label, cat_features, text_features, embedding_features, embedding_features_data, pairs, graph, weight,
+  File "_catboost.pyx", line 4695, in _catboost._PoolBase._init_pool
+  File "_catboost.pyx", line 4753, in _catboost._PoolBase._init_pool
+  File "_catboost.pyx", line 4629, in _catboost._PoolBase._init_features_order_layout_pool
+_catboost.CatBoostError: catboost/private/libs/data_types/query.h:68: Error: queryIds should be grouped

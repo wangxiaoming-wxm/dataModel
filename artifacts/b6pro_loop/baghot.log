@@ -1,0 +1,59 @@
+bag_hot seed=2026 fold=0 auc=0.70714 best=438 n=181
+bag_hot seed=2026 fold=1 auc=0.68775 best=541 n=181
+bag_hot seed=2026 fold=2 auc=0.69408 best=611 n=181
+bag_hot seed=2026 fold=3 auc=0.66714 best=676 n=181
+bag_hot seed=2026 fold=4 auc=0.71194 best=371 n=181
+bag_hot seed=2026 OOF=0.692574
+bag_hot seed=2027 fold=0 auc=0.67289 best=400 n=181
+bag_hot seed=2027 fold=1 auc=0.69075 best=474 n=181
+bag_hot seed=2027 fold=2 auc=0.70417 best=547 n=181
+bag_hot seed=2027 fold=3 auc=0.69296 best=246 n=181
+bag_hot seed=2027 fold=4 auc=0.69150 best=341 n=181
+bag_hot seed=2027 OOF=0.689729
+bag_hot seed=2028 fold=0 auc=0.66909 best=602 n=181
+bag_hot seed=2028 fold=1 auc=0.71323 best=462 n=181
+bag_hot seed=2028 fold=2 auc=0.69057 best=520 n=181
+bag_hot seed=2028 fold=3 auc=0.69890 best=419 n=181
+bag_hot seed=2028 fold=4 auc=0.69224 best=468 n=181
+bag_hot seed=2028 OOF=0.692476
+bag_hot seed=2029 fold=0 auc=0.69225 best=399 n=181
+bag_hot seed=2029 fold=1 auc=0.70545 best=488 n=181
+bag_hot seed=2029 fold=2 auc=0.68803 best=633 n=181
+bag_hot seed=2029 fold=3 auc=0.68873 best=553 n=181
+bag_hot seed=2029 fold=4 auc=0.67116 best=497 n=181
+bag_hot seed=2029 OOF=0.688332
+ARM bag_hot pooled=0.697012
+{
+  "arms": {
+    "bag_hot": {
+      "oof_auc": 0.697012439106139,
+      "seed_aucs": {
+        "2026": 0.6925736757003341,
+        "2027": 0.6897291591532062,
+        "2028": 0.6924760007133309,
+        "2029": 0.6883318545250736
+      },
+      "seed_mean": 0.6907776725229862
+    }
+  },
+  "arms_kept": [
+    "bag_hot"
+  ],
+  "fusion": {
+    "primary": "equal_prob",
+    "equal_prob": 0.697012439106139,
+    "equal_rank": 0.697012439106139,
+    "b5_only": NaN,
+    "gap_only": NaN,
+    "delta_vs_b5_only": null,
+    "note": "primary fusion pre-registered; equal_rank reported only"
+  },
+  "pooled_oof_auc": 0.697012439106139,
+  "seed_mean": 0.6907776725229862,
+  "seed_std": 0.0018159950454698355,
+  "gate_0_70": false,
+  "gap_to_0_70": 0.002988,
+  "shuffled_oof_auc": null,
+  "shuffled_pass": null,
+  "elapsed_sec": 1546.6
+}

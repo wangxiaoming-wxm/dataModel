@@ -1,0 +1,39 @@
+{
+  "experiment_id": "b6pro_hybrid_xkeep",
+  "protocol_id": "IA-AUC715-B6PRO-v1",
+  "oof_auc": 0.6961221189113105,
+  "seed_aucs": {
+    "2026": 0.6893580141058007,
+    "2027": 0.6879637944747105,
+    "2028": 0.6919202036655338,
+    "2029": 0.6882779665928656
+  },
+  "corr_vs_main": 0.9861866060700205,
+  "corr_vs_plus": 0.9245992923277305,
+  "nested_oof_auc": 0.7019442547005403,
+  "pooled_oof_auc": 0.7019442547005403,
+  "fusion": {
+    "selected_rule": "max",
+    "full_data_scores": {
+      "mean": 0.6991895513737592,
+      "mean_2_1": 0.6996194606390204,
+      "power2": 0.6995705485084935,
+      "power3": 0.6998778042623115,
+      "max": 0.7019442547005403,
+      "rank_mean": 0.6971877614783784,
+      "geom_mean": 0.6987183429545435,
+      "min": 0.6896675089703752,
+      "median": 0.6980478536779933,
+      "mean_3_1_1": 0.6995431815992464
+    }
+  },
+  "gate_0_715": false,
+  "gap_to_0_715": 0.013056,
+  "protocol_declaration": {
+    "no_test_labels": true,
+    "no_global_te": true,
+    "fold_local_fe": true,
+    "no_oof_weight_search": true,
+    "new_data_only": true
+  }
+}

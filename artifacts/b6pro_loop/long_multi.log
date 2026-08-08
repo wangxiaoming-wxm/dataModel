@@ -1,0 +1,92 @@
+=== extra seeds 3k ===
+d3000 seed=2030 fold=0 auc=0.65391
+d3000 seed=2030 fold=1 auc=0.65106
+d3000 seed=2030 fold=2 auc=0.63614
+d3000 seed=2030 fold=3 auc=0.62194
+d3000 seed=2030 fold=4 auc=0.63061
+d3000 seed=2030 sliceOOF=0.635773
+d3000 seed=2031 fold=0 auc=0.66466
+d3000 seed=2031 fold=1 auc=0.59227
+d3000 seed=2031 fold=2 auc=0.64901
+d3000 seed=2031 fold=3 auc=0.65134
+d3000 seed=2031 fold=4 auc=0.65565
+d3000 seed=2031 sliceOOF=0.637454
+d3000 seed=2032 fold=0 auc=0.61042
+d3000 seed=2032 fold=1 auc=0.66914
+d3000 seed=2032 fold=2 auc=0.64657
+d3000 seed=2032 fold=3 auc=0.61973
+d3000 seed=2032 fold=4 auc=0.62919
+d3000 seed=2032 sliceOOF=0.634536
+d3000 seed=2033 fold=0 auc=0.60406
+d3000 seed=2033 fold=1 auc=0.65178
+d3000 seed=2033 fold=2 auc=0.64401
+d3000 seed=2033 fold=3 auc=0.63767
+d3000 seed=2033 fold=4 auc=0.64050
+d3000 seed=2033 sliceOOF=0.633629
+8seed long slice 0.6511037224201546
+=== 7k ===
+d7000 seed=2026 fold=0 auc=0.64221
+d7000 seed=2026 fold=1 auc=0.61403
+d7000 seed=2026 fold=2 auc=0.63850
+d7000 seed=2026 fold=3 auc=0.63187
+d7000 seed=2026 fold=4 auc=0.59047
+d7000 seed=2026 sliceOOF=0.622833
+d7000 seed=2027 fold=0 auc=0.62220
+d7000 seed=2027 fold=1 auc=0.63376
+d7000 seed=2027 fold=2 auc=0.58802
+d7000 seed=2027 fold=3 auc=0.61530
+d7000 seed=2027 fold=4 auc=0.62846
+d7000 seed=2027 sliceOOF=0.610807
+d7000 seed=2028 fold=0 auc=0.59592
+d7000 seed=2028 fold=1 auc=0.64818
+d7000 seed=2028 fold=2 auc=0.61750
+d7000 seed=2028 fold=3 auc=0.64266
+d7000 seed=2028 fold=4 auc=0.62910
+d7000 seed=2028 sliceOOF=0.624849
+d7000 seed=2029 fold=0 auc=0.56273
+d7000 seed=2029 fold=1 auc=0.59668
+d7000 seed=2029 fold=2 auc=0.61133
+d7000 seed=2029 fold=3 auc=0.60944
+d7000 seed=2029 fold=4 auc=0.60386
+d7000 seed=2029 sliceOOF=0.564578
+=== 10k ===
+d10000 seed=2026 fold=0 auc=0.62271
+d10000 seed=2026 fold=1 auc=0.63215
+d10000 seed=2026 fold=2 auc=0.64809
+d10000 seed=2026 fold=3 auc=0.54922
+d10000 seed=2026 fold=4 auc=0.55331
+d10000 seed=2026 sliceOOF=0.529044
+d10000 seed=2027 fold=0 auc=0.62529
+d10000 seed=2027 fold=1 auc=0.67102
+d10000 seed=2027 fold=2 auc=0.63036
+d10000 seed=2027 fold=3 auc=0.62264
+d10000 seed=2027 fold=4 auc=0.57459
+d10000 seed=2027 sliceOOF=0.548521
+b7+meanL3: 0.70402623 max
+b7+meanL7: 0.69993483 median
+b7+meanL10: 0.70144837 median
+b7+casc: 0.70035777 median
+b7+lo8: 0.70383496 max
+b7+meanL3+meanL7: 0.70016506 max
+b7+meanL3+casc: 0.70075051 median
+b7+meanL7+casc: 0.70031319 median
+b7+all: 0.70123217 median
+{
+  "experiment_id": "b6pro_long_multi",
+  "best_fusion": "b7+meanL3",
+  "nested_oof_auc": 0.7040262296400147,
+  "baseline_max3": 0.7027049552615718,
+  "gate_0_71": false,
+  "gap_to_0_71": 0.005973770359985253,
+  "all_candidate_nested": {
+    "b7+meanL3": 0.7040262296400147,
+    "b7+meanL7": 0.6999348269495788,
+    "b7+meanL10": 0.7014483663049855,
+    "b7+casc": 0.7003577700924862,
+    "b7+lo8": 0.703834959823387,
+    "b7+meanL3+meanL7": 0.7001650572933709,
+    "b7+meanL3+casc": 0.7007505101191883,
+    "b7+meanL7+casc": 0.7003131869094221,
+    "b7+all": 0.7012321677219348
+  }
+}

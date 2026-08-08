@@ -1,0 +1,9 @@
+{
+  "updated_at": "2026-08-07T14:34:55.733045+00:00",
+  "closest_honest_nested_oof_auc": 0.7027049552615718,
+  "soft_target_0_705": false,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "note": "Frozen closest honest at artifacts/b6pro_frozen; 0.705/0.715 not reached; experiments stopped per user.",
+  "frozen_path": "artifacts/b6pro_frozen"
+}

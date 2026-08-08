@@ -1,0 +1,89 @@
+seed=2026 fold=0 long_auc=0.65318
+seed=2026 fold=1 long_auc=0.62777
+seed=2026 fold=2 long_auc=0.62473
+seed=2026 fold=3 long_auc=0.62073
+seed=2026 fold=4 long_auc=0.65876
+seed=2026 longOOF=0.634083
+seed=2027 fold=0 long_auc=0.63666
+seed=2027 fold=1 long_auc=0.63249
+seed=2027 fold=2 long_auc=0.68632
+seed=2027 fold=3 long_auc=0.60108
+seed=2027 fold=4 long_auc=0.65039
+seed=2027 longOOF=0.640168
+seed=2028 fold=0 long_auc=0.61333
+seed=2028 fold=1 long_auc=0.65819
+seed=2028 fold=2 long_auc=0.66394
+seed=2028 fold=3 long_auc=0.63024
+seed=2028 fold=4 long_auc=0.65863
+seed=2028 longOOF=0.642844
+seed=2029 fold=0 long_auc=0.65164
+seed=2029 fold=1 long_auc=0.64151
+seed=2029 fold=2 long_auc=0.65997
+seed=2029 fold=3 long_auc=0.64544
+seed=2029 fold=4 long_auc=0.62885
+seed=2029 longOOF=0.644917
+max3 0.7027049552615718 long 0.66300961704497
+long_only slice 0.6510381365306357
+patch 0.6957206712316661
+meanL 0.7036775752162084
+b7_3arm: nested=0.70270496 rule=max folds=['max', 'max', 'max', 'max', 'max'] full_max=0.7027049552615718
+b7+patch: nested=0.70429472 rule=max folds=['max', 'max', 'max', 'max', 'max'] full_max=0.7042947238987356
+b7+meanL: nested=0.70407673 rule=max folds=['max', 'max', 'max', 'max', 'max'] full_max=0.7040767340270795
+max3×patch: nested=0.70323030 rule=max folds=['max', 'max', 'power3', 'max', 'power3'] full_max=0.7042947238987356
+max3×meanL: nested=0.70361662 rule=max folds=['max', 'max', 'power3', 'max', 'max'] full_max=0.7040767340270795
+b7+lo_raw: nested=0.70429472 rule=max folds=['max', 'max', 'max', 'max', 'max'] full_max=0.7042947238987356
+{
+  "experiment_id": "b6pro_long_only_keepx",
+  "builder": "keepx",
+  "min_days": 3000.0,
+  "seeds": [
+    2026,
+    2027,
+    2028,
+    2029
+  ],
+  "best_fusion": "b7+patch",
+  "nested_oof_auc": 0.7042947238987356,
+  "selected_rule": "max",
+  "fold_rules": [
+    "max",
+    "max",
+    "max",
+    "max",
+    "max"
+  ],
+  "full_data_scores": {
+    "mean": 0.7014576212961127,
+    "mean_2_1": 0.7005434172532141,
+    "power2": 0.7019938634433025,
+    "power3": 0.7024265591575052,
+    "max": 0.7042947238987356,
+    "rank_mean": 0.6992021401520128,
+    "geom_mean": 0.7007984768473957,
+    "min": 0.6900012857471545,
+    "median": 0.7006873174378363,
+    "mean_3_1_1": 0.7001426661858052
+  },
+  "all_candidate_nested": {
+    "b7_3arm": 0.7027049552615718,
+    "b7+patch": 0.7042947238987356,
+    "b7+meanL": 0.7040767340270795,
+    "max3\u00d7patch": 0.7032303004030798,
+    "max3\u00d7meanL": 0.7036166216456131,
+    "b7+lo_raw": 0.7042947238987356
+  },
+  "long_only_slice_auc": 0.6510381365306357,
+  "baseline_max3": 0.7027049552615718,
+  "gate_0_71": false,
+  "gap_to_0_71": 0.005705276101264367,
+  "protocol_declaration": {
+    "no_test_labels": true,
+    "no_global_te": true,
+    "fold_local_fe": true,
+    "long_only_specialist": true,
+    "b7_floor_enforced": true,
+    "no_oof_weight_search": true,
+    "new_data_only": true
+  }
+}
+GATE=FAIL nested=0.70429472

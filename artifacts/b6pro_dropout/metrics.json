@@ -1,0 +1,35 @@
+{
+  "experiment_id": "b6pro_feature_dropout",
+  "protocol_id": "IA-AUC715-B6PRO-v1",
+  "dropout_arm_aucs": {
+    "drop0": 0.691639170386576,
+    "drop1": 0.6893307964706041,
+    "drop2": 0.6931011106785481,
+    "drop3": 0.6913696312095019
+  },
+  "nested_oof_auc": 0.6983837202914784,
+  "pooled_oof_auc": 0.6983837202914784,
+  "selected_rule": "power3",
+  "full_data_scores": {
+    "mean": 0.6994410283907302,
+    "mean_2_1": 0.6994438645976885,
+    "power2": 0.6999543320921693,
+    "power3": 0.7002428788316659,
+    "max": 0.6999607011183214,
+    "rank_mean": 0.6971250166191776,
+    "geom_mean": 0.6986566927717126,
+    "min": 0.6860291032650017,
+    "median": 0.6987423263186472,
+    "mean_3_1_1": 0.6993528074269214
+  },
+  "gate_0_715": false,
+  "gap_to_0_715": 0.016616,
+  "protocol_declaration": {
+    "no_test_labels": true,
+    "no_global_te": true,
+    "fold_local_fe": true,
+    "no_oof_weight_search": true,
+    "feature_dropout_preregistered": true,
+    "new_data_only": true
+  }
+}

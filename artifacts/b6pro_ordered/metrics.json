@@ -1,0 +1,17 @@
+{
+  "experiment_id": "b6pro_ordered_hybrid",
+  "protocol_id": "IA-AUC715-B6PRO-v1",
+  "oof_auc": 0.690588579619594,
+  "nested_oof_auc": 0.7018302093260058,
+  "pooled_oof_auc": 0.7018302093260058,
+  "gate_0_715": false,
+  "gap_to_0_715": 0.01317,
+  "protocol_declaration": {
+    "no_test_labels": true,
+    "no_global_te": true,
+    "fold_local_fe": true,
+    "no_oof_weight_search": true,
+    "new_data_only": true,
+    "uses_reference_plus": true
+  }
+}

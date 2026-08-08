@@ -1,0 +1,68 @@
+{
+  "experiment_id": "b6pro_multifuse_equal_b6_plus_ref",
+  "protocol_id": "IA-AUC715-B6PRO-v1",
+  "arm_names": [
+    "equal_b6",
+    "plus_ref"
+  ],
+  "arm_aucs": {
+    "equal_b6": 0.6989746962571622,
+    "plus_ref": 0.6886170674774439
+  },
+  "corr": {
+    "equal_b6__plus_ref": 0.9196856795678329
+  },
+  "fusion": {
+    "selected_rule": "max",
+    "fold_rules": [
+      "max",
+      "max",
+      "max",
+      "max",
+      "max"
+    ],
+    "consistent_all_folds": true,
+    "full_data_scores": {
+      "mean": 0.6992187593296281,
+      "mean_2_1": 0.699961596762624,
+      "power2": 0.6997875432198134,
+      "power3": 0.7002462623768091,
+      "max": 0.7022093156561012,
+      "rank_mean": 0.6964451479564582,
+      "geom_mean": 0.6984402951565946,
+      "min": 0.689561872700682,
+      "median": 0.6992187593296281,
+      "mean_3_1_1": 0.699961596762624
+    },
+    "rules_used": [
+      "mean",
+      "mean_2_1",
+      "power2",
+      "power3",
+      "max",
+      "rank_mean",
+      "geom_mean",
+      "min",
+      "median",
+      "mean_3_1_1"
+    ],
+    "rule_selection": "nested_5fold"
+  },
+  "nested_oof_auc": 0.7022093156561012,
+  "pooled_oof_auc": 0.7022093156561012,
+  "full_selected_auc": 0.7022093156561012,
+  "gate_0_715": false,
+  "gap_to_0_715": 0.012791,
+  "protocol_declaration": {
+    "no_test_labels": true,
+    "no_global_te": true,
+    "fold_local_fe": true,
+    "no_oof_weight_search": true,
+    "fusion_rules_preregistered": true,
+    "rule_selection_nested": true,
+    "new_data_only": true,
+    "reference_plus_bootstrap": true
+  },
+  "elapsed_sec": 0.2,
+  "note": "self-trained B6 equal_prob main × reference plus H2/10; disclose bootstrap"
+}

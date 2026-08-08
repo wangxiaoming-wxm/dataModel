@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+*.egg-info/
+.venv/
+artifacts/**/*.npz
+!artifacts/b6pro*/predictions.npz
+!artifacts/b6pro_*/**/predictions.npz
+artifacts/**/*.log
+!artifacts/b6pro_loop/*.log
+*.zip
+
+catboost_info/

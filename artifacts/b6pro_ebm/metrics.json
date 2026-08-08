@@ -1,0 +1,28 @@
+{
+  "experiment_id": "b6pro_ebm",
+  "oof_auc": 0.6500521663048263,
+  "nested_oof_auc": 0.6985087621877286,
+  "selected_rule": "mean_3_1_1",
+  "gate_0_705": false,
+  "gap_to_0_705": 0.006491,
+  "full_data_scores": {
+    "mean": 0.6955059653891196,
+    "mean_2_1": 0.6983202290620255,
+    "power2": 0.6960995785296944,
+    "power3": 0.6963928522807881,
+    "max": 0.6940156630275643,
+    "rank_mean": 0.6906113439122857,
+    "geom_mean": 0.6944908023301082,
+    "min": 0.6735399405610635,
+    "median": 0.6972080378702296,
+    "mean_3_1_1": 0.6985087621877286
+  },
+  "protocol_declaration": {
+    "no_test_labels": true,
+    "no_global_te": true,
+    "fold_local_fe": true,
+    "no_oof_weight_search": true,
+    "new_data_only": true,
+    "reference_plus_bootstrap": true
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "experiment_id": "b6pro_resid_nn",
+  "best_fusion": "b7",
+  "nested_oof_auc": 0.7027049552615718,
+  "nn_oof_auc": 0.6833732193596103,
+  "baseline_max3": 0.7027049552615718,
+  "gate_0_71": false,
+  "gap_to_0_71": 0.007295044738428125,
+  "all_candidate_nested": {
+    "b7": 0.7027049552615718,
+    "max3\u00d7nn": 0.6990078848543763,
+    "b7+nn": 0.6991448686746614,
+    "max3\u00d7meanL": 0.7014400567161779,
+    "b7+meanL": 0.701597242291289
+  },
+  "protocol_declaration": {
+    "no_test_labels": true,
+    "no_global_te": true,
+    "frozen_max3_as_feature": true,
+    "b7_floor_enforced": true,
+    "new_data_only": true
+  }
+}

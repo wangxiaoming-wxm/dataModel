@@ -1,0 +1,70 @@
+{
+  "experiment_id": "b6pro_multifuse_equal_b6_plus_ref_plus5",
+  "protocol_id": "IA-AUC715-B6PRO-v1",
+  "arm_names": [
+    "equal_b6",
+    "plus_ref",
+    "plus5"
+  ],
+  "arm_aucs": {
+    "equal_b6": 0.6989746962571622,
+    "plus_ref": 0.6886170674774439,
+    "plus5": 0.6829340053452052
+  },
+  "corr": {
+    "equal_b6__plus_ref": 0.9196856795678329,
+    "equal_b6__plus5": 0.918636169389193,
+    "plus_ref__plus5": 0.9867943747423796
+  },
+  "fusion": {
+    "selected_rule": "max",
+    "fold_rules": [
+      "max",
+      "max",
+      "max",
+      "max",
+      "max"
+    ],
+    "consistent_all_folds": true,
+    "full_data_scores": {
+      "mean": 0.6960366346384264,
+      "mean_2_1": 0.6992874253928296,
+      "power2": 0.6970500064088325,
+      "power3": 0.6978637490157864,
+      "max": 0.7009217772130575,
+      "rank_mean": 0.6925813135559148,
+      "geom_mean": 0.6949096155576202,
+      "min": 0.6867029263286784,
+      "median": 0.6891624153417103,
+      "mean_3_1_1": 0.6994835217370882
+    },
+    "rules_used": [
+      "mean",
+      "mean_2_1",
+      "power2",
+      "power3",
+      "max",
+      "rank_mean",
+      "geom_mean",
+      "min",
+      "median",
+      "mean_3_1_1"
+    ],
+    "rule_selection": "nested_5fold"
+  },
+  "nested_oof_auc": 0.7009217772130575,
+  "pooled_oof_auc": 0.7009217772130575,
+  "full_selected_auc": 0.7009217772130575,
+  "gate_0_715": false,
+  "gap_to_0_715": 0.014078,
+  "protocol_declaration": {
+    "no_test_labels": true,
+    "no_global_te": true,
+    "fold_local_fe": true,
+    "no_oof_weight_search": true,
+    "fusion_rules_preregistered": true,
+    "rule_selection_nested": true,
+    "new_data_only": true
+  },
+  "elapsed_sec": 0.3
+}

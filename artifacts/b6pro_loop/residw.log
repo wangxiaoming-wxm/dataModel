@@ -1,0 +1,34 @@
+residw seed=2026 fold=0 auc=0.68007
+residw seed=2026 fold=1 auc=0.68435
+residw seed=2026 fold=2 auc=0.67458
+residw seed=2026 fold=3 auc=0.66676
+residw seed=2026 fold=4 auc=0.68101
+residw seed=2026 OOF=0.674040
+residw seed=2027 fold=0 auc=0.64477
+residw seed=2027 fold=1 auc=0.67934
+residw seed=2027 fold=2 auc=0.68771
+residw seed=2027 fold=3 auc=0.68163
+residw seed=2027 fold=4 auc=0.69124
+residw seed=2027 OOF=0.675882
+residw seed=2028 fold=0 auc=0.64686
+residw seed=2028 fold=1 auc=0.69967
+residw seed=2028 fold=2 auc=0.67215
+residw seed=2028 fold=3 auc=0.67220
+residw seed=2028 fold=4 auc=0.67176
+residw seed=2028 OOF=0.670946
+residw seed=2029 fold=0 auc=0.68177
+residw seed=2029 fold=1 auc=0.69054
+residw seed=2029 fold=2 auc=0.67612
+residw seed=2029 fold=3 auc=0.67042
+residw seed=2029 fold=4 auc=0.66714
+residw seed=2029 OOF=0.675081
+solo 0.6808180954382648 corr_max3 0.8769254647464868 corr_gap 0.8502556739187002
+nested 0.7007863856493103 median
+full {'mean': 0.69783996468375, 'mean_2_1': 0.699359773549275, 'power2': 0.697545994320421, 'power3': 0.6969904460627079, 'max': 0.6895500302926806, 'rank_mean': 0.6949384005703463, 'geom_mean': 0.6978087166491916, 'min': 0.6898922659323179, 'median': 0.7007863856493103, 'mean_3_1_1': 0.699317578751018}
+{
+  "oof_auc": 0.6808180954382648,
+  "corr_max3": 0.8769254647464868,
+  "nested_oof_auc": 0.7007863856493103,
+  "gate_0_71": false,
+  "gap_to_0_71": 0.009214
+}

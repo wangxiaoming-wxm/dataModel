@@ -1,0 +1,41 @@
+seed=2026 fold=0 auc=0.68448
+seed=2026 fold=1 auc=0.68019
+seed=2026 fold=2 auc=0.67986
+seed=2026 fold=3 auc=0.66130
+seed=2026 fold=4 auc=0.69568
+seed=2026 OOF=0.678827 long=0.632997
+seed=2027 fold=0 auc=0.65155
+seed=2027 fold=1 auc=0.68307
+seed=2027 fold=2 auc=0.68919
+seed=2027 fold=3 auc=0.68578
+seed=2027 fold=4 auc=0.68993
+seed=2027 OOF=0.678720 long=0.634551
+resid_nn OOF=0.683373 long=0.638849 corr=0.9326
+b7: 0.70270496 max
+b7+meanL: 0.70159724 max
+max3×meanL: 0.70144006 mean_2_1
+b7+nn: 0.69914487 mean_2_1
+max3×nn: 0.69900788 mean_2_1
+{
+  "experiment_id": "b6pro_resid_nn",
+  "best_fusion": "b7",
+  "nested_oof_auc": 0.7027049552615718,
+  "nn_oof_auc": 0.6833732193596103,
+  "baseline_max3": 0.7027049552615718,
+  "gate_0_71": false,
+  "gap_to_0_71": 0.007295044738428125,
+  "all_candidate_nested": {
+    "b7": 0.7027049552615718,
+    "max3\u00d7nn": 0.6990078848543763,
+    "b7+nn": 0.6991448686746614,
+    "max3\u00d7meanL": 0.7014400567161779,
+    "b7+meanL": 0.701597242291289
+  },
+  "protocol_declaration": {
+    "no_test_labels": true,
+    "no_global_te": true,
+    "frozen_max3_as_feature": true,
+    "b7_floor_enforced": true,
+    "new_data_only": true
+  }
+}

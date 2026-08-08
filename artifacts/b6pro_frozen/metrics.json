@@ -1,0 +1,67 @@
+{
+  "experiment_id": "b6pro_frozen_closest",
+  "protocol_id": "IA-AUC715-B6PRO-v1",
+  "arm_names": [
+    "gap",
+    "gap_bag",
+    "plus_ref"
+  ],
+  "arm_aucs": {
+    "gap": 0.6986833630687241,
+    "gap_bag": 0.6989061794680111,
+    "plus_ref": 0.6886170674774439
+  },
+  "fusion": {
+    "selected_rule": "max",
+    "fold_rules": [
+      "max",
+      "max",
+      "max",
+      "max",
+      "max"
+    ],
+    "consistent_all_folds": true,
+    "full_data_scores": {
+      "mean": 0.699961596762624,
+      "mean_2_1": 0.6997104182937538,
+      "power2": 0.7003473706669724,
+      "power3": 0.7006526858581348,
+      "max": 0.7027049552615718,
+      "rank_mean": 0.6979613742447728,
+      "geom_mean": 0.6994661064312039,
+      "min": 0.6899075416434794,
+      "median": 0.698776360802147,
+      "mean_3_1_1": 0.6995350212844892
+    },
+    "rules_used": [
+      "mean",
+      "mean_2_1",
+      "power2",
+      "power3",
+      "max",
+      "rank_mean",
+      "geom_mean",
+      "min",
+      "median",
+      "mean_3_1_1"
+    ]
+  },
+  "nested_oof_auc": 0.7027049552615718,
+  "pooled_oof_auc": 0.7027049552615718,
+  "gate_0_705": false,
+  "gate_0_715": false,
+  "gap_to_0_705": 0.002295,
+  "protocol_declaration": {
+    "no_test_labels": true,
+    "no_global_te": true,
+    "fold_local_fe": true,
+    "no_oof_weight_search": true,
+    "new_data_only": true,
+    "reference_plus_bootstrap": true,
+    "rule_selection_nested": true
+  },
+  "note": "honest nested max(gap,gap_bag,plus_ref); disclose ref plus bootstrap",
+  "freeze": true,
+  "soft_target_0_705": false,
+  "closest_honest_nested_oof_auc": 0.7027049552615718
+}

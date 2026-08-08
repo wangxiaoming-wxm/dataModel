@@ -1,0 +1,37 @@
+{
+  "experiment_id": "b6pro_gapw",
+  "oof_auc": 0.6959117917742434,
+  "corr_max3": 0.9282260110438382,
+  "corr_gap": 0.9349910031284447,
+  "nested_oof_auc": 0.7013681066238668,
+  "selected_rule": "median",
+  "four_arm_nested": 0.7013681066238668,
+  "pair_nested": 0.7011480269155045,
+  "full_data_scores": {
+    "mean": 0.6992310993177977,
+    "mean_2_1": 0.6992696617808274,
+    "power2": 0.699090284130218,
+    "power3": 0.6987649662162969,
+    "max": 0.6959686651874604,
+    "rank_mean": 0.6978996743039252,
+    "geom_mean": 0.6990917271127055,
+    "min": 0.6899075416434794,
+    "median": 0.7013681066238668,
+    "mean_3_1_1": 0.6991733302602783
+  },
+  "baseline_max3": 0.7027049552615718,
+  "gate_0_71": false,
+  "gap_to_0_71": 0.008632,
+  "public_b7_signal": {
+    "local": 0.702704955,
+    "public": 0.707
+  },
+  "protocol_declaration": {
+    "no_test_labels": true,
+    "no_global_te": true,
+    "fold_local_fe": true,
+    "stage1_oof_for_weights_only": true,
+    "no_oof_weight_search": true,
+    "new_data_only": true
+  }
+}

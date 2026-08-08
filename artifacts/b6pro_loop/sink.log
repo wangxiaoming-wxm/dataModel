@@ -1,0 +1,33 @@
+sink seed=2026 fold=0 auc=0.70279 n=237
+sink seed=2026 fold=1 auc=0.68759 n=237
+sink seed=2026 fold=2 auc=0.69199 n=237
+sink seed=2026 fold=3 auc=0.66632 n=237
+sink seed=2026 fold=4 auc=0.70667 n=237
+sink seed=2026 OOF=0.690263
+sink seed=2027 fold=0 auc=0.66800 n=237
+sink seed=2027 fold=1 auc=0.69099 n=237
+sink seed=2027 fold=2 auc=0.70824 n=237
+sink seed=2027 fold=3 auc=0.69496 n=237
+sink seed=2027 fold=4 auc=0.69405 n=237
+sink seed=2027 OOF=0.690300
+sink seed=2028 fold=0 auc=0.66486 n=237
+sink seed=2028 fold=1 auc=0.71164 n=237
+sink seed=2028 fold=2 auc=0.69112 n=237
+sink seed=2028 fold=3 auc=0.70141 n=237
+sink seed=2028 fold=4 auc=0.68879 n=237
+sink seed=2028 OOF=0.690346
+sink seed=2029 fold=0 auc=0.69799 n=237
+sink seed=2029 fold=1 auc=0.70131 n=237
+sink seed=2029 fold=2 auc=0.69503 n=237
+sink seed=2029 fold=3 auc=0.68749 n=237
+sink seed=2029 fold=4 auc=0.67224 n=237
+sink seed=2029 OOF=0.690232
+sink solo 0.6962764682794632 corr 0.9873922957738782
+nested 0.702066510147849 max
+full {'mean': 0.6994144576097523, 'mean_2_1': 0.6993890810211779, 'power2': 0.6997331577074373, 'power3': 0.6999941882636364, 'max': 0.702066510147849, 'rank_mean': 0.6978791988800067, 'geom_mean': 0.6990277383030844, 'min': 0.689531371036376, 'median': 0.6989426520943349, 'mean_3_1_1': 0.6992611034019357}
+{
+  "oof_auc": 0.6962764682794632,
+  "nested_oof_auc": 0.702066510147849,
+  "gate_0_71": false,
+  "gap_to_0_71": 0.007933
+}

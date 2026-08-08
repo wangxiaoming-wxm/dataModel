@@ -1,0 +1,44 @@
+{
+  "experiment_id": "b6pro_plus_gate",
+  "protocol_id": "IA-AUC710-B6PRO-v2",
+  "nested_oof_auc": 0.7027049552615718,
+  "gate_blend_nested_auc": 0.7027049552615718,
+  "gate_blend_majority": "max3",
+  "fold_rules": [
+    "max3",
+    "max3",
+    "max3",
+    "max3",
+    "max3"
+  ],
+  "full_scores_top": {
+    "max3": 0.7027049552615718,
+    "soft_gate2": 0.7003775737831777,
+    "soft_gate": 0.7002153128903517,
+    "main": 0.6989746962571622,
+    "soft_gate_plus": 0.6988817980397729,
+    "gate0.35_max_else_gap": 0.698812236332269,
+    "gate0.35_max_else_main": 0.6986598772847886,
+    "gate0.45_max_else_gap": 0.6984396483023759,
+    "gate0.45_max_else_main": 0.6984378072557539,
+    "gate0.60_max_else_main": 0.6984312889555514,
+    "gate0.40_max_else_gap": 0.698415416148188,
+    "gate0.50_max_else_main": 0.6983934231047568
+  },
+  "four_arm_nested": 0.7027049552615718,
+  "baseline_max3": 0.7027049552615718,
+  "gate_0_71": false,
+  "gap_to_0_71": 0.007295,
+  "public_b7_signal": {
+    "local": 0.702704955,
+    "public": 0.707
+  },
+  "protocol_declaration": {
+    "no_test_labels": true,
+    "no_global_te": true,
+    "fold_local_gate": true,
+    "no_oof_weight_search": true,
+    "discrete_gate_thresholds_preregistered": true,
+    "new_data_only": true
+  }
+}

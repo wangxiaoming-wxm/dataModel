@@ -1,0 +1,25 @@
+{
+  "experiment_id": "b6pro_testw",
+  "oof_auc": 0.6874691002715594,
+  "oof_auc_testlike25": 0.7058739791104025,
+  "max3_auc_testlike25": 0.7121994273256761,
+  "nested_oof_auc": 0.7013710423468588,
+  "four_arm_nested": 0.7013710423468588,
+  "testlike_patch_nested": 0.6605504609980742,
+  "selected_rule": "median",
+  "baseline_max3": 0.7027049552615718,
+  "gate_0_71": false,
+  "gap_to_0_71": 0.008629,
+  "public_b7_signal": {
+    "local": 0.702704955,
+    "public": 0.707
+  },
+  "protocol_declaration": {
+    "no_test_labels": true,
+    "no_global_te": true,
+    "fold_local_fe": true,
+    "adversarial_testlike_weights": true,
+    "no_oof_weight_search": true,
+    "new_data_only": true
+  }
+}

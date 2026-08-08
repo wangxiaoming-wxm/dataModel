@@ -1,0 +1,10 @@
+{
+  "experiment_id": "b6pro_long_region_v2",
+  "nested_oof_auc": 0.7048856501064026,
+  "selected_rule": "max",
+  "baseline_max3": 0.702704955,
+  "prev": 0.70472075,
+  "gate_0_71": false,
+  "gap_to_0_71": 0.005114349893597381,
+  "note": "region blend with max(gap_lo,aging_lo)"
+}

@@ -1,0 +1,19 @@
+corr seed=2026 fold=0 auc=0.70322
+corr seed=2026 fold=1 auc=0.70015
+corr seed=2026 fold=2 auc=0.69437
+corr seed=2026 fold=3 auc=0.68154
+corr seed=2026 fold=4 auc=0.70920
+corr seed=2026 OOF=0.644267
+corr seed=2027 fold=0 auc=0.67419
+corr seed=2027 fold=1 auc=0.70136
+corr seed=2027 fold=2 auc=0.70832
+corr seed=2027 fold=3 auc=0.70517
+corr seed=2027 fold=4 auc=0.70467
+corr seed=2027 OOF=0.616576
+{
+  "oof_auc": 0.6284063840729763,
+  "nested_max_with_main": 0.6841007064444196,
+  "gate_0_715": false,
+  "gap_to_0_715": 0.030899,
+  "corr_vs_main": 0.5466199054920373
+}

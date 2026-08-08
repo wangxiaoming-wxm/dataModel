@@ -1,0 +1,57 @@
+{
+  "best": "direct_honest_cur_blend2",
+  "nested": 0.7089224682523949,
+  "promoted": false,
+  "gate": false,
+  "closest_prev": 0.7089871536742514,
+  "top": [
+    [
+      0.7089224682523949,
+      "honest_cur_blend2"
+    ],
+    [
+      0.7089008235150814,
+      "honest_pick_blend3"
+    ],
+    [
+      0.708870421366809,
+      "honest_pick_blend2"
+    ],
+    [
+      0.7088016060295571,
+      "mean_pick+blend2+ps2"
+    ],
+    [
+      0.7087712536393014,
+      "mean_pick+blend2+post"
+    ],
+    [
+      0.708693282826956,
+      "honest_nest_pick"
+    ],
+    [
+      0.7086397929588822,
+      "honest_pick_multi"
+    ],
+    [
+      0.7085941150994484,
+      "mean_pick+blend2+nest"
+    ],
+    [
+      0.7084594201479366,
+      "mean_pick+blend2+nest+post"
+    ],
+    [
+      0.7084009544781817,
+      "logit_pick+blend2+ps2_C0.05"
+    ],
+    [
+      0.7083684127351861,
+      "honest_post_pick"
+    ],
+    [
+      0.708328108741568,
+      "logit_pick+blend2+ps2_C0.1"
+    ]
+  ]
+}

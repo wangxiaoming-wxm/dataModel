@@ -1,0 +1,57 @@
+{
+  "best": "direct_honest_plain_a0.0",
+  "nested": 0.7089008235150814,
+  "promoted": false,
+  "gate": false,
+  "closest_prev": 0.7089008235150814,
+  "top": [
+    [
+      "direct_honest_plain_a0.0",
+      0.7089008235150814
+    ],
+    [
+      "direct_honest_midw_a0.0",
+      0.7089008235150814
+    ],
+    [
+      "direct_patch_ultra_midw_a0.05",
+      0.7088474829210584
+    ],
+    [
+      "direct_patch_ultra_plain_a0.1",
+      0.7087318950480026
+    ],
+    [
+      "direct_patch_midcond_midw_a0.0",
+      0.708452951605751
+    ],
+    [
+      "direct_patch_midcond_plain_a0.0",
+      0.7080353823286593
+    ],
+    [
+      "b7+patch_ultra_midw_a0.05",
+      0.7064617352889427
+    ],
+    [
+      "b7+honest_plain_a0.0",
+      0.7064496938488741
+    ],
+    [
+      "b7+honest_midw_a0.0",
+      0.7064496938488741
+    ],
+    [
+      "b7+patch_ultra_plain_a0.1",
+      0.706429293061981
+    ],
+    [
+      "b7+patch_midcond_midw_a0.0",
+      0.706271560148685
+    ],
+    [
+      "b7+patch_midcond_plain_a0.0",
+      0.7059332056343589
+    ]
+  ]
+}

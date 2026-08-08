@@ -1,0 +1,106 @@
+{
+  "experiment_id": "b6pro_fuse_plus_h2",
+  "protocol_id": "IA-AUC715-B6PRO-v1",
+  "git_commit": "01be965da7bfaa6ed448dc3846d666025e64bb48",
+  "data_sha256": {
+    "train": "494a61073a0438f692914c4868db31df1171e662348e0024e06b120d08d44f28",
+    "test": "d6ffd26bd4873fa09f6fac361f59170a880e88e331a01d7a6356bd9184ce55ec",
+    "submit": "83cb0263cc5729f61d0e05c68d673dc3f21b41c24bad68afa35159859054c4bf"
+  },
+  "baseline_b6_pooled": 0.6989746962571622,
+  "target_auc": 0.715,
+  "mode": "fuse",
+  "seeds": [
+    2026,
+    2027,
+    2028,
+    2029,
+    2030,
+    2031,
+    2032,
+    2033
+  ],
+  "plus_seeds": [
+    2026,
+    2027,
+    2028,
+    2029
+  ],
+  "audit": {
+    "train_rows": 14930,
+    "test_rows": 6398,
+    "target_rate": 0.10020093770931011,
+    "id_overlap": 0
+  },
+  "main_source": "artifacts/b5_8seed/predictions.npz",
+  "main_equal_prob_auc": 0.6981745375887981,
+  "plus": {
+    "oof_auc": 0.6886170674774439,
+    "source": "reference/v10/oof_plus_h2_10.npz",
+    "reference_bootstrap": true
+  },
+  "fusion": {
+    "selected_rule": "max",
+    "fold_rules": [
+      "max",
+      "max",
+      "max",
+      "max",
+      "max"
+    ],
+    "consistent_all_folds": true,
+    "full_data_scores": {
+      "mean": 0.6988709507921078,
+      "mean_2_1": 0.6994478452390336,
+      "power2": 0.6994013712513306,
+      "power3": 0.699790329668755,
+      "max": 0.7013149650619108,
+      "rank_mean": 0.6961057734027876
+    },
+    "rules_preregistered": [
+      "mean",
+      "mean_2_1",
+      "power2",
+      "power3",
+      "max",
+      "rank_mean"
+    ],
+    "rules_used": [
+      "mean",
+      "mean_2_1",
+      "power2",
+      "power3",
+      "max",
+      "rank_mean"
+    ],
+    "rule_selection": "nested_5fold",
+    "arm_aucs": {
+      "equal_b6": 0.6981745375887981,
+      "plus": 0.6886170674774439
+    },
+    "corr": {
+      "equal_b6__plus": 0.9149755685424793
+    }
+  },
+  "nested_oof_auc": 0.7013149650619108,
+  "pooled_oof_auc": 0.7013149650619108,
+  "full_selected_auc": 0.7013149650619108,
+  "gate_0_715": false,
+  "gap_to_0_715": 0.013685,
+  "protocol_declaration": {
+    "no_test_labels": true,
+    "no_global_te": true,
+    "fold_local_fe": true,
+    "no_oof_weight_search": true,
+    "fusion_rules_preregistered": true,
+    "rule_selection_nested": true,
+    "equal_seed_average": true,
+    "new_data_only": true,
+    "b6_freeze_untampered": true,
+    "reference_plus_bootstrap": true,
+    "early_stopping_on_valid": true
+  },
+  "shuffled_plus_max_auc": 0.6466122453285184,
+  "shuffled_plus_max_pass": true,
+  "elapsed_sec": 0.2
+}

@@ -1,0 +1,31 @@
+{
+  "tag": "b6pro_frozen_closest",
+  "branch": "cursor/b6pro-auc0715-100c",
+  "protocol_id": "IA-AUC715-B6PRO-v1",
+  "soft_target_attempted": 0.705,
+  "hard_target_attempted": 0.715,
+  "reached_0_705": false,
+  "reached_0_715": false,
+  "closest_honest_nested_oof_auc": 0.7027049552615718,
+  "selected_rule": "max",
+  "recipe": "nested_select max(gap_8seed, gap_bag_8seed, reference_plus_h2_10)",
+  "arm_aucs": {
+    "gap": 0.6986833630687241,
+    "gap_bag": 0.6989061794680111,
+    "plus_ref": 0.6886170674774439
+  },
+  "alternates_tried_near_best": {
+    "equal_main_x_plus": 0.7022093156561012,
+    "gap_gapbag_plus_12seed": 0.7026557445829442,
+    "fuse3_ultra": 0.7020793228371782
+  },
+  "gap_to_0_705": 0.002295,
+  "gap_to_0_715": 0.012295,
+  "disclose": [
+    "reference plus bootstrap (V10 oof_plus_h2_10)",
+    "max fusion favors AUC not calibration",
+    "early stopping on valid",
+    "could not reach honest local 0.705 under protocol"
+  ],
+  "sha256_submission": "5c9ccfdaaed914c92e153cb9ba2b0fb4e066b462b09406184d3f4ed1e75c1de8"
+}

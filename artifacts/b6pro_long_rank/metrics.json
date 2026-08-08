@@ -1,0 +1,16 @@
+{
+  "experiment_id": "b6pro_long_rank",
+  "best": "ens4_pairlogit",
+  "nested_oof_auc": 0.7051154823860601,
+  "baseline_max3": 0.7027049552615718,
+  "prev_closest": 0.7054481147284526,
+  "gate_0_71": false,
+  "gap_to_0_71": 0.0048845176139398205,
+  "all": {
+    "pairlogit_wo0.15": 0.7036428938784901,
+    "pairlogit_wo0.2": 0.7036085110888727,
+    "pairlogit_wo0.3": 0.7035088955392137,
+    "ens4_pairlogit": 0.7051154823860601,
+    "prev+ens4_pairlogit": 0.7052164911601898
+  }
+}

@@ -1,0 +1,29 @@
+base_max_auc=0.702209 mid_frac=0.831
+             feat   oof_te   mid_te
+    ratio5|region 0.607682 0.566333
+       days5|code 0.601835 0.564933
+    w_pair|ratio5 0.599385 0.553463
+    ratio5|source 0.598187 0.552098
+     days5|w_pair 0.593777 0.555444
+            days5 0.592645 0.547762
+     days5|t_pair 0.591804 0.555452
+           ratio5 0.591261 0.549610
+    t_pair|ratio5 0.586314 0.540296
+    version|days5 0.576240 0.542659
+     cond5|source 0.573614 0.556292
+      age8|region 0.558035 0.536909
+livability|region 0.540224 0.528990
+region|livability 0.540224 0.528990
+       livability 0.539131 0.528990
+--- mid ---
+         feat   oof_te   mid_te
+ratio5|region 0.607682 0.566333
+   days5|code 0.601835 0.564933
+ cond5|source 0.573614 0.556292
+ days5|t_pair 0.591804 0.555452
+ days5|w_pair 0.593777 0.555444
+w_pair|ratio5 0.599385 0.553463
+ratio5|source 0.598187 0.552098
+       ratio5 0.591261 0.549610
+        days5 0.592645 0.547762
+version|days5 0.576240 0.542659

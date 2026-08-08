@@ -1,0 +1,36 @@
+testlike mean 0.27273886827121024 auc max3 on top25% 0.7121994273256761
+testw seed=2026 fold=0 auc=0.69017
+testw seed=2026 fold=1 auc=0.66463
+testw seed=2026 fold=2 auc=0.68782
+testw seed=2026 fold=3 auc=0.66832
+testw seed=2026 fold=4 auc=0.69503
+testw seed=2026 OOF=0.680515
+testw seed=2027 fold=0 auc=0.65883
+testw seed=2027 fold=1 auc=0.67823
+testw seed=2027 fold=2 auc=0.69330
+testw seed=2027 fold=3 auc=0.68751
+testw seed=2027 fold=4 auc=0.69113
+testw seed=2027 OOF=0.679901
+testw seed=2028 fold=0 auc=0.66282
+testw seed=2028 fold=1 auc=0.70417
+testw seed=2028 fold=2 auc=0.68122
+testw seed=2028 fold=3 auc=0.68172
+testw seed=2028 fold=4 auc=0.68459
+testw seed=2028 OOF=0.682562
+testw seed=2029 fold=0 auc=0.68351
+testw seed=2029 fold=1 auc=0.68995
+testw seed=2029 fold=2 auc=0.67644
+testw seed=2029 fold=3 auc=0.67942
+testw seed=2029 fold=4 auc=0.66524
+testw seed=2029 OOF=0.677471
+full 0.6874691002715594 testlike25 0.7058739791104025 corr 0.8892197045301187
+max3 testlike25 0.7121994273256761
+nested 0.7013710423468588 median {'mean': 0.6974050298587906, 'mean_2_1': 0.6986231061103642, 'power2': 0.6953033507446587, 'power3': 0.6928791401655467, 'max': 0.6874772108282998, 'rank_mean': 0.6965041858434063, 'geom_mean': 0.6983520741927856, 'min': 0.6899075416434794, 'median': 0.7013710423468588, 'mean_3_1_1': 0.6987350616481924}
+nested testlike-patch 0.6605504609980742
+{
+  "oof_auc": 0.6874691002715594,
+  "nested_oof_auc": 0.7013710423468588,
+  "testlike_patch_nested": 0.6605504609980742,
+  "gate_0_71": false,
+  "gap_to_0_71": 0.008629
+}

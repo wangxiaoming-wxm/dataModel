@@ -1,0 +1,16 @@
+=== train plus variant=plus config=h2 xf=rank ===
+plus seed=2026 fold=0 auc=0.68106 best=231 n=80 xf=rank
+plus seed=2026 fold=1 auc=0.68373 best=1066 n=80 xf=rank
+plus seed=2026 fold=2 auc=0.67694 best=486 n=80 xf=rank
+plus seed=2026 fold=3 auc=0.67373 best=702 n=80 xf=rank
+plus seed=2026 fold=4 auc=0.68805 best=483 n=80 xf=rank
+plus seed=2026 OOF=0.680709
+plus seed=2027 fold=0 auc=0.65682 best=507 n=80 xf=rank
+plus seed=2027 fold=1 auc=0.68021 best=583 n=80 xf=rank
+plus seed=2027 fold=2 auc=0.69637 best=475 n=80 xf=rank
+plus seed=2027 fold=3 auc=0.68326 best=244 n=80 xf=rank
+plus seed=2027 fold=4 auc=0.68902 best=860 n=80 xf=rank
+plus seed=2027 OOF=0.681140
+{
+  "plus_oof_auc": 0.6832811670285069
+}

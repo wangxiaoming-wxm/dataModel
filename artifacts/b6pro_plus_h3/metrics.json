@@ -1,0 +1,64 @@
+{
+  "experiment_id": "b6pro_plus_only_plus_h3",
+  "protocol_id": "IA-AUC715-B6PRO-v1",
+  "git_commit": "26d1833b283597b2c1484b72e444612ea449193f",
+  "data_sha256": {
+    "train": "494a61073a0438f692914c4868db31df1171e662348e0024e06b120d08d44f28",
+    "test": "d6ffd26bd4873fa09f6fac361f59170a880e88e331a01d7a6356bd9184ce55ec",
+    "submit": "83cb0263cc5729f61d0e05c68d673dc3f21b41c24bad68afa35159859054c4bf"
+  },
+  "baseline_b6_pooled": 0.6989746962571622,
+  "target_auc": 0.715,
+  "mode": "plus_only",
+  "seeds": [
+    2026,
+    2027,
+    2028,
+    2029,
+    2030,
+    2031,
+    2032,
+    2033
+  ],
+  "plus_seeds": [
+    2026,
+    2027,
+    2028,
+    2029
+  ],
+  "audit": {
+    "train_rows": 14930,
+    "test_rows": 6398,
+    "target_rate": 0.10020093770931011,
+    "id_overlap": 0
+  },
+  "plus": {
+    "variant": "plus",
+    "oof_auc": 0.683496270935188,
+    "seed_aucs": {
+      "2026": 0.6820642849693371,
+      "2027": 0.6792146931044942,
+      "2028": 0.6780990188515212,
+      "2029": 0.6796384821336875
+    },
+    "params": {
+      "loss_function": "Logloss",
+      "eval_metric": "AUC",
+      "iterations": 3000,
+      "learning_rate": 0.015,
+      "depth": 8,
+      "l2_leaf_reg": 30,
+      "random_strength": 2.0,
+      "od_type": "Iter",
+      "od_wait": 200,
+      "thread_count": 8,
+      "allow_writing_files": false
+    },
+    "n_splits": 5,
+    "source": "self_trained"
+  },
+  "pooled_oof_auc": 0.683496270935188,
+  "nested_oof_auc": null,
+  "gate_0_715": false,
+  "elapsed_sec": 1169.1
+}

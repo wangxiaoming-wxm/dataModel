@@ -1,0 +1,70 @@
+{
+  "experiment_id": "b6pro_multifuse_equal_b6_plus_ref_ultra",
+  "protocol_id": "IA-AUC715-B6PRO-v1",
+  "arm_names": [
+    "equal_b6",
+    "plus_ref",
+    "ultra"
+  ],
+  "arm_aucs": {
+    "equal_b6": 0.6989746962571622,
+    "plus_ref": 0.6886170674774439,
+    "ultra": 0.6868774028146319
+  },
+  "corr": {
+    "equal_b6__plus_ref": 0.9196856795678329,
+    "equal_b6__ultra": 0.7971608109527818,
+    "plus_ref__ultra": 0.829245490434414
+  },
+  "fusion": {
+    "selected_rule": "median",
+    "fold_rules": [
+      "median",
+      "median",
+      "median",
+      "median",
+      "median"
+    ],
+    "consistent_all_folds": true,
+    "full_data_scores": {
+      "mean": 0.6924250485041147,
+      "mean_2_1": 0.6972900888399536,
+      "power2": 0.6889365139453809,
+      "power3": 0.6875205998189605,
+      "max": 0.6869129051596278,
+      "rank_mean": 0.694289033571933,
+      "geom_mean": 0.6961450075990443,
+      "min": 0.6895961062162492,
+      "median": 0.7020793228371782,
+      "mean_3_1_1": 0.6983556070119794
+    },
+    "rules_used": [
+      "mean",
+      "mean_2_1",
+      "power2",
+      "power3",
+      "max",
+      "rank_mean",
+      "geom_mean",
+      "min",
+      "median",
+      "mean_3_1_1"
+    ],
+    "rule_selection": "nested_5fold"
+  },
+  "nested_oof_auc": 0.7020793228371782,
+  "pooled_oof_auc": 0.7020793228371782,
+  "full_selected_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "gap_to_0_715": 0.012921,
+  "protocol_declaration": {
+    "no_test_labels": true,
+    "no_global_te": true,
+    "fold_local_fe": true,
+    "no_oof_weight_search": true,
+    "fusion_rules_preregistered": true,
+    "rule_selection_nested": true,
+    "new_data_only": true
+  },
+  "elapsed_sec": 0.2
+}

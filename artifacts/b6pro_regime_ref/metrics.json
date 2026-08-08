@@ -1,0 +1,68 @@
+{
+  "experiment_id": "b6pro_regime_days",
+  "protocol_id": "IA-AUC715-B6PRO-v1",
+  "nested_oof_auc": 0.7008530613918391,
+  "pooled_oof_auc": 0.7008530613918391,
+  "gate_0_715": false,
+  "gap_to_0_715": 0.014147,
+  "bin_rules_full": {
+    "0": "max",
+    "1": "max",
+    "2": "max",
+    "3": "max",
+    "4": "max"
+  },
+  "fold_rule_maps": [
+    {
+      "0": "max",
+      "1": "max",
+      "2": "max",
+      "3": "mean_2_1",
+      "4": "max"
+    },
+    {
+      "0": "max",
+      "1": "max",
+      "2": "max",
+      "3": "mean_2_1",
+      "4": "max"
+    },
+    {
+      "0": "max",
+      "1": "max",
+      "2": "power3",
+      "3": "max",
+      "4": "max"
+    },
+    {
+      "0": "max",
+      "1": "max",
+      "2": "max",
+      "3": "max",
+      "4": "max"
+    },
+    {
+      "0": "max",
+      "1": "max",
+      "2": "max",
+      "3": "max",
+      "4": "max"
+    }
+  ],
+  "protocol_declaration": {
+    "no_test_labels": true,
+    "no_global_te": true,
+    "fold_local_fe": true,
+    "no_oof_weight_search": true,
+    "regime_rules_preregistered": [
+      "mean",
+      "mean_2_1",
+      "power2",
+      "power3",
+      "max",
+      "rank_mean"
+    ],
+    "nested_regime_selection": true,
+    "new_data_only": true
+  }
+}

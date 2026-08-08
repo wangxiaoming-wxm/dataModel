@@ -1,0 +1,25 @@
+fold0 best=rf auc=0.66899
+fold1 best=lgbm auc=0.63965
+fold2 best=xgboost auc=0.62858
+fold3 best=lgbm auc=0.64276
+fold4 best=lgbm auc=0.63576
+flaml OOF 0.6337679347795799 long 0.5704839318486254 corr 0.6213578514254604
+b7+region+flaml 0.6994433172595036 power3
+b7+flaml 0.6987259061730989 mean_3_1_1
+max3×flaml 0.6984523365966631 mean_2_1
+region×flaml 0.6972313246220978 mean_2_1
+{
+  "experiment_id": "b6pro_flaml",
+  "best": "b7+region+flaml",
+  "nested_oof_auc": 0.6994433172595036,
+  "flaml_auc": 0.6337679347795799,
+  "baseline_max3": 0.7027049552615718,
+  "gate_0_71": false,
+  "gap_to_0_71": 0.01055668274049637,
+  "all": {
+    "b7+flaml": 0.6987259061730989,
+    "max3\u00d7flaml": 0.6984523365966631,
+    "region\u00d7flaml": 0.6972313246220978,
+    "b7+region+flaml": 0.6994433172595036
+  }
+}

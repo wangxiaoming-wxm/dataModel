@@ -1,0 +1,2004 @@
+
+$ /usr/bin/python3 -m insurance_claim.train_b6pro --mode fuse --main-npz artifacts/b5_8seed/predictions.npz --ref-plus --shuffled --output-dir artifacts/b6pro_fuse0_b5ref
+{
+  "nested_oof_auc": 0.7013149650619108,
+  "full_selected_auc": 0.7013149650619108,
+  "selected_rule": "max",
+  "arm_aucs": {
+    "equal_b6": 0.6981745375887981,
+    "plus": 0.6886170674774439
+  },
+  "gate_0_715": false,
+  "gap_to_0_715": 0.013685,
+  "elapsed_sec": 0.2
+}
+
+$ /usr/bin/python3 -m insurance_claim.train_b6pro --mode b6_arms --b6-arms gap gap_bag --seeds 2026 2027 2028 2029 2030 2031 2032 2033 --output-dir artifacts/b6pro_main
+=== train B6 arm gap ===
+gap seed=2026 fold=0 auc=0.70945 best=317 n=181
+gap seed=2026 fold=1 auc=0.68714 best=404 n=181
+gap seed=2026 fold=2 auc=0.69451 best=393 n=181
+gap seed=2026 fold=3 auc=0.66569 best=762 n=181
+gap seed=2026 fold=4 auc=0.70902 best=355 n=181
+gap seed=2026 OOF=0.691836
+gap seed=2027 fold=0 auc=0.67184 best=551 n=181
+gap seed=2027 fold=1 auc=0.68999 best=648 n=181
+gap seed=2027 fold=2 auc=0.70666 best=817 n=181
+gap seed=2027 fold=3 auc=0.69205 best=226 n=181
+gap seed=2027 fold=4 auc=0.69652 best=269 n=181
+gap seed=2027 OOF=0.690567
+gap seed=2028 fold=0 auc=0.66917 best=785 n=181
+gap seed=2028 fold=1 auc=0.71633 best=422 n=181
+gap seed=2028 fold=2 auc=0.68756 best=506 n=181
+gap seed=2028 fold=3 auc=0.69807 best=292 n=181
+gap seed=2028 fold=4 auc=0.68856 best=521 n=181
+gap seed=2028 OOF=0.691344
+gap seed=2029 fold=0 auc=0.69638 best=339 n=181
+gap seed=2029 fold=1 auc=0.70454 best=243 n=181
+gap seed=2029 fold=2 auc=0.69299 best=653 n=181
+gap seed=2029 fold=3 auc=0.68760 best=202 n=181
+gap seed=2029 fold=4 auc=0.67346 best=577 n=181
+gap seed=2029 OOF=0.689656
+gap seed=2030 fold=0 auc=0.68409 best=331 n=181
+gap seed=2030 fold=1 auc=0.68210 best=484 n=181
+gap seed=2030 fold=2 auc=0.68660 best=502 n=181
+gap seed=2030 fold=3 auc=0.70633 best=384 n=181
+gap seed=2030 fold=4 auc=0.69918 best=562 n=181
+gap seed=2030 OOF=0.691000
+gap seed=2031 fold=0 auc=0.69573 best=488 n=181
+gap seed=2031 fold=1 auc=0.70240 best=745 n=181
+gap seed=2031 fold=2 auc=0.67069 best=557 n=181
+gap seed=2031 fold=3 auc=0.68512 best=274 n=181
+gap seed=2031 fold=4 auc=0.69965 best=778 n=181
+gap seed=2031 OOF=0.690211
+gap seed=2032 fold=0 auc=0.69825 best=624 n=181
+gap seed=2032 fold=1 auc=0.69940 best=323 n=181
+gap seed=2032 fold=2 auc=0.67982 best=141 n=181
+gap seed=2032 fold=3 auc=0.68201 best=685 n=181
+gap seed=2032 fold=4 auc=0.68174 best=478 n=181
+gap seed=2032 OOF=0.687335
+gap seed=2033 fold=0 auc=0.69985 best=147 n=181
+gap seed=2033 fold=1 auc=0.68830 best=319 n=181
+gap seed=2033 fold=2 auc=0.70667 best=353 n=181
+gap seed=2033 fold=3 auc=0.68959 best=360 n=181
+gap seed=2033 fold=4 auc=0.67607 best=284 n=181
+gap seed=2033 OOF=0.690028
+=== train B6 arm gap_bag ===
+gap_bag seed=2026 fold=0 auc=0.70541 best=525 n=181
+gap_bag seed=2026 fold=1 auc=0.68808 best=455 n=181
+gap_bag seed=2026 fold=2 auc=0.69756 best=372 n=181
+gap_bag seed=2026 fold=3 auc=0.66721 best=318 n=181
+gap_bag seed=2026 fold=4 auc=0.70991 best=507 n=181
+gap_bag seed=2026 OOF=0.693119
+gap_bag seed=2027 fold=0 auc=0.67591 best=601 n=181
+gap_bag seed=2027 fold=1 auc=0.69578 best=703 n=181
+gap_bag seed=2027 fold=2 auc=0.70326 best=422 n=181
+gap_bag seed=2027 fold=3 auc=0.69531 best=263 n=181
+gap_bag seed=2027 fold=4 auc=0.69382 best=562 n=181
+gap_bag seed=2027 OOF=0.691861
+gap_bag seed=2028 fold=0 auc=0.66800 best=709 n=181
+gap_bag seed=2028 fold=1 auc=0.71485 best=799 n=181
+gap_bag seed=2028 fold=2 auc=0.68797 best=266 n=181
+gap_bag seed=2028 fold=3 auc=0.69792 best=296 n=181
+gap_bag seed=2028 fold=4 auc=0.68890 best=261 n=181
+gap_bag seed=2028 OOF=0.691312
+gap_bag seed=2029 fold=0 auc=0.69406 best=289 n=181
+gap_bag seed=2029 fold=1 auc=0.70663 best=417 n=181
+gap_bag seed=2029 fold=2 auc=0.68923 best=590 n=181
+gap_bag seed=2029 fold=3 auc=0.69187 best=466 n=181
+gap_bag seed=2029 fold=4 auc=0.66839 best=218 n=181
+gap_bag seed=2029 OOF=0.689679
+gap_bag seed=2030 fold=0 auc=0.68355 best=458 n=181
+gap_bag seed=2030 fold=1 auc=0.68151 best=379 n=181
+gap_bag seed=2030 fold=2 auc=0.68693 best=521 n=181
+gap_bag seed=2030 fold=3 auc=0.70525 best=358 n=181
+gap_bag seed=2030 fold=4 auc=0.70077 best=1005 n=181
+gap_bag seed=2030 OOF=0.690830
+gap_bag seed=2031 fold=0 auc=0.69960 best=379 n=181
+gap_bag seed=2031 fold=1 auc=0.70260 best=362 n=181
+gap_bag seed=2031 fold=2 auc=0.67524 best=574 n=181
+gap_bag seed=2031 fold=3 auc=0.68333 best=456 n=181
+gap_bag seed=2031 fold=4 auc=0.69779 best=496 n=181
+gap_bag seed=2031 OOF=0.690849
+gap_bag seed=2032 fold=0 auc=0.69651 best=709 n=181
+gap_bag seed=2032 fold=1 auc=0.70045 best=274 n=181
+gap_bag seed=2032 fold=2 auc=0.68394 best=203 n=181
+gap_bag seed=2032 fold=3 auc=0.68197 best=346 n=181
+gap_bag seed=2032 fold=4 auc=0.68437 best=566 n=181
+gap_bag seed=2032 OOF=0.688709
+gap_bag seed=2033 fold=0 auc=0.70734 best=496 n=181
+gap_bag seed=2033 fold=1 auc=0.69456 best=564 n=181
+gap_bag seed=2033 fold=2 auc=0.70018 best=273 n=181
+gap_bag seed=2033 fold=3 auc=0.68714 best=500 n=181
+gap_bag seed=2033 fold=4 auc=0.67771 best=480 n=181
+gap_bag seed=2033 OOF=0.691514
+{
+  "main_equal_prob_auc": 0.6989746962571622
+}
+
+$ /usr/bin/python3 -m insurance_claim.train_b6pro --mode plus_only --plus-variant plus --plus-config h2 --plus-seeds 2026 2027 2028 2029 --plus-folds 5 --output-dir artifacts/b6pro_plus_h2
+=== train plus variant=plus config=h2 ===
+plus seed=2026 fold=0 auc=0.68106 best=231 n=80
+plus seed=2026 fold=1 auc=0.68373 best=1066 n=80
+plus seed=2026 fold=2 auc=0.67694 best=486 n=80
+plus seed=2026 fold=3 auc=0.67373 best=702 n=80
+plus seed=2026 fold=4 auc=0.68805 best=483 n=80
+plus seed=2026 OOF=0.679040
+plus seed=2027 fold=0 auc=0.65682 best=507 n=80
+plus seed=2027 fold=1 auc=0.68021 best=583 n=80
+plus seed=2027 fold=2 auc=0.69637 best=475 n=80
+plus seed=2027 fold=3 auc=0.68326 best=244 n=80
+plus seed=2027 fold=4 auc=0.68902 best=860 n=80
+plus seed=2027 OOF=0.679685
+plus seed=2028 fold=0 auc=0.65879 best=555 n=80
+plus seed=2028 fold=1 auc=0.70257 best=501 n=80
+plus seed=2028 fold=2 auc=0.67475 best=436 n=80
+plus seed=2028 fold=3 auc=0.67332 best=463 n=80
+plus seed=2028 fold=4 auc=0.68017 best=278 n=80
+plus seed=2028 OOF=0.677398
+plus seed=2029 fold=0 auc=0.68345 best=305 n=80
+plus seed=2029 fold=1 auc=0.69787 best=595 n=80
+plus seed=2029 fold=2 auc=0.68473 best=588 n=80
+plus seed=2029 fold=3 auc=0.67140 best=540 n=80
+plus seed=2029 fold=4 auc=0.66719 best=629 n=80
+plus seed=2029 OOF=0.679076
+{
+  "plus_oof_auc": 0.6829340053452052
+}
+
+$ /usr/bin/python3 -m insurance_claim.train_b6pro --mode fuse --main-npz artifacts/b6pro_main/predictions.npz --plus-npz artifacts/b6pro_plus_h2/predictions.npz --shuffled --output-dir artifacts/b6pro_fuse_self
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/workspace/src/insurance_claim/train_b6pro.py", line 336, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/src/insurance_claim/train_b6pro.py", line 220, in main
+    poof = bundle["oof"]
+           ~~~~~~^^^^^^^
+KeyError: 'oof'
+
+$ /usr/bin/python3 -m insurance_claim.train_b6pro --mode plus_only --plus-variant plus_gap --plus-config h2 --plus-seeds 2026 2027 2028 2029 --output-dir artifacts/b6pro_plus_gap
+=== train plus variant=plus_gap config=h2 ===
+plus_gap seed=2026 fold=0 auc=0.69001 best=532 n=99
+plus_gap seed=2026 fold=1 auc=0.67966 best=915 n=99
+plus_gap seed=2026 fold=2 auc=0.67633 best=527 n=99
+plus_gap seed=2026 fold=3 auc=0.67088 best=1106 n=99
+plus_gap seed=2026 fold=4 auc=0.69180 best=403 n=99
+plus_gap seed=2026 OOF=0.680737
+plus_gap seed=2027 fold=0 auc=0.66474 best=478 n=99
+plus_gap seed=2027 fold=1 auc=0.68070 best=665 n=99
+plus_gap seed=2027 fold=2 auc=0.69496 best=810 n=99
+plus_gap seed=2027 fold=3 auc=0.68620 best=294 n=99
+plus_gap seed=2027 fold=4 auc=0.68962 best=1151 n=99
+plus_gap seed=2027 OOF=0.682241
+plus_gap seed=2028 fold=0 auc=0.66033 best=697 n=99
+plus_gap seed=2028 fold=1 auc=0.70351 best=521 n=99
+plus_gap seed=2028 fold=2 auc=0.67691 best=429 n=99
+plus_gap seed=2028 fold=3 auc=0.68336 best=897 n=99
+plus_gap seed=2028 fold=4 auc=0.67991 best=395 n=99
+plus_gap seed=2028 OOF=0.680221
+plus_gap seed=2029 fold=0 auc=0.68582 best=295 n=99
+plus_gap seed=2029 fold=1 auc=0.70116 best=923 n=99
+plus_gap seed=2029 fold=2 auc=0.68535 best=849 n=99
+plus_gap seed=2029 fold=3 auc=0.67602 best=657 n=99
+plus_gap seed=2029 fold=4 auc=0.67303 best=846 n=99
+plus_gap seed=2029 OOF=0.682568
+{
+  "plus_oof_auc": 0.6861497166977555
+}
+
+$ /usr/bin/python3 -m insurance_claim.train_b6pro --mode fuse --main-npz artifacts/b6pro_main/predictions.npz --plus-npz artifacts/b6pro_plus_gap/predictions.npz --shuffled --output-dir artifacts/b6pro_fuse_plusgap
+{
+  "nested_oof_auc": 0.7000905695422023,
+  "full_selected_auc": 0.7000905695422023,
+  "selected_rule": "max",
+  "arm_aucs": {
+    "equal_b6": 0.6989746962571622,
+    "plus": 0.6861497166977555
+  },
+  "gate_0_715": false,
+  "gap_to_0_715": 0.014909,
+  "elapsed_sec": 0.2
+}
+
+$ /usr/bin/python3 -m insurance_claim.train_b6pro --mode plus_only --plus-variant plus --plus-config h3 --plus-seeds 2026 2027 2028 2029 --output-dir artifacts/b6pro_plus_h3
+=== train plus variant=plus config=h3 ===
+plus seed=2026 fold=0 auc=0.68671 best=896 n=80
+plus seed=2026 fold=1 auc=0.67862 best=995 n=80
+plus seed=2026 fold=2 auc=0.68160 best=753 n=80
+plus seed=2026 fold=3 auc=0.67457 best=1516 n=80
+plus seed=2026 fold=4 auc=0.69443 best=772 n=80
+plus seed=2026 OOF=0.682064
+plus seed=2027 fold=0 auc=0.65205 best=706 n=80
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T11:39:01.408965+00:00",
+  "closest_honest_nested_oof_auc": 0.7009217772130575,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 8
+}
+
+$ /usr/bin/python3 -m insurance_claim.train_b6pro --mode fuse --main-npz artifacts/b5_8seed/predictions.npz --ref-plus --shuffled --output-dir artifacts/b6pro_fuse0_b5ref
+{
+  "nested_oof_auc": 0.7013149650619108,
+  "full_selected_auc": 0.7013149650619108,
+  "selected_rule": "max",
+  "arm_aucs": {
+    "equal_b6": 0.6981745375887981,
+    "plus": 0.6886170674774439
+  },
+  "gate_0_715": false,
+  "gap_to_0_715": 0.013685,
+  "elapsed_sec": 0.2
+}
+
+$ /usr/bin/python3 -m insurance_claim.train_b6pro --mode plus_only --plus-variant plus --plus-config h3 --plus-seeds 2026 2027 2028 2029 --output-dir artifacts/b6pro_plus_h3
+=== train plus variant=plus config=h3 ===
+
+$ /usr/bin/python3 -m insurance_claim.train_b6pro --mode fuse --main-npz artifacts/b5_8seed/predictions.npz --ref-plus --shuffled --output-dir artifacts/b6pro_fuse0_b5ref
+{
+  "nested_oof_auc": 0.7013149650619108,
+  "full_selected_auc": 0.7013149650619108,
+  "selected_rule": "max",
+  "arm_aucs": {
+    "equal_b6": 0.6981745375887981,
+    "plus": 0.6886170674774439
+  },
+  "gate_0_715": false,
+  "gap_to_0_715": 0.013685,
+  "elapsed_sec": 0.2
+}
+
+$ /usr/bin/python3 -m insurance_claim.train_b6pro --mode plus_only --plus-variant plus --plus-config h3 --plus-seeds 2026 2027 2028 2029 --output-dir artifacts/b6pro_plus_h3
+=== train plus variant=plus config=h3 xf=prob ===
+plus seed=2026 fold=0 auc=0.68671 best=896 n=80 xf=prob
+plus seed=2026 fold=1 auc=0.67862 best=995 n=80 xf=prob
+plus seed=2026 fold=2 auc=0.68160 best=753 n=80 xf=prob
+plus seed=2026 fold=3 auc=0.67457 best=1516 n=80 xf=prob
+plus seed=2026 fold=4 auc=0.69443 best=772 n=80 xf=prob
+plus seed=2026 OOF=0.682064
+plus seed=2027 fold=0 auc=0.65205 best=706 n=80 xf=prob
+plus seed=2027 fold=1 auc=0.68070 best=986 n=80 xf=prob
+plus seed=2027 fold=2 auc=0.69266 best=923 n=80 xf=prob
+plus seed=2027 fold=3 auc=0.68137 best=607 n=80 xf=prob
+plus seed=2027 fold=4 auc=0.69250 best=1853 n=80 xf=prob
+plus seed=2027 OOF=0.679215
+plus seed=2028 fold=0 auc=0.65309 best=721 n=80 xf=prob
+plus seed=2028 fold=1 auc=0.70152 best=708 n=80 xf=prob
+plus seed=2028 fold=2 auc=0.67632 best=788 n=80 xf=prob
+plus seed=2028 fold=3 auc=0.67936 best=767 n=80 xf=prob
+plus seed=2028 fold=4 auc=0.68206 best=648 n=80 xf=prob
+plus seed=2028 OOF=0.678099
+plus seed=2029 fold=0 auc=0.68642 best=698 n=80 xf=prob
+plus seed=2029 fold=1 auc=0.69963 best=597 n=80 xf=prob
+plus seed=2029 fold=2 auc=0.68106 best=744 n=80 xf=prob
+plus seed=2029 fold=3 auc=0.67455 best=987 n=80 xf=prob
+plus seed=2029 fold=4 auc=0.66638 best=1033 n=80 xf=prob
+plus seed=2029 OOF=0.679638
+{
+  "plus_oof_auc": 0.683496270935188
+}
+
+$ /usr/bin/python3 -m insurance_claim.train_b6pro --mode fuse --main-npz artifacts/b6pro_main/predictions.npz --plus-npz artifacts/b6pro_plus_h3/predictions.npz --shuffled --output-dir artifacts/b6pro_fuse_h3
+{
+  "nested_oof_auc": 0.7008862997470702,
+  "full_selected_auc": 0.7008862997470702,
+  "selected_rule": "max",
+  "arm_aucs": {
+    "equal_b6": 0.6989746962571622,
+    "plus": 0.683496270935188
+  },
+  "gate_0_715": false,
+  "gap_to_0_715": 0.014114,
+  "elapsed_sec": 0.2
+}
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T12:48:26.281016+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 24
+}
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz lgb=artifacts/b6pro_lgb/predictions.npz --output-dir artifacts/b6pro_fuse3_lgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 -c from pathlib import Path; import json,numpy as np,pandas as pd; from insurance_claim.b6pro_tree_arm import run_tree_arm; train=pd.read_csv('train.csv'); test=pd.read_csv('test.csv'); y=train['label'].astype(int); r=run_tree_arm(train,test,y,(2026,2027,2028,2029),backend='xgb'); out=Path('artifacts/b6pro_xgb'); out.mkdir(parents=True,exist_ok=True); np.savez_compressed(out/'predictions.npz',y=y.to_numpy(),oof=r['oof'],test=r['test']); m=dict(experiment_id='b6pro_xgb',protocol_id='IA-AUC715-B6PRO-v1',oof_auc=r['oof_auc'],seed_aucs=r['seed_aucs'],pooled_oof_auc=r['oof_auc']); (out/'metrics.json').write_text(json.dumps(m,indent=2)+'\n'); print(r['oof_auc'])
+xgb seed=2026 fold=0 auc=0.64461 best=74
+xgb seed=2026 fold=1 auc=0.64115 best=96
+xgb seed=2026 fold=2 auc=0.65189 best=15
+xgb seed=2026 fold=3 auc=0.63206 best=2
+xgb seed=2026 fold=4 auc=0.66005 best=24
+xgb seed=2026 OOF=0.636600
+xgb seed=2027 fold=0 auc=0.64046 best=19
+xgb seed=2027 fold=1 auc=0.65228 best=64
+xgb seed=2027 fold=2 auc=0.65883 best=121
+xgb seed=2027 fold=3 auc=0.64635 best=14
+xgb seed=2027 fold=4 auc=0.65788 best=24
+xgb seed=2027 OOF=0.647614
+xgb seed=2028 fold=0 auc=0.62461 best=45
+xgb seed=2028 fold=1 auc=0.66958 best=76
+xgb seed=2028 fold=2 auc=0.64590 best=52
+xgb seed=2028 fold=3 auc=0.65577 best=28
+xgb seed=2028 fold=4 auc=0.65985 best=41
+xgb seed=2028 OOF=0.650364
+xgb seed=2029 fold=0 auc=0.65654 best=51
+xgb seed=2029 fold=1 auc=0.66518 best=65
+xgb seed=2029 fold=2 auc=0.65729 best=39
+xgb seed=2029 fold=3 auc=0.65051 best=6
+xgb seed=2029 fold=4 auc=0.62890 best=86
+xgb seed=2029 OOF=0.644000
+0.6533911282650217
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz xgb=artifacts/b6pro_xgb/predictions.npz --output-dir artifacts/b6pro_fuse3_xgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz nn=artifacts/b6pro_realmlp/predictions.npz --output-dir artifacts/b6pro_fuse3_nn
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T12:49:15.954369+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 25
+}
+
+$ /usr/bin/python3 -m insurance_claim.train_b6pro --mode fuse --main-npz artifacts/b5_8seed/predictions.npz --ref-plus --shuffled --output-dir artifacts/b6pro_fuse0_b5ref
+{
+  "nested_oof_auc": 0.7013149650619108,
+  "full_selected_auc": 0.7013149650619108,
+  "selected_rule": "max",
+  "arm_aucs": {
+    "equal_b6": 0.6981745375887981,
+    "plus": 0.6886170674774439
+  },
+  "gate_0_715": false,
+  "gap_to_0_715": 0.013685,
+  "elapsed_sec": 0.2
+}
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T12:51:18.830322+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 25
+}
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz lgb=artifacts/b6pro_lgb/predictions.npz --output-dir artifacts/b6pro_fuse3_lgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz xgb=artifacts/b6pro_xgb/predictions.npz --output-dir artifacts/b6pro_fuse3_xgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz nn=artifacts/b6pro_realmlp/predictions.npz --output-dir artifacts/b6pro_fuse3_nn
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T12:51:23.471321+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 25
+}
+
+$ /usr/bin/python3 -m insurance_claim.train_b6pro --mode fuse --main-npz artifacts/b5_8seed/predictions.npz --ref-plus --shuffled --output-dir artifacts/b6pro_fuse0_b5ref
+{
+  "nested_oof_auc": 0.7013149650619108,
+  "full_selected_auc": 0.7013149650619108,
+  "selected_rule": "max",
+  "arm_aucs": {
+    "equal_b6": 0.6981745375887981,
+    "plus": 0.6886170674774439
+  },
+  "gate_0_715": false,
+  "gap_to_0_715": 0.013685,
+  "elapsed_sec": 0.2
+}
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T12:53:26.106551+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 25
+}
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz lgb=artifacts/b6pro_lgb/predictions.npz --output-dir artifacts/b6pro_fuse3_lgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz xgb=artifacts/b6pro_xgb/predictions.npz --output-dir artifacts/b6pro_fuse3_xgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz nn=artifacts/b6pro_realmlp/predictions.npz --output-dir artifacts/b6pro_fuse3_nn
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T12:53:30.743821+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 25
+}
+
+$ /usr/bin/python3 -m insurance_claim.train_b6pro --mode fuse --main-npz artifacts/b5_8seed/predictions.npz --ref-plus --shuffled --output-dir artifacts/b6pro_fuse0_b5ref
+{
+  "nested_oof_auc": 0.7013149650619108,
+  "full_selected_auc": 0.7013149650619108,
+  "selected_rule": "max",
+  "arm_aucs": {
+    "equal_b6": 0.6981745375887981,
+    "plus": 0.6886170674774439
+  },
+  "gate_0_715": false,
+  "gap_to_0_715": 0.013685,
+  "elapsed_sec": 0.2
+}
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T12:55:33.602024+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 25
+}
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz lgb=artifacts/b6pro_lgb/predictions.npz --output-dir artifacts/b6pro_fuse3_lgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz xgb=artifacts/b6pro_xgb/predictions.npz --output-dir artifacts/b6pro_fuse3_xgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz nn=artifacts/b6pro_realmlp/predictions.npz --output-dir artifacts/b6pro_fuse3_nn
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T12:55:38.167743+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 25
+}
+
+$ /usr/bin/python3 -m insurance_claim.train_b6pro --mode fuse --main-npz artifacts/b5_8seed/predictions.npz --ref-plus --shuffled --output-dir artifacts/b6pro_fuse0_b5ref
+{
+  "nested_oof_auc": 0.7013149650619108,
+  "full_selected_auc": 0.7013149650619108,
+  "selected_rule": "max",
+  "arm_aucs": {
+    "equal_b6": 0.6981745375887981,
+    "plus": 0.6886170674774439
+  },
+  "gate_0_715": false,
+  "gap_to_0_715": 0.013685,
+  "elapsed_sec": 0.2
+}
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T12:57:40.779966+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 25
+}
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz lgb=artifacts/b6pro_lgb/predictions.npz --output-dir artifacts/b6pro_fuse3_lgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz xgb=artifacts/b6pro_xgb/predictions.npz --output-dir artifacts/b6pro_fuse3_xgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz nn=artifacts/b6pro_realmlp/predictions.npz --output-dir artifacts/b6pro_fuse3_nn
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T12:57:45.228214+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 25
+}
+
+$ /usr/bin/python3 -m insurance_claim.train_b6pro --mode fuse --main-npz artifacts/b5_8seed/predictions.npz --ref-plus --shuffled --output-dir artifacts/b6pro_fuse0_b5ref
+{
+  "nested_oof_auc": 0.7013149650619108,
+  "full_selected_auc": 0.7013149650619108,
+  "selected_rule": "max",
+  "arm_aucs": {
+    "equal_b6": 0.6981745375887981,
+    "plus": 0.6886170674774439
+  },
+  "gate_0_715": false,
+  "gap_to_0_715": 0.013685,
+  "elapsed_sec": 0.2
+}
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T12:59:47.774217+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 25
+}
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz lgb=artifacts/b6pro_lgb/predictions.npz --output-dir artifacts/b6pro_fuse3_lgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz xgb=artifacts/b6pro_xgb/predictions.npz --output-dir artifacts/b6pro_fuse3_xgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz nn=artifacts/b6pro_realmlp/predictions.npz --output-dir artifacts/b6pro_fuse3_nn
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T12:59:52.131779+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 25
+}
+
+$ /usr/bin/python3 -m insurance_claim.train_b6pro --mode fuse --main-npz artifacts/b5_8seed/predictions.npz --ref-plus --shuffled --output-dir artifacts/b6pro_fuse0_b5ref
+{
+  "nested_oof_auc": 0.7013149650619108,
+  "full_selected_auc": 0.7013149650619108,
+  "selected_rule": "max",
+  "arm_aucs": {
+    "equal_b6": 0.6981745375887981,
+    "plus": 0.6886170674774439
+  },
+  "gate_0_715": false,
+  "gap_to_0_715": 0.013685,
+  "elapsed_sec": 0.2
+}
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T13:01:54.939808+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 27
+}
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz lgb=artifacts/b6pro_lgb/predictions.npz --output-dir artifacts/b6pro_fuse3_lgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz xgb=artifacts/b6pro_xgb/predictions.npz --output-dir artifacts/b6pro_fuse3_xgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz nn=artifacts/b6pro_realmlp/predictions.npz --output-dir artifacts/b6pro_fuse3_nn
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T13:01:59.486416+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 27
+}
+
+$ /usr/bin/python3 -m insurance_claim.train_b6pro --mode fuse --main-npz artifacts/b5_8seed/predictions.npz --ref-plus --shuffled --output-dir artifacts/b6pro_fuse0_b5ref
+{
+  "nested_oof_auc": 0.7013149650619108,
+  "full_selected_auc": 0.7013149650619108,
+  "selected_rule": "max",
+  "arm_aucs": {
+    "equal_b6": 0.6981745375887981,
+    "plus": 0.6886170674774439
+  },
+  "gate_0_715": false,
+  "gap_to_0_715": 0.013685,
+  "elapsed_sec": 0.2
+}
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T13:04:02.301084+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 27
+}
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz lgb=artifacts/b6pro_lgb/predictions.npz --output-dir artifacts/b6pro_fuse3_lgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz xgb=artifacts/b6pro_xgb/predictions.npz --output-dir artifacts/b6pro_fuse3_xgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz nn=artifacts/b6pro_realmlp/predictions.npz --output-dir artifacts/b6pro_fuse3_nn
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T13:04:06.644941+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 27
+}
+
+$ /usr/bin/python3 -m insurance_claim.train_b6pro --mode fuse --main-npz artifacts/b5_8seed/predictions.npz --ref-plus --shuffled --output-dir artifacts/b6pro_fuse0_b5ref
+{
+  "nested_oof_auc": 0.7013149650619108,
+  "full_selected_auc": 0.7013149650619108,
+  "selected_rule": "max",
+  "arm_aucs": {
+    "equal_b6": 0.6981745375887981,
+    "plus": 0.6886170674774439
+  },
+  "gate_0_715": false,
+  "gap_to_0_715": 0.013685,
+  "elapsed_sec": 0.2
+}
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T13:06:09.343995+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 27
+}
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz lgb=artifacts/b6pro_lgb/predictions.npz --output-dir artifacts/b6pro_fuse3_lgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz xgb=artifacts/b6pro_xgb/predictions.npz --output-dir artifacts/b6pro_fuse3_xgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz nn=artifacts/b6pro_realmlp/predictions.npz --output-dir artifacts/b6pro_fuse3_nn
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T13:06:13.704975+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 27
+}
+
+$ /usr/bin/python3 -m insurance_claim.train_b6pro --mode fuse --main-npz artifacts/b5_8seed/predictions.npz --ref-plus --shuffled --output-dir artifacts/b6pro_fuse0_b5ref
+{
+  "nested_oof_auc": 0.7013149650619108,
+  "full_selected_auc": 0.7013149650619108,
+  "selected_rule": "max",
+  "arm_aucs": {
+    "equal_b6": 0.6981745375887981,
+    "plus": 0.6886170674774439
+  },
+  "gate_0_715": false,
+  "gap_to_0_715": 0.013685,
+  "elapsed_sec": 0.2
+}
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T13:08:16.432110+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 27
+}
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz lgb=artifacts/b6pro_lgb/predictions.npz --output-dir artifacts/b6pro_fuse3_lgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz xgb=artifacts/b6pro_xgb/predictions.npz --output-dir artifacts/b6pro_fuse3_xgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz nn=artifacts/b6pro_realmlp/predictions.npz --output-dir artifacts/b6pro_fuse3_nn
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T13:08:20.871901+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 27
+}
+
+$ /usr/bin/python3 -m insurance_claim.train_b6pro --mode fuse --main-npz artifacts/b5_8seed/predictions.npz --ref-plus --shuffled --output-dir artifacts/b6pro_fuse0_b5ref
+{
+  "nested_oof_auc": 0.7013149650619108,
+  "full_selected_auc": 0.7013149650619108,
+  "selected_rule": "max",
+  "arm_aucs": {
+    "equal_b6": 0.6981745375887981,
+    "plus": 0.6886170674774439
+  },
+  "gate_0_715": false,
+  "gap_to_0_715": 0.013685,
+  "elapsed_sec": 0.2
+}
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T13:10:23.554640+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 27
+}
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz lgb=artifacts/b6pro_lgb/predictions.npz --output-dir artifacts/b6pro_fuse3_lgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz xgb=artifacts/b6pro_xgb/predictions.npz --output-dir artifacts/b6pro_fuse3_xgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz nn=artifacts/b6pro_realmlp/predictions.npz --output-dir artifacts/b6pro_fuse3_nn
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T13:10:28.117961+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 27
+}
+
+$ /usr/bin/python3 -m insurance_claim.train_b6pro --mode fuse --main-npz artifacts/b5_8seed/predictions.npz --ref-plus --shuffled --output-dir artifacts/b6pro_fuse0_b5ref
+{
+  "nested_oof_auc": 0.7013149650619108,
+  "full_selected_auc": 0.7013149650619108,
+  "selected_rule": "max",
+  "arm_aucs": {
+    "equal_b6": 0.6981745375887981,
+    "plus": 0.6886170674774439
+  },
+  "gate_0_715": false,
+  "gap_to_0_715": 0.013685,
+  "elapsed_sec": 0.2
+}
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T13:12:30.498807+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 28
+}
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz lgb=artifacts/b6pro_lgb/predictions.npz --output-dir artifacts/b6pro_fuse3_lgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz xgb=artifacts/b6pro_xgb/predictions.npz --output-dir artifacts/b6pro_fuse3_xgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz nn=artifacts/b6pro_realmlp/predictions.npz --output-dir artifacts/b6pro_fuse3_nn
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T13:12:34.389496+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 28
+}
+
+$ /usr/bin/python3 -m insurance_claim.train_b6pro --mode fuse --main-npz artifacts/b5_8seed/predictions.npz --ref-plus --shuffled --output-dir artifacts/b6pro_fuse0_b5ref
+{
+  "nested_oof_auc": 0.7013149650619108,
+  "full_selected_auc": 0.7013149650619108,
+  "selected_rule": "max",
+  "arm_aucs": {
+    "equal_b6": 0.6981745375887981,
+    "plus": 0.6886170674774439
+  },
+  "gate_0_715": false,
+  "gap_to_0_715": 0.013685,
+  "elapsed_sec": 0.2
+}
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T13:14:36.672059+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 28
+}
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz lgb=artifacts/b6pro_lgb/predictions.npz --output-dir artifacts/b6pro_fuse3_lgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz xgb=artifacts/b6pro_xgb/predictions.npz --output-dir artifacts/b6pro_fuse3_xgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz nn=artifacts/b6pro_realmlp/predictions.npz --output-dir artifacts/b6pro_fuse3_nn
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T13:14:40.590299+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 28
+}
+
+$ /usr/bin/python3 -m insurance_claim.train_b6pro --mode fuse --main-npz artifacts/b5_8seed/predictions.npz --ref-plus --shuffled --output-dir artifacts/b6pro_fuse0_b5ref
+{
+  "nested_oof_auc": 0.7013149650619108,
+  "full_selected_auc": 0.7013149650619108,
+  "selected_rule": "max",
+  "arm_aucs": {
+    "equal_b6": 0.6981745375887981,
+    "plus": 0.6886170674774439
+  },
+  "gate_0_715": false,
+  "gap_to_0_715": 0.013685,
+  "elapsed_sec": 0.2
+}
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T13:16:43.296105+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 31
+}
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz lgb=artifacts/b6pro_lgb/predictions.npz --output-dir artifacts/b6pro_fuse3_lgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz xgb=artifacts/b6pro_xgb/predictions.npz --output-dir artifacts/b6pro_fuse3_xgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz nn=artifacts/b6pro_realmlp/predictions.npz --output-dir artifacts/b6pro_fuse3_nn
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T13:16:47.773531+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 31
+}
+
+$ /usr/bin/python3 -m insurance_claim.train_b6pro --mode fuse --main-npz artifacts/b5_8seed/predictions.npz --ref-plus --shuffled --output-dir artifacts/b6pro_fuse0_b5ref
+{
+  "nested_oof_auc": 0.7013149650619108,
+  "full_selected_auc": 0.7013149650619108,
+  "selected_rule": "max",
+  "arm_aucs": {
+    "equal_b6": 0.6981745375887981,
+    "plus": 0.6886170674774439
+  },
+  "gate_0_715": false,
+  "gap_to_0_715": 0.013685,
+  "elapsed_sec": 0.2
+}
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T13:18:50.713191+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 31
+}
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz lgb=artifacts/b6pro_lgb/predictions.npz --output-dir artifacts/b6pro_fuse3_lgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz xgb=artifacts/b6pro_xgb/predictions.npz --output-dir artifacts/b6pro_fuse3_xgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz nn=artifacts/b6pro_realmlp/predictions.npz --output-dir artifacts/b6pro_fuse3_nn
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T13:18:55.244144+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 31
+}
+
+$ /usr/bin/python3 -m insurance_claim.train_b6pro --mode fuse --main-npz artifacts/b5_8seed/predictions.npz --ref-plus --shuffled --output-dir artifacts/b6pro_fuse0_b5ref
+{
+  "nested_oof_auc": 0.7013149650619108,
+  "full_selected_auc": 0.7013149650619108,
+  "selected_rule": "max",
+  "arm_aucs": {
+    "equal_b6": 0.6981745375887981,
+    "plus": 0.6886170674774439
+  },
+  "gate_0_715": false,
+  "gap_to_0_715": 0.013685,
+  "elapsed_sec": 0.2
+}
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T13:20:57.999084+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 31
+}
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz lgb=artifacts/b6pro_lgb/predictions.npz --output-dir artifacts/b6pro_fuse3_lgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz xgb=artifacts/b6pro_xgb/predictions.npz --output-dir artifacts/b6pro_fuse3_xgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz nn=artifacts/b6pro_realmlp/predictions.npz --output-dir artifacts/b6pro_fuse3_nn
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T13:21:02.387771+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 31
+}
+
+$ /usr/bin/python3 -m insurance_claim.train_b6pro --mode fuse --main-npz artifacts/b5_8seed/predictions.npz --ref-plus --shuffled --output-dir artifacts/b6pro_fuse0_b5ref
+{
+  "nested_oof_auc": 0.7013149650619108,
+  "full_selected_auc": 0.7013149650619108,
+  "selected_rule": "max",
+  "arm_aucs": {
+    "equal_b6": 0.6981745375887981,
+    "plus": 0.6886170674774439
+  },
+  "gate_0_715": false,
+  "gap_to_0_715": 0.013685,
+  "elapsed_sec": 0.2
+}
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T13:23:05.016857+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 31
+}
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz lgb=artifacts/b6pro_lgb/predictions.npz --output-dir artifacts/b6pro_fuse3_lgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz xgb=artifacts/b6pro_xgb/predictions.npz --output-dir artifacts/b6pro_fuse3_xgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz nn=artifacts/b6pro_realmlp/predictions.npz --output-dir artifacts/b6pro_fuse3_nn
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T13:23:09.429046+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 31
+}
+
+$ /usr/bin/python3 -m insurance_claim.train_b6pro --mode fuse --main-npz artifacts/b5_8seed/predictions.npz --ref-plus --shuffled --output-dir artifacts/b6pro_fuse0_b5ref
+{
+  "nested_oof_auc": 0.7013149650619108,
+  "full_selected_auc": 0.7013149650619108,
+  "selected_rule": "max",
+  "arm_aucs": {
+    "equal_b6": 0.6981745375887981,
+    "plus": 0.6886170674774439
+  },
+  "gate_0_715": false,
+  "gap_to_0_715": 0.013685,
+  "elapsed_sec": 0.2
+}
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T13:25:11.874827+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 32
+}
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz lgb=artifacts/b6pro_lgb/predictions.npz --output-dir artifacts/b6pro_fuse3_lgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz xgb=artifacts/b6pro_xgb/predictions.npz --output-dir artifacts/b6pro_fuse3_xgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz nn=artifacts/b6pro_realmlp/predictions.npz --output-dir artifacts/b6pro_fuse3_nn
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T13:25:15.881413+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 32
+}
+
+$ /usr/bin/python3 -m insurance_claim.train_b6pro --mode fuse --main-npz artifacts/b5_8seed/predictions.npz --ref-plus --shuffled --output-dir artifacts/b6pro_fuse0_b5ref
+{
+  "nested_oof_auc": 0.7013149650619108,
+  "full_selected_auc": 0.7013149650619108,
+  "selected_rule": "max",
+  "arm_aucs": {
+    "equal_b6": 0.6981745375887981,
+    "plus": 0.6886170674774439
+  },
+  "gate_0_715": false,
+  "gap_to_0_715": 0.013685,
+  "elapsed_sec": 0.2
+}
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T13:27:18.315041+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 32
+}
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz lgb=artifacts/b6pro_lgb/predictions.npz --output-dir artifacts/b6pro_fuse3_lgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz xgb=artifacts/b6pro_xgb/predictions.npz --output-dir artifacts/b6pro_fuse3_xgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz nn=artifacts/b6pro_realmlp/predictions.npz --output-dir artifacts/b6pro_fuse3_nn
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T13:27:22.460991+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 32
+}
+
+$ /usr/bin/python3 -m insurance_claim.train_b6pro --mode fuse --main-npz artifacts/b5_8seed/predictions.npz --ref-plus --shuffled --output-dir artifacts/b6pro_fuse0_b5ref
+{
+  "nested_oof_auc": 0.7013149650619108,
+  "full_selected_auc": 0.7013149650619108,
+  "selected_rule": "max",
+  "arm_aucs": {
+    "equal_b6": 0.6981745375887981,
+    "plus": 0.6886170674774439
+  },
+  "gate_0_715": false,
+  "gap_to_0_715": 0.013685,
+  "elapsed_sec": 0.2
+}
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T13:29:25.087271+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 33
+}
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz lgb=artifacts/b6pro_lgb/predictions.npz --output-dir artifacts/b6pro_fuse3_lgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz xgb=artifacts/b6pro_xgb/predictions.npz --output-dir artifacts/b6pro_fuse3_xgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz nn=artifacts/b6pro_realmlp/predictions.npz --output-dir artifacts/b6pro_fuse3_nn
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T13:29:29.687961+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 33
+}
+
+$ /usr/bin/python3 -m insurance_claim.train_b6pro --mode fuse --main-npz artifacts/b5_8seed/predictions.npz --ref-plus --shuffled --output-dir artifacts/b6pro_fuse0_b5ref
+{
+  "nested_oof_auc": 0.7013149650619108,
+  "full_selected_auc": 0.7013149650619108,
+  "selected_rule": "max",
+  "arm_aucs": {
+    "equal_b6": 0.6981745375887981,
+    "plus": 0.6886170674774439
+  },
+  "gate_0_715": false,
+  "gap_to_0_715": 0.013685,
+  "elapsed_sec": 0.2
+}
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T13:31:32.327920+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 33
+}
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz lgb=artifacts/b6pro_lgb/predictions.npz --output-dir artifacts/b6pro_fuse3_lgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz xgb=artifacts/b6pro_xgb/predictions.npz --output-dir artifacts/b6pro_fuse3_xgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz nn=artifacts/b6pro_realmlp/predictions.npz --output-dir artifacts/b6pro_fuse3_nn
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T13:31:37.034166+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 33
+}
+
+$ /usr/bin/python3 -m insurance_claim.train_b6pro --mode fuse --main-npz artifacts/b5_8seed/predictions.npz --ref-plus --shuffled --output-dir artifacts/b6pro_fuse0_b5ref
+{
+  "nested_oof_auc": 0.7013149650619108,
+  "full_selected_auc": 0.7013149650619108,
+  "selected_rule": "max",
+  "arm_aucs": {
+    "equal_b6": 0.6981745375887981,
+    "plus": 0.6886170674774439
+  },
+  "gate_0_715": false,
+  "gap_to_0_715": 0.013685,
+  "elapsed_sec": 0.2
+}
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T13:33:39.473920+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 33
+}
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz lgb=artifacts/b6pro_lgb/predictions.npz --output-dir artifacts/b6pro_fuse3_lgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz xgb=artifacts/b6pro_xgb/predictions.npz --output-dir artifacts/b6pro_fuse3_xgb
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_fuse_npzs.py --arms equal_b6=artifacts/b6pro_main/predictions.npz:oof_main:test_main plus=artifacts/b6pro_plus_h2/predictions.npz nn=artifacts/b6pro_realmlp/predictions.npz --output-dir artifacts/b6pro_fuse3_nn
+Traceback (most recent call last):
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 52, in main
+    oof, te, y_arm = load_arm(path, oof_key, test_key)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/b6pro_fuse_npzs.py", line 23, in load_arm
+    oof = z[oof_key] if oof_key else (z["oof"] if "oof" in z.files else z["oof_main"])
+                                                                        ~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'oof_main is not a file in the archive'
+
+$ /usr/bin/python3 scripts/b6pro_supervisor.py
+{
+  "updated_at": "2026-08-07T13:33:43.281416+00:00",
+  "closest_honest_nested_oof_auc": 0.7020793228371782,
+  "gate_0_715": false,
+  "verdict": "REJECT_WAITING",
+  "candidates_n": 33
+}

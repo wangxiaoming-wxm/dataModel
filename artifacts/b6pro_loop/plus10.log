@@ -1,0 +1,48 @@
+=== train plus variant=plus config=h2 ===
+plus seed=2026 fold=0 auc=0.66443 best=241 n=80
+plus seed=2026 fold=1 auc=0.70760 best=600 n=80
+plus seed=2026 fold=2 auc=0.67819 best=331 n=80
+plus seed=2026 fold=3 auc=0.68162 best=493 n=80
+plus seed=2026 fold=4 auc=0.68317 best=885 n=80
+plus seed=2026 fold=5 auc=0.68113 best=560 n=80
+plus seed=2026 fold=6 auc=0.65440 best=281 n=80
+plus seed=2026 fold=7 auc=0.69307 best=894 n=80
+plus seed=2026 fold=8 auc=0.72123 best=463 n=80
+plus seed=2026 fold=9 auc=0.66898 best=311 n=80
+plus seed=2026 OOF=0.683201
+plus seed=2027 fold=0 auc=0.67340 best=501 n=80
+plus seed=2027 fold=1 auc=0.64757 best=403 n=80
+plus seed=2027 fold=2 auc=0.66542 best=294 n=80
+plus seed=2027 fold=3 auc=0.68843 best=727 n=80
+plus seed=2027 fold=4 auc=0.69128 best=777 n=80
+plus seed=2027 fold=5 auc=0.70952 best=478 n=80
+plus seed=2027 fold=6 auc=0.68365 best=330 n=80
+plus seed=2027 fold=7 auc=0.69333 best=359 n=80
+plus seed=2027 fold=8 auc=0.71449 best=1000 n=80
+plus seed=2027 fold=9 auc=0.68469 best=712 n=80
+plus seed=2027 OOF=0.684442
+plus seed=2028 fold=0 auc=0.66900 best=705 n=80
+plus seed=2028 fold=1 auc=0.66575 best=413 n=80
+plus seed=2028 fold=2 auc=0.72425 best=440 n=80
+plus seed=2028 fold=3 auc=0.68429 best=531 n=80
+plus seed=2028 fold=4 auc=0.68471 best=493 n=80
+plus seed=2028 fold=5 auc=0.68779 best=360 n=80
+plus seed=2028 fold=6 auc=0.69561 best=868 n=80
+plus seed=2028 fold=7 auc=0.66769 best=611 n=80
+plus seed=2028 fold=8 auc=0.68026 best=18 n=80
+plus seed=2028 fold=9 auc=0.68819 best=676 n=80
+plus seed=2028 OOF=0.653476
+plus seed=2029 fold=0 auc=0.69761 best=424 n=80
+plus seed=2029 fold=1 auc=0.68144 best=294 n=80
+plus seed=2029 fold=2 auc=0.69839 best=643 n=80
+plus seed=2029 fold=3 auc=0.69983 best=501 n=80
+plus seed=2029 fold=4 auc=0.67172 best=554 n=80
+plus seed=2029 fold=5 auc=0.70113 best=439 n=80
+plus seed=2029 fold=6 auc=0.67205 best=525 n=80
+plus seed=2029 fold=7 auc=0.68067 best=269 n=80
+plus seed=2029 fold=8 auc=0.65983 best=774 n=80
+plus seed=2029 fold=9 auc=0.68719 best=583 n=80
+plus seed=2029 OOF=0.683231
+{
+  "plus_oof_auc": 0.675031238082955
+}

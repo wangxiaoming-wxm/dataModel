@@ -1,0 +1,25 @@
+{
+  "experiment_id": "b6pro_metastack_cb",
+  "protocol_id": "IA-AUC715-B6PRO-v1",
+  "nested_oof_auc": 0.7005888214435557,
+  "pooled_oof_auc": 0.7005888214435557,
+  "fold_aucs": [
+    0.7126695734323443,
+    0.6931036714616269,
+    0.6884640900757145,
+    0.7164378719288834,
+    0.6922908910399603
+  ],
+  "baseline_max_main_plus": 0.7022093156561012,
+  "gate_0_715": false,
+  "gap_to_0_715": 0.014411,
+  "protocol_declaration": {
+    "no_test_labels": true,
+    "no_global_te": true,
+    "fold_local_fe": true,
+    "no_oof_weight_search": true,
+    "nested_metastacking": true,
+    "uses_reference_plus": true,
+    "new_data_only": true
+  }
+}

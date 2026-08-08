@@ -1,0 +1,33 @@
+{
+  "experiment_id": "b6pro_stack_logit_equal_b6_plus_ref",
+  "protocol_id": "IA-AUC715-B6PRO-v1",
+  "arm_names": [
+    "equal_b6",
+    "plus_ref"
+  ],
+  "arm_aucs": {
+    "equal_b6": 0.6989746962571622,
+    "plus_ref": 0.6886170674774439
+  },
+  "model": "logit",
+  "nested_oof_auc": 0.6997177327222254,
+  "pooled_oof_auc": 0.6997177327222254,
+  "fold_aucs": [
+    0.712777861448595,
+    0.6973661118254249,
+    0.6848793833308646,
+    0.7133404612571617,
+    0.6929225614296352
+  ],
+  "gate_0_715": false,
+  "gap_to_0_715": 0.015282,
+  "protocol_declaration": {
+    "no_test_labels": true,
+    "no_global_te": true,
+    "fold_local_fe": true,
+    "no_oof_weight_search": true,
+    "nested_stacking": true,
+    "meta_features_from_frozen_arm_oof": true,
+    "new_data_only": true
+  }
+}
