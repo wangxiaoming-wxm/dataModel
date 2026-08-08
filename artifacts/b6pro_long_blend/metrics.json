@@ -1,0 +1,25 @@
+{
+  "experiment_id": "b6pro_long_blend",
+  "blend": "meanL_w0.7",
+  "formula": "max(gap,gap_bag,plus, meanL); meanL[days>=3000]=0.7*long_only+0.3*max3",
+  "nested_oof_auc": 0.7041986909262873,
+  "selected_rule": "max",
+  "fold_rules": [
+    "max",
+    "max",
+    "max",
+    "max",
+    "max"
+  ],
+  "baseline_max3": 0.7027049552615718,
+  "gate_0_71": false,
+  "gap_to_0_71": 0.005801309073712679,
+  "protocol_declaration": {
+    "no_test_labels": true,
+    "no_global_te": true,
+    "fold_local_fe": true,
+    "pre_registered_blend_weight": 0.7,
+    "b7_floor_enforced": true,
+    "new_data_only": true
+  }
+}
